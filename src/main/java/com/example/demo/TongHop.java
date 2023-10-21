@@ -1,10 +1,12 @@
+package com.example.demo;
+
 public class TongHop {
     private String loaiTu;
     private String phatAm;
     private String yNghia;
     private String cauViDuTiengViet;
     private String cauViDuTiengAnh;
-    
+
     public String getLoaiTu() {return loaiTu;}
 
     public String getPhatAm() {return phatAm;}
@@ -14,7 +16,7 @@ public class TongHop {
     public String getCauViDuTiengViet() {return cauViDuTiengViet;}
 
     public String getCauViDuTiengAnh() {return cauViDuTiengAnh;}
-    
+
     public TongHop() {
         loaiTu = "" ; phatAm = "" ; yNghia = "" ; cauViDuTiengAnh = "" ; cauViDuTiengViet = "" ;
     }

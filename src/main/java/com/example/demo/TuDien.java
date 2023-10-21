@@ -1,9 +1,11 @@
+package com.example.demo;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class TuDien 
+public class TuDien
 {
     private Map<String, List<TongHop>> duLieu = new TreeMap<>();
 
@@ -27,3 +29,4 @@ public class TuDien
 
     }
 }
+
