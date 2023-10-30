@@ -46,7 +46,7 @@ public class Controller {
 
     public void setTranslate() {
         try {
-            FXMLLoader loader = new FXMLLoader(new File("src/main/resources/com/example/Views/translate.fxml").toURI().toURL());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/translate.fxml"));
             Pane = loader.load();
 
             translateScene.setRightAnchor(Pane,5.0);
@@ -60,7 +60,7 @@ public class Controller {
 
     public void setGoogle() {
         try {
-            FXMLLoader loader = new FXMLLoader(new File("src/main/resources/com/example/Views/google.fxml").toURI().toURL());
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/google.fxml")));
             Pane = loader.load();
 
             translateScene.setRightAnchor(Pane,5.0);

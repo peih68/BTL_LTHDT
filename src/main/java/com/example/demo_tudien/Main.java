@@ -2,6 +2,8 @@ package com.example.demo_tudien;
 
 import com.example.demo_tudien.Dictionary.Dictionary;
 import com.example.demo_tudien.Dictionary.DictionaryCommand;
+import com.example.demo_tudien.Dictionary.EnglishVietnamese;
+import com.example.demo_tudien.Dictionary.VietnameseEnglish;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,11 +14,14 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Dictionary dictionary = new Dictionary();
+            EnglishVietnamese EVdictionary = new EnglishVietnamese();
             DictionaryCommand dictionaryCommand = new DictionaryCommand();
-            dictionaryCommand.insertFromFile(dictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
+            dictionaryCommand.insertFromFile(EVdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
+            System.out.println(EVdictionary.getWords().get(0));
 
-            System.out.println(dictionary.getWords().get(0));
+            VietnameseEnglish VEdictionary = new VietnameseEnglish();
+            dictionaryCommand.insertFromFile(VEdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Viet-Anh.txt");
+            System.out.println(VEdictionary.getWords().get(5));
 
             FXMLLoader fxmlLoader = new FXMLLoader(new File("src/main/resources/com/example/Views/sample.fxml").toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load(), 945, 614);
