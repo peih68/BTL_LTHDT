@@ -15,7 +15,7 @@ public class SceneController {
     private Parent root;
 
     public void switchTranslate(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("translate.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/com/example/Views/translate.fxml"));
         Node sourceNode = (Node) event.getSource();
         stage = (Stage) sourceNode.getScene().getWindow();
         stage.setScene(scene);

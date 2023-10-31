@@ -13,7 +13,7 @@ public class DictionaryCommand {
                 FileReader fileReader = new FileReader(path);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 String temp = bufferedReader.readLine();
-                String[] spilitArray = temp.split(" ",2);
+                String[] spilitArray = temp.split("/",2);
                 String wordTarget;
                 String line;
                 wordTarget = spilitArray[0].trim().replace("@", "");
@@ -22,15 +22,12 @@ public class DictionaryCommand {
                     word.setWordTarget(wordTarget.trim());
                     String meaning = "";
                     if (spilitArray.length > 1) {
-                        meaning = spilitArray[1].trim() + "\n" + line + "\n";
+                        meaning = "/" + spilitArray[1].trim() + "\n" + line + "\n";
                     }
                     while ((line = bufferedReader.readLine()) != null)
                         if (line.startsWith("@")) {
-                            spilitArray = line.split(" ", 2);
+                            spilitArray = line.split("/", 2);
                             wordTarget = spilitArray[0].replace("@", "");
-                            if (spilitArray.length > 1) {
-                                meaning += spilitArray[1] + "\n";
-                            }
                             break;
                         } else {
                             meaning += line + "\n";
