@@ -14,6 +14,7 @@ public class Trie {
         int l = word.length();
         for(int i = 0; i < l; i++) {
             int index = word.charAt(i) - 'a';
+            if(index > 26 || index < 0) {return;}
             if(curr.nexts[index] == null) {
                 curr.nexts[index] = new Node();
             }
