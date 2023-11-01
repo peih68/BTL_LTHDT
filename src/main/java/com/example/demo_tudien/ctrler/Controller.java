@@ -4,6 +4,7 @@ import com.example.demo_tudien.Dictionary.DictionaryCommand;
 import com.example.demo_tudien.Dictionary.EnglishVietnamese;
 import com.example.demo_tudien.Dictionary.VietnameseEnglish;
 import com.example.demo_tudien.Dictionary.Word;
+import com.example.demo_tudien.Trie.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -46,10 +47,15 @@ public class Controller implements Initializable {
 
     DictionaryCommand dictionaryCommand = new DictionaryCommand();
 
+    Trie searchEV = new Trie();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dictionaryCommand.insertFromFile(EVdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
         dictionaryCommand.insertFromFile(VEdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Viet-Anh.txt");
+        for(Word word : EVdictionary.getWords()) {
+            searchEV.add(word.getWordTarget());
+        }
     }
 
     public void findWordByWordTarget() {
@@ -58,10 +64,10 @@ public class Controller implements Initializable {
             for (Word word : EVdictionary.getWords()) {
                 if (userInput.equals(word.getWordTarget())) {
                     wordExplain.setText(word.getWordExplain());
-                    return ;
+                    return;
                 }
             }
-            wordExplain.setText("tao chịu");
+            wordExplain.setText("khong co tu");
         });
     }
 

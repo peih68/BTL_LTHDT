@@ -15,7 +15,7 @@ public class Main extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/Views/sample.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 945, 614);
-            stage.setTitle("Hello!");
+            stage.setTitle("Từ điển");
             stage.setScene(scene);
             stage.show();
         }
