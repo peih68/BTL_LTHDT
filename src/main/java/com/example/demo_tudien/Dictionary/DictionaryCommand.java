@@ -1,9 +1,6 @@
 package com.example.demo_tudien.Dictionary;
 
-import org.controlsfx.control.tableview2.filter.filtereditor.SouthFilter;
-
 import java.io.*;
-import java.util.ArrayList;
 
 public class DictionaryCommand {
 
@@ -16,7 +13,11 @@ public class DictionaryCommand {
                 String[] spilitArray = temp.split("/",2);
                 String wordTarget;
                 String line;
-                wordTarget = spilitArray[0].trim().replace("@", "");
+                if (!spilitArray[0].trim().replace("@", "").isEmpty()) {
+                    wordTarget = spilitArray[0].trim().replace("@", "");
+                } else {
+                    wordTarget = spilitArray[1].trim();
+                }
                 while ((line = bufferedReader.readLine()) != null) {
                     Word word = new Word();
                     word.setWordTarget(wordTarget.trim());
@@ -27,7 +28,13 @@ public class DictionaryCommand {
                     while ((line = bufferedReader.readLine()) != null)
                         if (line.startsWith("@")) {
                             spilitArray = line.split("/", 2);
-                            wordTarget = spilitArray[0].replace("@", "");
+                            if (!spilitArray[0].trim().replace("@", "").isEmpty()) {
+                                wordTarget = spilitArray[0].trim().replace("@", "");
+                            } else {
+                                if (spilitArray.length > 1) {
+                                    wordTarget = spilitArray[1].trim();
+                                }
+                            }
                             break;
                         } else {
                             meaning += line + "\n";

@@ -12,7 +12,7 @@
    <children>
       <VBox layoutX="50.0" layoutY="89.0" prefHeight="94.0" prefWidth="206.0" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="50.0">
          <children>
-            <TextField fx:id="wordTarget" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#findWordByWordTarget" prefHeight="68.0" prefWidth="212.0">
+            <TextField fx:id="wordTarget" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#findWordByWordTarget" prefHeight="68.0" prefWidth="212.0">
                <VBox.margin>
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </VBox.margin>
