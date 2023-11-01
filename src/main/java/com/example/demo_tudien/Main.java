@@ -1,8 +1,5 @@
 package com.example.demo_tudien;
 
-import com.example.demo_tudien.Dictionary.DictionaryCommand;
-import com.example.demo_tudien.Dictionary.EnglishVietnamese;
-import com.example.demo_tudien.Dictionary.VietnameseEnglish;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/Views/sample.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/Views/home.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 945, 614);
             stage.setTitle("Từ điển");
             stage.setScene(scene);

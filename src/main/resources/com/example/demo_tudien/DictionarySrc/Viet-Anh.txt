@@ -1,3 +1,6 @@
+@tudautiensebiloi
+-tudautiensebiloi
+
 @a
 * excl
 - O; oh (exclamation of surprise, regret, ect.)
@@ -21254,6 +21257,7 @@
 
 @chó
 * noun
+- Dog
 - Cur, ass, donkey
 =đồ chó!+what a cur you are!
 =ngu như chó!+what an ass!

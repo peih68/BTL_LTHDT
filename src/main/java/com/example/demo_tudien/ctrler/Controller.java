@@ -11,10 +11,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -41,7 +38,6 @@ public class Controller implements Initializable {
     @FXML
     private TextArea wordExplain;
 
-
     EnglishVietnamese EVdictionary = new EnglishVietnamese();
     VietnameseEnglish VEdictionary = new VietnameseEnglish();
 
@@ -59,11 +55,15 @@ public class Controller implements Initializable {
     }
 
     public void findWordByWordTarget() {
-        wordTarget.setOnAction(event -> {
-            String userInput = wordTarget.getText();
+        wordTarget.textProperty().addListener((observable, oldValue, newValue) -> {
+            String userInput = newValue.trim();
             for (Word word : EVdictionary.getWords()) {
                 if (userInput.equals(word.getWordTarget())) {
                     wordExplain.setText(word.getWordExplain());
+                    return;
+                }
+                if (userInput.isEmpty()) {
+                    wordExplain.setText("ô trống");
                     return;
                 }
             }
