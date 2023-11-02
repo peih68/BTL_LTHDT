@@ -18,6 +18,8 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import java.util.List;
+
 public class Controller implements Initializable {
     private boolean isSidebarVisible = true;
     private static final Duration ANIMATION_DURATION = Duration.millis(300);
@@ -57,20 +59,18 @@ public class Controller implements Initializable {
     public void findWordByWordTarget() {
         wordTarget.textProperty().addListener((observable, oldValue, newValue) -> {
             String userInput = newValue.trim();
-            for (Word word : EVdictionary.getWords()) {
-                if (userInput.equals(word.getWordTarget())) {
-                    wordExplain.setText(word.getWordExplain());
-                    return;
-                }
-                if (userInput.isEmpty()) {
-                    wordExplain.setText("ô trống");
-                    return;
-                }
+            List<String> res = searchEV.Query(userInput);
+            String finalRes = "";
+            for (String str : res) {
+                finalRes += str + "\n";
             }
-            wordExplain.setText("khong co tu");
+            if (userInput.isEmpty()) {
+                wordExplain.setText("trong");
+            } else {
+                wordExplain.setText(finalRes);
+            }
         });
     }
-
 
     public void Option() {
         double endValue = isSidebarVisible ? 0.0 : 0.1;

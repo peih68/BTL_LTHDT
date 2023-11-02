@@ -1,15 +1,17 @@
 package com.example.demo_tudien.Trie;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**lớp dùng để làm cơ sở cho lớp trie.*/
 public class Node {
-    Node[] nexts = new Node[26];
+    Map<Character, Node> nexts;
     int count;
 
     /**có phải từ không.*/
     boolean isWord;
     public Node() {
-        for(Node next : nexts) {
-            next = null;
-        }
+        nexts = new HashMap<>();
         count = 0;
         isWord = false;
     }
