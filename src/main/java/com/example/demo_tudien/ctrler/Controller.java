@@ -21,18 +21,17 @@ import java.util.ResourceBundle;
 import java.util.List;
 
 public class Controller implements Initializable {
-    private boolean isSidebarVisible = true;
-    private static final Duration ANIMATION_DURATION = Duration.millis(300);
     private AnchorPane Pane;
 
     @FXML
-    private AnchorPane translateScene;
+    private AnchorPane Sence;
 
     @FXML
     private SplitPane splitPane;
 
-    @FXML
-    private Button Option;
+    private static final Duration ANIMATION_DURATION = Duration.millis(300);
+
+    private boolean isSidebarVisible = true;
 
     @FXML
     private TextField wordTarget;
@@ -73,7 +72,7 @@ public class Controller implements Initializable {
     }
 
     public void Option() {
-        double endValue = isSidebarVisible ? 0.0 : 0.1;
+        double endValue = isSidebarVisible ? 0.13 : 0.0;
 
         KeyValue keyValue = new KeyValue(splitPane.getDividers().get(0).positionProperty(), endValue);
         KeyFrame keyFrame = new KeyFrame(ANIMATION_DURATION, keyValue);
@@ -81,18 +80,19 @@ public class Controller implements Initializable {
         Timeline timeline = new Timeline(keyFrame);
         timeline.setOnFinished(event -> {
             isSidebarVisible = !isSidebarVisible;
+            //toggleButton.setText(isSidebarVisible ? "Khép SplitPane" : "Mở SplitPane");
         });
         timeline.play();
     }
 
-    public void setTranslate() {
+    public void setSearch() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/translate.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/Search.fxml"));
             Pane = loader.load();
 
-            translateScene.setRightAnchor(Pane,5.0);
-            translateScene.setLeftAnchor(Pane,5.0);
-            translateScene.getChildren().setAll(Pane);
+            Sence.setRightAnchor(Pane,5.0);
+            Sence.setLeftAnchor(Pane,5.0);
+            Sence.getChildren().setAll(Pane);
 
         } catch(Exception e) {
             e.printStackTrace();
@@ -101,19 +101,44 @@ public class Controller implements Initializable {
 
     public void setGoogle() {
         try {
-            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/google.fxml")));
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Google.fxml")));
             Pane = loader.load();
 
-            AnchorPane.setRightAnchor(Pane,5.0);
-            AnchorPane.setLeftAnchor(Pane,5.0);
-            translateScene.getChildren().setAll(Pane);
+            Sence.setRightAnchor(Pane,5.0);
+            Sence.setLeftAnchor(Pane,5.0);
+            Sence.getChildren().setAll(Pane);
 
         } catch(Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void Home() {
-        translateScene.getChildren().clear();
+    public void setHome() {
+        try {
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home.fxml")));
+            Pane = loader.load();
+
+            Sence.setRightAnchor(Pane,5.0);
+            Sence.setLeftAnchor(Pane,5.0);
+
+            Sence.getChildren().setAll(Pane);
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setGame() {
+        try {
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Game.fxml")));
+            Pane = loader.load();
+
+            Sence.setRightAnchor(Pane,5.0);
+            Sence.setLeftAnchor(Pane,5.0);
+
+            Sence.getChildren().setAll(Pane);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }
