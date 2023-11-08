@@ -27,6 +27,9 @@ public class Controller implements Initializable {
     private AnchorPane Sence;
 
     @FXML
+    private AnchorPane GameSence;
+
+    @FXML
     private SplitPane splitPane;
 
     private static final Duration ANIMATION_DURATION = Duration.millis(300);
@@ -137,6 +140,19 @@ public class Controller implements Initializable {
             Sence.setLeftAnchor(Pane,5.0);
 
             Sence.getChildren().setAll(Pane);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setGame_1() {
+        try {
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Game_1.fxml")));
+            Pane = loader.load();
+
+            GameSence.setRightAnchor(Pane,5.0);
+            GameSence.setLeftAnchor(Pane,5.0);
+            GameSence.getChildren().setAll(Pane);
         } catch(Exception e) {
             e.printStackTrace();
         }

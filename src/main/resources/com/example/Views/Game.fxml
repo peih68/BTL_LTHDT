@@ -5,6 +5,10 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="742.5" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.Controller">
    <children>
-      <Button layoutX="280.0" layoutY="246.0" mnemonicParsing="false" text="Game ghép thẻ" />
+      <AnchorPane fx:id="GameSence" layoutX="293.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="310.0" layoutY="231.0" mnemonicParsing="false" onAction="#setGame_1" text="Game ghép thẻ" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
