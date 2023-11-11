@@ -21,21 +21,6 @@ import java.util.ResourceBundle;
 import java.util.List;
 
 public class Controller implements Initializable {
-    private AnchorPane Pane;
-
-    @FXML
-    private AnchorPane Sence;
-
-    @FXML
-    private AnchorPane GameSence;
-
-    @FXML
-    private SplitPane splitPane;
-
-    private static final Duration ANIMATION_DURATION = Duration.millis(300);
-
-    private boolean isSidebarVisible = true;
-
     @FXML
     private TextField wordTarget;
 
@@ -72,89 +57,5 @@ public class Controller implements Initializable {
                 wordExplain.setText(finalRes);
             }
         });
-    }
-
-    public void Option() {
-        double endValue = isSidebarVisible ? 0.13 : 0.0;
-
-        KeyValue keyValue = new KeyValue(splitPane.getDividers().get(0).positionProperty(), endValue);
-        KeyFrame keyFrame = new KeyFrame(ANIMATION_DURATION, keyValue);
-
-        Timeline timeline = new Timeline(keyFrame);
-        timeline.setOnFinished(event -> {
-            isSidebarVisible = !isSidebarVisible;
-            //toggleButton.setText(isSidebarVisible ? "Khép SplitPane" : "Mở SplitPane");
-        });
-        timeline.play();
-    }
-
-    public void setSearch() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/Search.fxml"));
-            Pane = loader.load();
-
-            Sence.setRightAnchor(Pane,5.0);
-            Sence.setLeftAnchor(Pane,5.0);
-            Sence.getChildren().setAll(Pane);
-
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setGoogle() {
-        try {
-            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Google.fxml")));
-            Pane = loader.load();
-
-            Sence.setRightAnchor(Pane,5.0);
-            Sence.setLeftAnchor(Pane,5.0);
-            Sence.getChildren().setAll(Pane);
-
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setHome() {
-        try {
-            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home.fxml")));
-            Pane = loader.load();
-
-            Sence.setRightAnchor(Pane,5.0);
-            Sence.setLeftAnchor(Pane,5.0);
-
-            Sence.getChildren().setAll(Pane);
-
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setGame() {
-        try {
-            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Game.fxml")));
-            Pane = loader.load();
-
-            Sence.setRightAnchor(Pane,5.0);
-            Sence.setLeftAnchor(Pane,5.0);
-
-            Sence.getChildren().setAll(Pane);
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setGame_1() {
-        try {
-            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Game_1.fxml")));
-            Pane = loader.load();
-
-            GameSence.setRightAnchor(Pane,5.0);
-            GameSence.setLeftAnchor(Pane,5.0);
-            GameSence.getChildren().setAll(Pane);
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
     }
 }
