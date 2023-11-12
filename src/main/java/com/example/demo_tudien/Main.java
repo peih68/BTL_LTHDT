@@ -5,13 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("sample.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 945, 614);
-            stage.setTitle("Hello!");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/Views/Dictionary.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 825, 600);
+            stage.setTitle("Từ điển");
             stage.setScene(scene);
             stage.show();
         }

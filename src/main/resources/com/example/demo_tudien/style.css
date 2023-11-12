@@ -1,0 +1,180 @@
+#background {
+    -fx-background-image: url("image/background1.png");
+}
+
+#background_trongsuot{
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+}
+#dictionary {
+    -fx-graphic: url("image/dictionary.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 160, 122, 0.9);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+
+}
+
+#dictionary:hover {
+    -fx-background-color: rgba(255, 250, 240, 0.9);
+    -fx-border-color: rgba(0, 0, 0, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#dictionary:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.9);
+    -fx-border-color: rgba(255, 250, 240, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-rotate: 10;
+    -fx-text-fill: white;
+}
+
+#search {
+    -fx-graphic: url("image/search.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 160, 122, 0.9);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#search:hover{
+    -fx-background-color: rgba(255, 250, 240, 0.9);
+    -fx-border-color: rgba(0, 0, 0, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#search:pressed{
+    -fx-background-color: rgba(0, 0, 0, 0.9);
+    -fx-border-color: rgba(255, 250, 240, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-rotate: 10;
+    -fx-text-fill: white;
+}
+
+#google {
+    -fx-graphic: url("image/google.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 160, 122, 0.9);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#google:hover{
+    -fx-background-color: rgba(255, 250, 240, 0.9);
+    -fx-border-color: rgba(0, 0, 0, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#google:pressed{
+    -fx-background-color: rgba(0, 0, 0, 0.9);
+    -fx-border-color: rgba(255, 250, 240, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-rotate: 10;
+    -fx-text-fill: white;
+}
+
+#game {
+    -fx-graphic: url("image/game.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 160, 122, 0.9);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#game:hover{
+    -fx-background-color: rgba(255, 250, 240, 0.9);
+    -fx-border-color: rgba(0, 0, 0, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#game:pressed{
+    -fx-background-color: rgba(0, 0, 0, 0.9);
+    -fx-border-color: rgba(255, 250, 240, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-rotate: 10;
+    -fx-text-fill: white;
+}
+
+#option {
+    -fx-graphic: url("image/option.png");
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-font-weight: bold;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+}
+
+#search1 {
+    -fx-graphic: url("image/search1.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+}
+
+#label_search {
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-alignment: center;
+}
+
+#bookmarkButton {
+    -fx-graphic: url("image/bookmark.png");
+    -fx-background-color: rgba(255, 160, 122, 0.1);
+}
+
+#deleteButton {
+    -fx-graphic: url("image/delete.png");
+    -fx-background-color: rgba(255, 160, 122, 0.1);
+}
+
+#fixButton {
+    -fx-graphic: url("image/fix.png");
+    -fx-background-color: rgba(255, 160, 122, 0.1);
+}
+
+#listenButton {
+    -fx-graphic: url("image/loa.png");
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-radius: 22;
+}
+#listenButton:hover {
+    -fx-background-color: rgba(151, 255, 255, 0.9);
+}
+#listenButton:pressed {
+    -fx-background-color: rgba(255, 228, 181, 0.9);
+
+}
+#label {
+    -fx-font-weight: bold;
+}
+
+#changeType {
+    -fx-graphic: url("image/changeType.png");
+    -fx-background-color: rgba(255, 255, 255, 0);
+}
+
+
+
+
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="742.5" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.Controller">
+   <children>
+      <Button layoutX="328.0" layoutY="237.0" mnemonicParsing="false" text="Làm API ở đây" />
+   </children>
+</AnchorPane>
