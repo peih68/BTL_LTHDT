@@ -1,5 +1,7 @@
 package com.example.demo_tudien.Dictionary;
 
+import com.example.demo_tudien.Trie.Trie;
+
 import java.io.*;
 
 public class DictionaryCommand {
@@ -79,12 +81,57 @@ public class DictionaryCommand {
             FileWriter fileWriter = new FileWriter(path);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for (Word word : dictionary.getWords()) {
-                bufferedWriter.write("|" + word.getWordTarget() + "\n" + word.getWordExplain());
+                bufferedWriter.write("@" + word.getWordTarget() + "\n" + word.getWordExplain());
                 bufferedWriter.newLine();
             }
             bufferedWriter.close();
         } catch (Exception e) {
             System.out.println("Something went wrong: " + e);
+        }
+    }
+
+
+
+    public void addWord(Word word, String path) {
+        try (FileWriter fileWriter = new FileWriter(path, true);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+             bufferedWriter.write("@" + word.getWordTarget() + "\n" + word.getWordExplain());
+             bufferedWriter.newLine();
+        } catch (IOException e) {
+            System.out.println("IOException.");
+        } catch (NullPointerException e) {
+            System.out.println("Null Exception.");
+        }
+    }
+
+    public void deleteWord(Dictionary dictionary, String wordTarget, String path) {
+        try {
+            dictionary.getWords().removeIf(w -> w.getWordTarget().equals(wordTarget));
+            Trie trie = new Trie();
+            trie.setTrieFromDictionary(dictionary);
+            this.exportToFile(dictionary, path);
+        } catch (NullPointerException e) {
+            System.out.println("Null Exception.");
+        }
+    }
+
+    public void updateWord(Dictionary dictionary, String wordTarget, String newWordExplain, String path) {
+        try {
+            Word wordToUpdate = new Word();
+            for (Word word : dictionary.getWords()) {
+                if (word.getWordTarget().equals(wordTarget)) {
+                    wordToUpdate.setWordTarget(word.getWordTarget());
+                    wordToUpdate.setWordExplain(newWordExplain);
+                    dictionary.getWords().remove(word);
+                    dictionary.getWords().add(wordToUpdate);
+                    break;
+                }
+            }
+            Trie trie = new Trie();
+            trie.setTrieFromDictionary(dictionary);
+            this.exportToFile(dictionary, path);
+        } catch (NullPointerException e) {
+            System.out.println("Null Exception.");
         }
     }
 

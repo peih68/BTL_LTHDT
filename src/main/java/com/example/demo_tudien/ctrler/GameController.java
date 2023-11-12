@@ -14,8 +14,8 @@ public class GameController implements Initializable {
     private AnchorPane game1Scene;
 
     private void setScene(AnchorPane anchorPane) {
-        gameScene.setRightAnchor(anchorPane,5.0);
-        gameScene.setLeftAnchor(anchorPane,5.0);
+        AnchorPane.setRightAnchor(anchorPane,5.0);
+        AnchorPane.setLeftAnchor(anchorPane,5.0);
         gameScene.getChildren().setAll(anchorPane);
     }
 

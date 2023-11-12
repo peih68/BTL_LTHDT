@@ -20,42 +20,6 @@ import java.util.ResourceBundle;
 
 import java.util.List;
 
-public class Controller implements Initializable {
-    @FXML
-    private TextField wordTarget;
+public class Controller {
 
-    @FXML
-    private TextArea wordExplain;
-
-    EnglishVietnamese EVdictionary = new EnglishVietnamese();
-    VietnameseEnglish VEdictionary = new VietnameseEnglish();
-
-    DictionaryCommand dictionaryCommand = new DictionaryCommand();
-
-    Trie searchEV = new Trie();
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        dictionaryCommand.insertFromFile(EVdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
-        dictionaryCommand.insertFromFile(VEdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Viet-Anh.txt");
-        for(Word word : EVdictionary.getWords()) {
-            searchEV.add(word.getWordTarget());
-        }
-    }
-
-    public void findWordByWordTarget() {
-        wordTarget.textProperty().addListener((observable, oldValue, newValue) -> {
-            String userInput = newValue.trim();
-            List<String> res = searchEV.Query(userInput);
-            String finalRes = "";
-            for (String str : res) {
-                finalRes += str + "\n";
-            }
-            if (userInput.isEmpty()) {
-                wordExplain.setText("trong");
-            } else {
-                wordExplain.setText(finalRes);
-            }
-        });
-    }
 }

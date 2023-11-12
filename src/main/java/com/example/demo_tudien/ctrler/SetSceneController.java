@@ -44,8 +44,8 @@ public class SetSceneController implements Initializable {
     }
 
     private void setScene(AnchorPane anchorPane) {
-        Scene.setRightAnchor(anchorPane,5.0);
-        Scene.setLeftAnchor(anchorPane,5.0);
+        AnchorPane.setRightAnchor(anchorPane,5.0);
+        AnchorPane.setLeftAnchor(anchorPane,5.0);
         Scene.getChildren().setAll(anchorPane);
     }
 
