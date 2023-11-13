@@ -2,6 +2,7 @@ package com.example.demo_tudien.ctrler;
 
 import com.example.demo_tudien.Dictionary.*;
 import com.example.demo_tudien.Trie.Trie;
+import com.example.demo_tudien.ggApi.Translator;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -52,6 +53,8 @@ public class SearchController implements Initializable {
     @FXML
     private Button savedButton;
 
+    @FXML
+    private Button soundButton;
     private boolean save_Success;
     @FXML
     private void handleToggle() {
@@ -104,6 +107,16 @@ public class SearchController implements Initializable {
             findWordExplainByWordTarget();
             setKetQua(searchArea.getItems().size());
         });
+    }
+
+    public void onActionSoundButton() {
+        if (!searchArea.getItems().isEmpty()) {
+            String firstWord = searchArea.getItems().getFirst();
+            Translator.textToSpeech(firstWord,Translator.English);
+        } else {
+            System.out.println("Hiện thông báo : Không có từ nào để phát âm");
+        }
+
     }
 
     public void setKetQua(int length) {
