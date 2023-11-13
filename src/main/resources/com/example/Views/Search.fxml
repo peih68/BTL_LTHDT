@@ -25,7 +25,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <HBox layoutX="216.0" layoutY="100.0" prefHeight="26.0" prefWidth="57.0" AnchorPane.rightAnchor="469.5">
+      <HBox layoutX="216.0" layoutY="106.0" prefHeight="26.0" prefWidth="57.0" AnchorPane.rightAnchor="469.5">
          <children>
             <Button id="listenButton" mnemonicParsing="false" stylesheets="@../demo_tudien/style.css" />
             <Label id="label" prefHeight="28.0" prefWidth="44.0" stylesheets="@../demo_tudien/style.css" text="US">
@@ -35,7 +35,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox layoutX="273.0" layoutY="100.0" prefHeight="26.0" prefWidth="67.0" AnchorPane.rightAnchor="402.5">
+      <HBox layoutX="273.0" layoutY="106.0" prefHeight="26.0" prefWidth="67.0" AnchorPane.rightAnchor="402.5">
          <children>
             <Button id="listenButton" mnemonicParsing="false" prefHeight="10.0" prefWidth="21.0" stylesheets="@../demo_tudien/style.css" />
             <Label id="label" prefHeight="28.0" prefWidth="44.0" stylesheets="@../demo_tudien/style.css" text="UK" textFill="#c91818">
@@ -45,17 +45,17 @@
             </Label>
          </children>
       </HBox>
-      <TextArea fx:id="wordExplainTextField" layoutX="343.0" layoutY="124.0" prefHeight="471.0" prefWidth="522.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="124.0">
+      <TextArea fx:id="wordExplainTextField" layoutX="343.0" layoutY="140.0" prefHeight="455.0" prefWidth="522.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0">
          <font>
             <Font size="20.0" />
          </font></TextArea>
-      <Button id="fixButton" layoutX="682.0" layoutY="127.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="37.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="9.5" AnchorPane.topAnchor="127.0" />
-      <Button id="deleteButton" layoutX="631.0" layoutY="126.0" mnemonicParsing="false" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="60.5" AnchorPane.topAnchor="126.0" />
-      <Button id="bookmarkButton" fx:id="savedButton" layoutX="580.0" layoutY="126.0" mnemonicParsing="false" onAction="#onActionSavedButton" prefHeight="24.0" prefWidth="7.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="111.5" />
+      <Button id="fixButton" layoutX="681.0" layoutY="98.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="37.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="10.5" AnchorPane.topAnchor="98.0" />
+      <Button id="deleteButton" layoutX="630.0" layoutY="97.0" mnemonicParsing="false" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="61.5" AnchorPane.topAnchor="97.0" />
+      <Button id="bookmarkButton" fx:id="savedButton" layoutX="579.0" layoutY="97.0" mnemonicParsing="false" onAction="#onActionSavedButton" prefHeight="24.0" prefWidth="7.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="112.5" />
       <ToggleButton id="label_search" fx:id="typeSearch" layoutX="450.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleToggle" stylesheets="@../demo_tudien/style.css" text="Anh-Việt" AnchorPane.rightAnchor="202.5" />
       <Button id="changeType" layoutX="533.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="13.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="168.5" />
-      <Button id="addButton" layoutX="528.0" layoutY="126.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="7.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="162.5" />
-      <Label id="label_notify" fx:id="thongBao" contentDisplay="BOTTOM" layoutX="110.0" layoutY="265.0" prefHeight="35.0" prefWidth="522.0" stylesheets="@../demo_tudien/style.css" textAlignment="CENTER">
+      <Button id="addButton" layoutX="528.0" layoutY="97.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="7.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="163.5" />
+      <Label id="label_notify" fx:id="thongBao" layoutX="260.0" layoutY="270.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../demo_tudien/style.css" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>

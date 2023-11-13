@@ -114,8 +114,10 @@ public class SearchController implements Initializable {
     private void setThongBao(boolean save_Success) {
         if(save_Success == true) {
             thongBao.setText("Thành công!!!!!!!!");
+            thongBao.setId("label_notify");
         } else {
             thongBao.setText("Lỗi : không có từ để lưu???");
+            thongBao.setId("label_warning");
         }
     }
 
@@ -123,7 +125,7 @@ public class SearchController implements Initializable {
         setThongBao(save_Success);
         Timeline timeline = new Timeline(
                 new KeyFrame(
-                        Duration.seconds(0.7),
+                        Duration.seconds(1.1),
                         event -> thongBao.setVisible(false)
                 )
         );
