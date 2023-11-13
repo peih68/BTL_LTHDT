@@ -142,15 +142,32 @@
     -fx-graphic: url("image/bookmark.png");
     -fx-background-color: rgba(255, 160, 122, 0.1);
 }
+#bookmarkButton:pressed {
+    -fx-background-color: rgba(255, 160, 122, 0.5);
+}
 
 #deleteButton {
     -fx-graphic: url("image/delete.png");
     -fx-background-color: rgba(255, 160, 122, 0.1);
 }
+#deleteButton:pressed {
+    -fx-background-color: rgba(255, 160, 122, 0.5);
+}
 
 #fixButton {
     -fx-graphic: url("image/fix.png");
     -fx-background-color: rgba(255, 160, 122, 0.1);
+}
+#fixButton:pressed {
+    -fx-background-color: rgba(255, 160, 122, 0.5);
+}
+
+#addButton {
+    -fx-graphic: url("image/add.png");
+    -fx-background-color: rgba(255, 160, 122, 0.1);
+}
+#addButton:pressed{
+    -fx-background-color: rgba(255, 160, 122, 0.5);
 }
 
 #listenButton {
@@ -172,6 +189,13 @@
 #changeType {
     -fx-graphic: url("image/changeType.png");
     -fx-background-color: rgba(255, 255, 255, 0);
+}
+
+#label_notify {
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0);
+    -fx-font-size: 12;
+    -fx-alignment: center;
 }
 
 
