@@ -212,20 +212,23 @@
 
 #label_word_in_home {
     -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
     -fx-background-color: rgba(255, 255, 255, 0.9);
-    -fx-background-radius: 22;
-    -fx-font-size: 14;
-    -fx-alignment: center;
+    -fx-font-size: 16;
+    -fx-text-fill: rgb(128,128,128);
 }
 
 #font_word_target {
     -fx-text-fill: rgb(30,144,255);
+    -fx-alignment: center;
     -fx-background-color: rgba(255, 255, 255, 0.9);
     -fx-font-family: 'Times New Roman';
-    -fx-font-size: 20;
-    -fx-alignment: center;
+    -fx-font-size: 25;
 }
 #font_word_meaning {
+    -fx-font-size: 15;
+    -fx-text-indent: 20px;
     -fx-background-color: rgba(255, 255, 255, 0.9);
     -fx-font-family: 'Times New Roman';
 }
