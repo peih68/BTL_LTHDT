@@ -25,9 +25,13 @@ public class SetSceneController implements Initializable {
 
     private GameController gameController;
 
+    private HomeController homeController;
+
     private static final Duration ANIMATION_DURATION = Duration.millis(300);
 
     private boolean isSidebarVisible = true;
+
+
 
     public void Option() {
         double endValue = isSidebarVisible ? 0.13 : 0.0;
@@ -60,8 +64,10 @@ public class SetSceneController implements Initializable {
     @FXML
     public void showHomePane() {
         setScene(homePane);
-
+        homeController.setTextLHW();
     }
+
+
     @FXML
     public void showGamePane() {
         setScene(gamePane);
@@ -88,6 +94,7 @@ public class SetSceneController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home.fxml")));
             homePane = loader.load();
+            homeController = loader.getController();
         } catch (Exception e) {
             e.printStackTrace();
         }
