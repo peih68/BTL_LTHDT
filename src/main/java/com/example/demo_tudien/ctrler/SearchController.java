@@ -20,10 +20,10 @@ public class SearchController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dictionaryCommand.insertFromFile(EVdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
-        dictionaryCommand.insertFromFile(VEdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Viet-Anh.txt");
-        dictionaryCommand.insertFromFile(savedWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-        dictionaryCommand.insertFromFile(savedWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+        DictionaryCommand.insertFromFile(EVdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
+        DictionaryCommand.insertFromFile(VEdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Viet-Anh.txt");
+        DictionaryCommand.insertFromFile(savedWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+        DictionaryCommand.insertFromFile(historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
         searchVE.setTrieFromDictionary(VEdictionary);
         searchEV.setTrieFromDictionary(EVdictionary);
         thongBao.setVisible(false);
@@ -69,13 +69,13 @@ public class SearchController implements Initializable {
         String wordTarget = wordTargetTextField.getText();
         if (EVdictionary.getWordFromWordTarget(wordTarget) != null) {
             savedWords.getWords().add(EVdictionary.getWordFromWordTarget(wordTarget));
-            dictionaryCommand.exportToFile(savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+            DictionaryCommand.exportToFile(savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
             save_Success = true;
         } else {
             if (!searchArea.getItems().isEmpty()) {
                 String firstWord = searchArea.getItems().getFirst();
                 savedWords.getWords().add(EVdictionary.getWordFromWordTarget(firstWord));
-                dictionaryCommand.exportToFile(savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                DictionaryCommand.exportToFile(savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
                 save_Success = true;
             } else {
                 System.out.println("Hiện thông báo lỗi : không có từ để lưu");
@@ -86,15 +86,12 @@ public class SearchController implements Initializable {
     }
 
     /** Dictionary */
-    EnglishVietnamese EVdictionary = new EnglishVietnamese();
-    VietnameseEnglish VEdictionary = new VietnameseEnglish();
+    public static EnglishVietnamese EVdictionary = new EnglishVietnamese();
+    public static VietnameseEnglish VEdictionary = new VietnameseEnglish();
 
-    Dictionary savedWords = new Dictionary();
+    HandledDicionary savedWords = new HandledDicionary();
 
-    Dictionary historyWords = new Dictionary();
-
-
-    DictionaryCommand dictionaryCommand = new DictionaryCommand();
+    public static HandledDicionary historyWords= new HandledDicionary();
 
     Trie searchEV = new Trie();
 
@@ -143,8 +140,6 @@ public class SearchController implements Initializable {
                 )
         );
         thongBao.setVisible(true);
-
-        // Bắt đầu Timeline khi button được click
         timeline.play();
     }
 
@@ -155,7 +150,7 @@ public class SearchController implements Initializable {
                 String userInput = selectedItem.trim();
                 wordExplainTextField.setText(EVdictionary.getWordFromWordTarget(userInput).getWordExplain());
                 historyWords.getWords().add(EVdictionary.getWordFromWordTarget(userInput));
-                dictionaryCommand.exportToFile(historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+                DictionaryCommand.exportToFile(historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
             }
         });
 

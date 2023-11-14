@@ -6,7 +6,7 @@ import java.io.*;
 
 public class DictionaryCommand {
 
-    public void insertFromFile(Dictionary dictionary, String path) {
+    public static void insertFromFile(Dictionary dictionary, String path) {
         try {
             if (dictionary instanceof EnglishVietnamese) {
                 FileReader fileReader = new FileReader(path);
@@ -76,7 +76,7 @@ public class DictionaryCommand {
         }
     }
 
-    public void exportToFile(Dictionary dictionary, String path) {
+    public static void exportToFile(Dictionary dictionary, String path) {
         try {
             FileWriter fileWriter = new FileWriter(path);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -92,7 +92,7 @@ public class DictionaryCommand {
 
 
 
-    public void addWord(Word word, String path) {
+    public static void addWord(Word word, String path) {
         try (FileWriter fileWriter = new FileWriter(path, true);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
              bufferedWriter.write("@" + word.getWordTarget() + "\n" + word.getWordExplain());
@@ -104,18 +104,18 @@ public class DictionaryCommand {
         }
     }
 
-    public void deleteWord(Dictionary dictionary, String wordTarget, String path) {
+    public static void deleteWord(Dictionary dictionary, String wordTarget, String path) {
         try {
             dictionary.getWords().removeIf(w -> w.getWordTarget().equals(wordTarget));
             Trie trie = new Trie();
             trie.setTrieFromDictionary(dictionary);
-            this.exportToFile(dictionary, path);
+            DictionaryCommand.exportToFile(dictionary, path);
         } catch (NullPointerException e) {
             System.out.println("Null Exception.");
         }
     }
 
-    public void updateWord(Dictionary dictionary, String wordTarget, String newWordExplain, String path) {
+    public static void updateWord(Dictionary dictionary, String wordTarget, String newWordExplain, String path) {
         try {
             Word wordToUpdate = new Word();
             for (Word word : dictionary.getWords()) {
@@ -129,7 +129,7 @@ public class DictionaryCommand {
             }
             Trie trie = new Trie();
             trie.setTrieFromDictionary(dictionary);
-            this.exportToFile(dictionary, path);
+            DictionaryCommand.exportToFile(dictionary, path);
         } catch (NullPointerException e) {
             System.out.println("Null Exception.");
         }

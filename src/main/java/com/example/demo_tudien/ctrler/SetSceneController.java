@@ -60,6 +60,7 @@ public class SetSceneController implements Initializable {
     @FXML
     public void showHomePane() {
         setScene(homePane);
+
     }
     @FXML
     public void showGamePane() {
