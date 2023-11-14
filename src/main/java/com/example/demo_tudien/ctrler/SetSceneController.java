@@ -64,6 +64,7 @@ public class SetSceneController implements Initializable {
     @FXML
     public void showHomePane() {
         setScene(homePane);
+        homeController.setTextLHW();
     }
 
 
@@ -93,6 +94,7 @@ public class SetSceneController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home.fxml")));
             homePane = loader.load();
+            homeController = loader.getController();
         } catch (Exception e) {
             e.printStackTrace();
         }
