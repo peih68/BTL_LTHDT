@@ -25,9 +25,13 @@ public class SetSceneController implements Initializable {
 
     private GameController gameController;
 
+    private HomeController homeController;
+
     private static final Duration ANIMATION_DURATION = Duration.millis(300);
 
     private boolean isSidebarVisible = true;
+
+
 
     public void Option() {
         double endValue = isSidebarVisible ? 0.13 : 0.0;
@@ -60,8 +64,9 @@ public class SetSceneController implements Initializable {
     @FXML
     public void showHomePane() {
         setScene(homePane);
-
     }
+
+
     @FXML
     public void showGamePane() {
         setScene(gamePane);
