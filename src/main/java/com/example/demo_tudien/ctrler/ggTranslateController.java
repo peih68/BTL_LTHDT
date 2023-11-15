@@ -36,11 +36,19 @@ public class ggTranslateController implements Initializable {
     ComboBox<String> langluageWordMeaning;
 
     public void onActionPhatAmChuaDichButton() {
-        Translator.textToSpeech(chuaDichTextArea.getText(),Translator.Vietnamese);
+        String text = chuaDichTextArea.getText();
+        String target = langluageWordTarget.getValue();
+        if (!text.isEmpty()) {
+            Translator.textToSpeech(chuaDichTextArea.getText(), Translator.languages.get(target));
+        }
     }
 
     public void onActionphatAmDaDichButton() {
-        Translator.textToSpeech(daDichTextArea.getText(),Translator.English);
+        String text = daDichTextArea.getText();
+        String meaning = langluageWordMeaning.getValue();
+        if (!text.isEmpty()) {
+            Translator.textToSpeech(daDichTextArea.getText(), Translator.languages.get(meaning));
+        }
     }
 
     public void onActionTranslateButton() throws IOException {

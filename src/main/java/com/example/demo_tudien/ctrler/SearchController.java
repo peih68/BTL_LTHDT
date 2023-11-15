@@ -11,20 +11,41 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.Duration;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class SearchController implements Initializable {
 
+    enum Type {
+        AnhViet,
+        VietAnh
+    }
+    Type type = Type.AnhViet;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DictionaryCommand.insertFromFile(FullDictionary.EVdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
+        DictionaryCommand.insertFromFile(FullDictionary.VEdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Viet-Anh.txt");
         DictionaryCommand.insertFromFile(FullDictionary.savedWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
         DictionaryCommand.insertFromFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
         searchEV.setTrieFromDictionary(FullDictionary.EVdictionary);
+        searchVE.setTrieFromDictionary(FullDictionary.VEdictionary);
         thongBao.setVisible(false);
+    }
+
+    @FXML
+    ToggleButton typeSearch;
+
+    @FXML
+    private void handleToggle() {
+        if (typeSearch.isSelected()) {
+            type = Type.VietAnh;
+            typeSearch.setText("Việt-Anh");
+        } else {
+            type = Type.AnhViet;
+            typeSearch.setText("Anh-Việt");
+        }
     }
 
     @FXML
@@ -57,26 +78,48 @@ public class SearchController implements Initializable {
     @FXML
     private void onActionSavedButton() {
         String wordTarget = wordTargetTextField.getText();
-        if (FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget) != null) {
-            FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget));
-            DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-            save_Success = true;
-        } else {
-            if (!searchArea.getItems().isEmpty()) {
-                String firstWord = searchArea.getItems().getFirst();
-                FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord));
-                DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                save_Success = true;
-            } else {
-                System.out.println("Hiện thông báo lỗi : không có từ để lưu");
-                save_Success = false;
-            }
+        switch (type) {
+            case AnhViet :
+                if (FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget) != null) {
+                    FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget));
+                    DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                    save_Success = true;
+                } else {
+                    if (!searchArea.getItems().isEmpty()) {
+                        String firstWord = searchArea.getItems().getFirst();
+                        FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord));
+                        DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                        save_Success = true;
+                    } else {
+                        save_Success = false;
+                    }
+                }
+                showThongBao(save_Success);
+                break;
+            case VietAnh:
+                if (FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget) != null) {
+                    FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget));
+                    DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                    save_Success = true;
+                } else {
+                    if (!searchArea.getItems().isEmpty()) {
+                        String firstWord = searchArea.getItems().getFirst();
+                        FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord));
+                        DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                        save_Success = true;
+                    } else {
+                        save_Success = false;
+                    }
+                }
+                showThongBao(save_Success);
+                break;
         }
-        showThongBao(save_Success);
+
+
     }
 
     private void setThongBao(boolean save_Success) {
-        if(save_Success == true) {
+        if(save_Success) {
             thongBao.setText("Thành công!!!!!!!!");
             thongBao.setId("label_notify");
         } else {
@@ -98,12 +141,26 @@ public class SearchController implements Initializable {
     }
 
     public void onActionSoundButton() {
-        if (!searchArea.getItems().isEmpty()) {
-            String firstWord = searchArea.getItems().getFirst();
-            Translator.textToSpeech(firstWord,Translator.English);
-        } else {
-            System.out.println("Hiện thông báo : Không có từ nào để phát âm");
+
+        switch (type) {
+            case AnhViet :
+                if (!searchArea.getItems().isEmpty()) {
+                    String firstWord = searchArea.getItems().getFirst();
+                    Translator.textToSpeech(firstWord, Translator.languages.get("English"));
+                } else {
+                    System.out.println("Hiện thông báo : Không có từ nào để phát âm");
+                }
+                break;
+            case VietAnh:
+                if (!searchArea.getItems().isEmpty()) {
+                    String firstWord = searchArea.getItems().getFirst();
+                    Translator.textToSpeech(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord).getWordExplain(), Translator.languages.get("English"));
+                } else {
+                    System.out.println("Hiện thông báo : Không có từ nào để phát âm");
+                }
+                break;
         }
+
 
     }
 
@@ -128,30 +185,64 @@ public class SearchController implements Initializable {
     }
 
     public void findWordExplainByWordTarget() {
-        searchArea.setOnMouseClicked(event -> {
-            String selectedItem = searchArea.getSelectionModel().getSelectedItem();
-            if (selectedItem != null) {
-                String userInput = selectedItem.trim();
-                wordExplainTextField.setText(FullDictionary.EVdictionary.getWordFromWordTarget(userInput).getWordExplain());
-                FullDictionary.historyWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(userInput));
-                DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
-            }
-        });
+        switch (type) {
+            case AnhViet :
+                searchArea.setOnMouseClicked(event -> {
+                    String selectedItem = searchArea.getSelectionModel().getSelectedItem();
+                    if (selectedItem != null) {
+                        String userInput = selectedItem.trim();
+                        wordExplainTextField.setText(FullDictionary.EVdictionary.getWordFromWordTarget(userInput).getWordExplain());
+                        FullDictionary.historyWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(userInput));
+                        DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+                    }
+                });
+                break;
+            case VietAnh:
+                searchArea.setOnMouseClicked(event -> {
+                    String selectedItem = searchArea.getSelectionModel().getSelectedItem();
+                    if (selectedItem != null) {
+                        String userInput = selectedItem.trim();
+                        wordExplainTextField.setText(FullDictionary.VEdictionary.getWordFromWordTarget(userInput).getWordExplain());
+                        FullDictionary.historyWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(userInput));
+                        DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+                    }
+                });
+                break;
+        }
+
+
     }
 
     public void findWordByWordTarget(String newValue) {
         String userInput = newValue.trim();
-        List<String> res = searchEV.Query(userInput);
-        ObservableList<String> data = FXCollections.observableArrayList(res);
-        searchArea.setItems(data);
 
-        if (!searchArea.getItems().isEmpty()) {
-            String firstWord = searchArea.getItems().getFirst();
-            wordLable.setText(firstWord);
-            wordExplainTextField.setText(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord).getWordExplain());
-        } else {
-            wordLable.setText("");
-            wordExplainTextField.setText("");
+        switch (type) {
+            case AnhViet :
+                List<String> resEV = searchEV.Query(userInput);
+                ObservableList<String> dataEV = FXCollections.observableArrayList(resEV);
+                searchArea.setItems(dataEV);
+                if (!searchArea.getItems().isEmpty()) {
+                    String firstWord = searchArea.getItems().getFirst();
+                    wordLable.setText(firstWord);
+                    wordExplainTextField.setText(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord).getWordExplain());
+                } else {
+                    wordLable.setText("");
+                    wordExplainTextField.setText("");
+                }
+                break;
+            case VietAnh:
+                List<String> resVE = searchVE.Query(userInput);
+                ObservableList<String> dataVE = FXCollections.observableArrayList(resVE);
+                searchArea.setItems(dataVE);
+                if (!searchArea.getItems().isEmpty()) {
+                    String firstWord = searchArea.getItems().getFirst();
+                    wordLable.setText(firstWord);
+                    wordExplainTextField.setText(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord).getWordExplain());
+                } else {
+                    wordLable.setText("");
+                    wordExplainTextField.setText("");
+                }
+                break;
         }
     }
 

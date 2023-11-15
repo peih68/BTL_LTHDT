@@ -31,7 +31,7 @@ public class Trie {
     /**duyện DFS để tìm các từ liên quan.*/
     public void DFS(Node node, String prefix, List<String> arr) {
         if(node.isWord ) arr.add(prefix);
-        for (char i = 'a'; i <= 'z'; i++) {
+        for (char i = '\u0060'; i <= '\u017F'; i++) { // Replace 'a' with '\u0060' and 'z' with '\u017F' to include Vietnamese characters
             if (node.nexts.containsKey(i)) {
                 DFS(node.nexts.get(i), prefix + i, arr);
             }
