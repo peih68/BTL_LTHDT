@@ -54,12 +54,6 @@ public class ggTranslateController implements Initializable {
     public void onActionTranslateButton() throws IOException {
         String target = langluageWordTarget.getValue();
         String meaning = langluageWordMeaning.getValue();
-        if(target== null||meaning == null) {
-            langluageWordTarget.setValue("Vietnamese");
-            langluageWordMeaning.setValue("English");
-            target = langluageWordTarget.getValue();
-            meaning = langluageWordMeaning.getValue();
-        }
         String str = Translator.translate(Translator.languages.get(target),Translator.languages.get(meaning),chuaDichTextArea.getText());
         daDichTextArea.setText(str);
     }
@@ -68,12 +62,6 @@ public class ggTranslateController implements Initializable {
     public void switchType()  {
         String target = langluageWordTarget.getValue();
         String meaning = langluageWordMeaning.getValue();
-        if(target== null||meaning == null) {
-            langluageWordTarget.setValue("Vietnamese");
-            langluageWordMeaning.setValue("English");
-            target = langluageWordTarget.getValue();
-            meaning = langluageWordMeaning.getValue();
-        }
         langluageWordTarget.setValue(meaning);
         langluageWordMeaning.setValue(target);
     }
@@ -83,5 +71,7 @@ public class ggTranslateController implements Initializable {
         ObservableList<String> items = FXCollections.observableArrayList(Translator.languageList);
         langluageWordTarget.setItems(items);
         langluageWordMeaning.setItems(items);
+        langluageWordTarget.setValue("Vietnamese");
+        langluageWordMeaning.setValue("English");
     }
 }
