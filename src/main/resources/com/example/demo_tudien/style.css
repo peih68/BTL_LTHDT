@@ -196,7 +196,23 @@
 
 #changeType {
     -fx-graphic: url("image/changeType.png");
-    -fx-background-color: rgba(255, 255, 255, 0);
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-background-color: rgba(255,127,80, 0.7);
+    -fx-font-size: 18;
+    -fx-background-radius: 22;
+    -fx-alignment: center;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+#changeType:hover {
+    -fx-background-color: rgba(0,255,255, 0.7);
+}
+#changeType:pressed {
+    -fx-background-color: rgba(0,0,255, 0.7);
+    -fx-border-color: black;
+    -fx-rotate: 7;
 }
 
 #label_notify {
