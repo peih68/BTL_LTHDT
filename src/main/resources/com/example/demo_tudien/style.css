@@ -243,7 +243,11 @@
     -fx-label-padding: 0 0 0 20px;
 }
 
-
-
-
+#translateButton {
+    -fx-graphic: url("image/translate.png");
+    -fx-background-color: rgba(30, 114, 255, 0.5);
+}
+#translateButton:pressed {
+    -fx-background-color: rgba(30, 114, 255, 0.9);
+}
 
