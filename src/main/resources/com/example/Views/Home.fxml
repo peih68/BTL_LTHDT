@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -14,15 +13,15 @@
       <VBox layoutX="99.0" layoutY="211.0" prefHeight="321.0" prefWidth="229.0" AnchorPane.rightAnchor="414.5">
          <children>
             <Label id="label_word_in_home" prefHeight="31.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" text="Từ trong ngày" textAlignment="CENTER" />
-            <TextField id="font_word_target" fx:id="wordTargetWOD" stylesheets="@../demo_tudien/style.css" />
-            <TextArea id="font_word_meaning" fx:id="wordExplainWOD" prefHeight="344.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" />
+            <Label id="font_word_target" fx:id="wordTargetWOD" prefHeight="48.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" />
+            <Label id="font_word_meaning" fx:id="wordExplainWOD" alignment="TOP_LEFT" prefHeight="248.0" prefWidth="260.0" stylesheets="@../demo_tudien/style.css" wrapText="true" />
          </children>
       </VBox>
       <VBox layoutX="387.0" layoutY="211.0" prefHeight="321.0" prefWidth="229.0" AnchorPane.rightAnchor="126.5">
          <children>
             <Label id="label_word_in_home" prefHeight="31.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" text="Từ vừa tra" textAlignment="CENTER" />
-            <TextField id="font_word_target" fx:id="wordTargetLHW" stylesheets="@../demo_tudien/style.css" />
-            <TextArea id="font_word_meaning" fx:id="wordExplainLHW" maxWidth="-Infinity" prefHeight="292.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" wrapText="true" />
+            <Label id="font_word_target" fx:id="wordTargetLHW" prefHeight="50.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" />
+            <Label id="font_word_meaning" fx:id="wordExplainLHW" alignment="TOP_LEFT" prefHeight="248.0" prefWidth="260.0" stylesheets="@../demo_tudien/style.css" wrapText="true" />
          </children>
       </VBox>
    </children>

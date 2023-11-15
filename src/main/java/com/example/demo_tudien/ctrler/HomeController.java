@@ -3,7 +3,7 @@ package com.example.demo_tudien.ctrler;
 import com.example.demo_tudien.Dictionary.Word;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -21,10 +21,10 @@ public class HomeController implements Initializable{
     }
 
     @FXML
-    TextField wordTargetWOD, wordTargetLHW;
+    Label wordTargetWOD, wordTargetLHW;
 
     @FXML
-    TextArea wordExplainWOD, wordExplainLHW;
+    Label wordExplainWOD, wordExplainLHW;
 
     private Word wordOfDay;
     private static final int MAX_WORDS = 1000;
