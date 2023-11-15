@@ -246,8 +246,25 @@
 #translateButton {
     -fx-graphic: url("image/translate.png");
     -fx-background-color: rgba(30, 114, 255, 0.5);
+    -fx-font-weight: bold;
 }
 #translateButton:pressed {
     -fx-background-color: rgba(30, 114, 255, 0.9);
+}
+#switchTypesButton {
+    -fx-graphic: url("image/changeType.png");
+    -fx-background-color: rgba(255,127,80, 0.5);
+}
+#switchTypesButton:pressed{
+    -fx-background-color: rgba(255,127,80, 0.9);
+}
+#TypeslanguageButton {
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 16;
+    -fx-text-fill: rgb(128,128,128);
+    -fx-background-radius: 22;
 }
 
