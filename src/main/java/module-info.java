@@ -7,6 +7,7 @@ module com.example.demo_tudien {
     requires java.desktop;
     requires jlayer;
 
+
     opens com.example.demo_tudien to javafx.fxml;
     exports com.example.demo_tudien;
     exports com.example.demo_tudien.ctrler;
