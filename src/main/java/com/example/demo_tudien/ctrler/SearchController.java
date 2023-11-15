@@ -144,17 +144,15 @@ public class SearchController implements Initializable {
 
         switch (type) {
             case AnhViet :
-                if (!searchArea.getItems().isEmpty()) {
-                    String firstWord = searchArea.getItems().getFirst();
-                    Translator.textToSpeech(firstWord, Translator.languages.get("English"));
+                if (!wordTargetTextField.getText().isEmpty()) {
+                    Translator.textToSpeech(wordTargetTextField.getText(), Translator.languages.get("English"));
                 } else {
                     System.out.println("Hiện thông báo : Không có từ nào để phát âm");
                 }
                 break;
             case VietAnh:
-                if (!searchArea.getItems().isEmpty()) {
-                    String firstWord = searchArea.getItems().getFirst();
-                    Translator.textToSpeech(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord).getWordExplain(), Translator.languages.get("English"));
+                if (!wordTargetTextField.getText().isEmpty()) {
+                    Translator.textToSpeech(FullDictionary.VEdictionary.getWordFromWordTarget(wordTargetTextField.getText()).getWordExplain(), Translator.languages.get("English"));
                 } else {
                     System.out.println("Hiện thông báo : Không có từ nào để phát âm");
                 }
@@ -191,6 +189,8 @@ public class SearchController implements Initializable {
                     String selectedItem = searchArea.getSelectionModel().getSelectedItem();
                     if (selectedItem != null) {
                         String userInput = selectedItem.trim();
+                        wordLable.setText(selectedItem);
+                        wordTargetTextField.setText(selectedItem);
                         wordExplainTextField.setText(FullDictionary.EVdictionary.getWordFromWordTarget(userInput).getWordExplain());
                         FullDictionary.historyWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(userInput));
                         DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
@@ -202,6 +202,8 @@ public class SearchController implements Initializable {
                     String selectedItem = searchArea.getSelectionModel().getSelectedItem();
                     if (selectedItem != null) {
                         String userInput = selectedItem.trim();
+                        wordLable.setText(selectedItem);
+                        wordTargetTextField.setText(selectedItem);
                         wordExplainTextField.setText(FullDictionary.VEdictionary.getWordFromWordTarget(userInput).getWordExplain());
                         FullDictionary.historyWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(userInput));
                         DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");

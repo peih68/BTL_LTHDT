@@ -1,0 +1,60 @@
+@debug
+-debug
+@hellbox
+- hộp đựng phần hỏng hoặc bỏ đi (của máy in)
+@hellbox
+- hộp đựng phần hỏng hoặc bỏ đi (của máy in)
+@hellbox
+- hộp đựng phần hỏng hoặc bỏ đi (của máy in)
+@hellbox
+- hộp đựng phần hỏng hoặc bỏ đi (của máy in)
+@hellene
+/'heli:n/
+*  danh từ
+- người Hy-lạp
+@hellene
+/'heli:n/
+*  danh từ
+- người Hy-lạp
+@hellenist
+/'helinist/
+*  danh từ
+- nhà nghiên cứu cổ Hy-lạp
+- người theo văn hoá Hy-lạp (nói tiếng Hy-lạp nhưng không phải chính cống là người Hy-lạp)
+@hellenist
+/'helinist/
+*  danh từ
+- nhà nghiên cứu cổ Hy-lạp
+- người theo văn hoá Hy-lạp (nói tiếng Hy-lạp nhưng không phải chính cống là người Hy-lạp)
+@hellenistic
+/,heli'nistik/
+*  tính từ
+- (thuộc) văn hoá cổ Hy-lạp
+- (thuộc) nhà nghiên cứu cổ Hy-lạp
+- (thuộc) người theo văn hoá Hy-lạp
+@hellenistic
+/,heli'nistik/
+*  tính từ
+- (thuộc) văn hoá cổ Hy-lạp
+- (thuộc) nhà nghiên cứu cổ Hy-lạp
+- (thuộc) người theo văn hoá Hy-lạp
+@hellenistic
+/,heli'nistik/
+*  tính từ
+- (thuộc) văn hoá cổ Hy-lạp
+- (thuộc) nhà nghiên cứu cổ Hy-lạp
+- (thuộc) người theo văn hoá Hy-lạp
+@hellenistic
+/,heli'nistik/
+*  tính từ
+- (thuộc) văn hoá cổ Hy-lạp
+- (thuộc) nhà nghiên cứu cổ Hy-lạp
+- (thuộc) người theo văn hoá Hy-lạp
+@headforemost
+- xem headfirst
+@headforemost
+- xem headfirst
+@helicopter
+/'helikɔptə/
+*  danh từ
+- máy bay lên thẳng
