@@ -16,14 +16,11 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class SearchController implements Initializable {
-
+public class SearchVEController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        DictionaryCommand.insertFromFile(FullDictionary.EVdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
-        DictionaryCommand.insertFromFile(FullDictionary.savedWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-        DictionaryCommand.insertFromFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
-        searchEV.setTrieFromDictionary(FullDictionary.EVdictionary);
+        DictionaryCommand.insertFromFile(FullDictionary.VEdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Viet-Anh.txt");
+        searchVE.setTrieFromDictionary(FullDictionary.VEdictionary);
         thongBao.setVisible(false);
     }
 
@@ -38,7 +35,7 @@ public class SearchController implements Initializable {
 
     @FXML
     Label wordLable;
-    
+
     @FXML
     private ListView<String> searchArea;
 
@@ -57,14 +54,14 @@ public class SearchController implements Initializable {
     @FXML
     private void onActionSavedButton() {
         String wordTarget = wordTargetTextField.getText();
-        if (FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget) != null) {
-            FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget));
+        if (FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget) != null) {
+            FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget));
             DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
             save_Success = true;
         } else {
             if (!searchArea.getItems().isEmpty()) {
                 String firstWord = searchArea.getItems().getFirst();
-                FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord));
+                FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord));
                 DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
                 save_Success = true;
             } else {
@@ -132,8 +129,8 @@ public class SearchController implements Initializable {
             String selectedItem = searchArea.getSelectionModel().getSelectedItem();
             if (selectedItem != null) {
                 String userInput = selectedItem.trim();
-                wordExplainTextField.setText(FullDictionary.EVdictionary.getWordFromWordTarget(userInput).getWordExplain());
-                FullDictionary.historyWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(userInput));
+                wordExplainTextField.setText(FullDictionary.VEdictionary.getWordFromWordTarget(userInput).getWordExplain());
+                FullDictionary.historyWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(userInput));
                 DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
             }
         });
@@ -148,7 +145,7 @@ public class SearchController implements Initializable {
         if (!searchArea.getItems().isEmpty()) {
             String firstWord = searchArea.getItems().getFirst();
             wordLable.setText(firstWord);
-            wordExplainTextField.setText(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord).getWordExplain());
+            wordExplainTextField.setText(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord).getWordExplain());
         } else {
             wordLable.setText("");
             wordExplainTextField.setText("");

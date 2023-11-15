@@ -33,7 +33,7 @@ public class HomeController implements Initializable{
         Random random = new Random(LocalDate.now().getDayOfMonth());
         long index = random.nextLong();
         index %= MAX_WORDS;
-        wordOfDay = SearchController.EVdictionary.getWords().get(Math.abs((int) index));
+        wordOfDay = FullDictionary.EVdictionary.getWords().get(Math.abs((int) index));
     }
     public void setWordOfDay() {
         wordTargetWOD.setText(wordOfDay.getWordTarget());
@@ -42,8 +42,8 @@ public class HomeController implements Initializable{
     }
 
     public void setTextLHW() {
-        wordExplainLHW.setText(SearchController.historyWords.getWords().getLast().getWordExplain());
-        wordTargetLHW.setText(SearchController.historyWords.getWords().getLast().getWordTarget());
+        wordExplainLHW.setText(FullDictionary.historyWords.getWords().getLast().getWordExplain());
+        wordTargetLHW.setText(FullDictionary.historyWords.getWords().getLast().getWordTarget());
     }
 
 }
