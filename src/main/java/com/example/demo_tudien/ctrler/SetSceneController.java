@@ -18,6 +18,8 @@ public class SetSceneController implements Initializable {
     private AnchorPane googlePane;
     private AnchorPane homePane;
     private AnchorPane gamePane;
+    private AnchorPane historyPane;
+
     @FXML
     private SplitPane splitPane;
     @FXML
@@ -66,6 +68,10 @@ public class SetSceneController implements Initializable {
         setScene(homePane);
         homeController.setTextLHW();
     }
+    @FXML
+    public void showHistoryPane() {
+        setScene(historyPane);
+    }
 
 
     @FXML
@@ -104,6 +110,14 @@ public class SetSceneController implements Initializable {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Game.fxml")));
             gamePane = loader.load();
             gameController = loader.getController();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //storePane
+        try {
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Store.fxml")));
+            historyPane = loader.load();
         } catch (Exception e) {
             e.printStackTrace();
         }
