@@ -49,22 +49,22 @@ public class HistoryController implements Initializable {
 
     public void setStartListView () {
         List<String> res = FullDictionary.savedWords.getWordTargetList();
-        ObservableList<String> data = FXCollections.observableArrayList(res);
-        savedWordsListView.setItems(data.sorted(Comparator.reverseOrder()));
+        ObservableList<String> data = FXCollections.observableArrayList(res.reversed());
+        savedWordsListView.setItems(data);
         res = FullDictionary.historyWords.getWordTargetList();
-        data = FXCollections.observableArrayList(res);
-        historyListView.setItems(data.sorted(Comparator.reverseOrder()));
+        data = FXCollections.observableArrayList(res.reversed());
+        historyListView.setItems(data);
     }
 
     public void updateUISavedWordsTrie(String newValue) {
         String userInput = newValue.trim();
         if (userInput.isEmpty()) {
             List<String> res = FullDictionary.savedWords.getWordTargetList();
-            ObservableList<String> data = FXCollections.observableArrayList(res);
-            savedWordsListView.setItems(data.sorted(Comparator.reverseOrder()));
+            ObservableList<String> data = FXCollections.observableArrayList(res.reversed());
+            savedWordsListView.setItems(data);
         } else {
             List<String> res = savedWordsTrie.Query(userInput);
-            ObservableList<String> data = FXCollections.observableArrayList(res);
+            ObservableList<String> data = FXCollections.observableArrayList(res.reversed());
             savedWordsListView.setItems(data);
         }
     }

@@ -1,6 +1,7 @@
 package com.example.demo_tudien.ctrler;
 
 import com.example.demo_tudien.Dictionary.DictionaryCommand;
+import com.example.demo_tudien.Dictionary.Word;
 import com.example.demo_tudien.PixabayAPI.PixabayAPI;
 import com.example.demo_tudien.Trie.Trie;
 import com.example.demo_tudien.ggApi.Translator;
@@ -88,95 +89,102 @@ public class SearchController implements Initializable {
     @FXML
     private Button soundButton;
     private boolean wordExist;
-    public static final String typeNotifySave = "Lỗi : không có từ để lưu???";
-    public static final String typeNotifyListen = "Lỗi : không có từ để phát âm???";
-    public static final String typeNotifyAdd = "Lỗi : không có từ để thêm???";
+
+    private static final String warningStyle = "label_warning";
+    private static final String notifyStyle = "label_notify";
     @FXML
     private void onActionSavedButton() {
         String wordTarget = wordTargetTextField.getText();
         switch (type) {
             case AnhViet :
                 if (FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget) != null) {
+                    if (FullDictionary.savedWords.getWordFromWordTarget(wordTarget) != null) {
+                        showThongBao("Từ đã có sẵn trong Từ đã lưu", warningStyle);
+                        return;
+                    }
                     FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget));
                     DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                    wordExist = true;
+                    showThongBao("Đã lưu từ thành công!", notifyStyle);
                 } else {
                     if (!searchArea.getItems().isEmpty()) {
                         String firstWord = searchArea.getItems().getFirst();
-                        FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord));
-                        DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                        wordExist = true;
-                    } else {
-                        wordExist = false;
+                        if (FullDictionary.savedWords.getWordFromWordTarget(firstWord) == null) {
+                            FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord));
+                            DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                            showThongBao("Đã lưu từ thành công!", notifyStyle);
+                        } else {
+                            showThongBao("Không thể thêm vì từ đã có sẵn trong Từ đã lưu", warningStyle);
+                        }
+                    }
+                    else {
+                        showThongBao("Không có từ nào để thêm", warningStyle);
                     }
                 }
-                showThongBao(wordExist, typeNotifySave);
                 break;
             case VietAnh:
                 if (FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget) != null) {
+                    if (FullDictionary.savedWords.getWordFromWordTarget(wordTarget) != null) {
+                        showThongBao("Không thể thêm vì từ đã có sẵn trong Từ đã lưu", warningStyle);
+                        return;
+                    }
                     FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget));
                     DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                    wordExist = true;
+                    showThongBao("Đã lưu từ thành công!", notifyStyle);
                 } else {
                     if (!searchArea.getItems().isEmpty()) {
                         String firstWord = searchArea.getItems().getFirst();
-                        FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord));
-                        DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                        wordExist = true;
+                        if (FullDictionary.savedWords.getWordFromWordTarget(firstWord) == null) {
+                            FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord));
+                            DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                            showThongBao("Đã thêm từ thành công!", notifyStyle);
+                        } else {
+                            showThongBao("Không thể thêm vì từ đã có sẵn trong Từ đã lưu", warningStyle);
+                        }
                     } else {
-                        wordExist = false;
+                        showThongBao("Không có từ nào để thêm", warningStyle);
                     }
                 }
-                showThongBao(wordExist, typeNotifySave);
                 break;
         }
     }
 
     @FXML
     public void onActionAddButton() {
-        switch (type) {
-            case AnhViet :
-                if (!wordTargetTextField.getText().isEmpty()) {
-
-                } else {
-                    System.out.println(typeNotifyAdd);
-                    showThongBao(wordExist, typeNotifyAdd);
+                if (wordTargetTextField.getText().isEmpty()) {
+                    showThongBao("Không được phép thêm", warningStyle);
+                    return;
                 }
-                break;
-            case VietAnh:
-                if (!wordTargetTextField.getText().isEmpty()) {
+                if ((!wordTargetTextField.getText().isEmpty() && searchArea.getItems().isEmpty())
+                        || (!searchArea.getItems().getFirst().equals(wordTargetTextField.getText()))) {
+                    String wordTarget = wordTargetTextField.getText();
+                    String wordExplain = wordExplainTextField.getText();
+                    Word newWord = new Word(wordTarget,wordExplain);
+                    System.out.println(newWord.getWordTarget() + newWord.getWordExplain());
+                    switch (type) {
+                        case AnhViet:
+                            searchEV.add(wordTarget);
+                            System.out.println(FullDictionary.EVdictionary.getLength());
+                            FullDictionary.EVdictionary.getWords().add(newWord);
+                            System.out.println(FullDictionary.EVdictionary.getLength());
 
+                            DictionaryCommand.exportToFile(FullDictionary.EVdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
+                            showThongBao("Thêm thành công từ: " + wordTarget, notifyStyle);
+                            break;
+                        case VietAnh:
+                            searchVE.add(wordTarget);
+                            FullDictionary.VEdictionary.getWords().add(newWord);
+                            DictionaryCommand.exportToFile(FullDictionary.VEdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Viet-Anh.txt");
+                            showThongBao("Thêm thành công từ: " + wordTarget, notifyStyle);
+                            break;
+                    }
                 } else {
-                    System.out.println(typeNotifyAdd);
-                    showThongBao(wordExist, typeNotifyAdd);
+                    showThongBao("Không được phép thêm", warningStyle);
                 }
-                break;
         }
-    }
 
-    private void setThongBao(boolean wordExist, String type) {
-        if(type.equals(typeNotifySave)) {
-            if (wordExist) {
-                thongBao.setText("Thành công!!!!!!!!");
-                thongBao.setId("label_notify");
-            } else {
-                thongBao.setText(typeNotifySave);
-                thongBao.setId("label_warning");
-            }
-        }
-        if(type.equals(typeNotifyListen)) {
-            thongBao.setText(typeNotifyListen);
-            thongBao.setId("label_warning");
-        }
-        if(type.equals(typeNotifyAdd)) {
-            if (wordExist) {
-                thongBao.setText("Thành công!!!!!!!!");
-                thongBao.setId("label_notify");
-            } else {
-                thongBao.setText(typeNotifyAdd);
-                thongBao.setId("label_warning");
-            }
-        }
+    private void setThongBao(String content, String style) {
+        thongBao.setText(content);
+        thongBao.setId(style);
     }
     @FXML
     private void onActionWordTargetTextField() {
@@ -206,8 +214,8 @@ public class SearchController implements Initializable {
     }
 
 
-    private void showThongBao(boolean save_Success, String  type) {
-        setThongBao(save_Success, type);
+    private void showThongBao(String content, String style) {
+        setThongBao(content, style);
         Timeline timeline = new Timeline(
                 new KeyFrame(
                         Duration.seconds(1.1),
@@ -225,7 +233,7 @@ public class SearchController implements Initializable {
                     Translator.textToSpeech(wordTargetTextField.getText(), Translator.languages.get("English"));
                 } else {
                     System.out.println("Hiện thông báo : Không có từ nào để phát âm");
-                    showThongBao(wordExist, typeNotifyListen);
+                    showThongBao("Không có từ nào để phát âm!", warningStyle);
                 }
                 break;
             case VietAnh:
@@ -233,7 +241,7 @@ public class SearchController implements Initializable {
                     Translator.textToSpeech(FullDictionary.VEdictionary.getWordFromWordTarget(wordTargetTextField.getText()).getWordExplain(), Translator.languages.get("English"));
                 } else {
                     System.out.println("Hiện thông báo : Không có từ nào để phát âm");
-                    showThongBao(wordExist, typeNotifyListen);
+                    showThongBao("Không có từ nào để phát âm!", warningStyle);
                 }
                 break;
         }
