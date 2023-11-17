@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import ru.blizzed.pixabaylib.Pixabay;
@@ -22,13 +23,14 @@ import java.util.ResourceBundle;
 
 
 public class SearchController implements Initializable {
-    SetSceneController setSceneController;
 
     enum Type {
         AnhViet,
         VietAnh
     }
     Type type = Type.AnhViet;
+
+    SetSceneController setSceneController;
 
     @FXML
     ImageView testImage;
@@ -75,7 +77,7 @@ public class SearchController implements Initializable {
     private ListView<String> searchArea;
 
     @FXML
-    private TextField wordTargetTextField;
+    public TextField wordTargetTextField;
 
     @FXML
     private TextArea wordExplainTextField;
@@ -85,10 +87,7 @@ public class SearchController implements Initializable {
 
     @FXML
     private Button soundButton;
-    private boolean wordExist;
-
-    public static final String typeNotifySave = "Save";
-    public static final String typeNotifyListen = "Listen";
+    private boolean save_Success;
     @FXML
     private void onActionSavedButton() {
         String wordTarget = wordTargetTextField.getText();
@@ -97,56 +96,48 @@ public class SearchController implements Initializable {
                 if (FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget) != null) {
                     FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget));
                     DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                    wordExist = true;
+                    save_Success = true;
                 } else {
                     if (!searchArea.getItems().isEmpty()) {
                         String firstWord = searchArea.getItems().getFirst();
                         FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord));
                         DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                        wordExist = true;
+                        save_Success = true;
                     } else {
-                        wordExist = false;
+                        save_Success = false;
                     }
                 }
-                showThongBao(wordExist, typeNotifySave);
+                showThongBao(save_Success);
                 break;
             case VietAnh:
                 if (FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget) != null) {
                     FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget));
                     DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                    wordExist = true;
+                    save_Success = true;
                 } else {
                     if (!searchArea.getItems().isEmpty()) {
                         String firstWord = searchArea.getItems().getFirst();
                         FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord));
                         DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                        wordExist = true;
+                        save_Success = true;
                     } else {
-                        wordExist = false;
+                        save_Success = false;
                     }
                 }
-                showThongBao(wordExist, typeNotifySave);
+                showThongBao(save_Success);
                 break;
         }
 
 
     }
 
-    private void setThongBao(boolean save_Success, String type) {
-        if(type.equals(typeNotifySave)) {
-            if (save_Success) {
-                thongBao.setText("Thành công!!!!!!!!");
-                thongBao.setId("label_notify");
-            } else {
-                thongBao.setText("Lỗi : không có từ để lưu???");
-                thongBao.setId("label_warning");
-            }
-        }
-        if(type.equals(typeNotifyListen)) {
-            if (!save_Success) {
-                thongBao.setText("Lỗi : không có từ để phát âm???");
-                thongBao.setId("label_warning");
-            }
+    private void setThongBao(boolean save_Success) {
+        if(save_Success) {
+            thongBao.setText("Thành công!!!!!!!!");
+            thongBao.setId("label_notify");
+        } else {
+            thongBao.setText("Lỗi : không có từ để lưu???");
+            thongBao.setId("label_warning");
         }
     }
     @FXML
@@ -177,8 +168,8 @@ public class SearchController implements Initializable {
     }
 
 
-    private void showThongBao(boolean save_Success, String type) {
-        setThongBao(save_Success, type);
+    private void showThongBao(boolean save_Success) {
+        setThongBao(save_Success);
         Timeline timeline = new Timeline(
                 new KeyFrame(
                         Duration.seconds(1.1),
@@ -192,31 +183,23 @@ public class SearchController implements Initializable {
     public void onActionSoundButton() {
         switch (type) {
             case AnhViet :
-                if (!wordTargetTextField.getText().isEmpty()) {
-                    Translator.textToSpeech(wordTargetTextField.getText(), Translator.languages.get("English"));
+                if (!searchArea.getItems().getFirst().isEmpty()) {
+                    Translator.textToSpeech(searchArea.getItems().getFirst(), Translator.languages.get("English"));
                 } else {
                     System.out.println("Hiện thông báo : Không có từ nào để phát âm");
-                    showThongBao(wordExist, typeNotifyListen);
                 }
                 break;
             case VietAnh:
-                if (!wordTargetTextField.getText().isEmpty()) {
-                    Translator.textToSpeech(FullDictionary.VEdictionary.getWordFromWordTarget(wordTargetTextField.getText()).getWordExplain(), Translator.languages.get("English"));
+                if (!searchArea.getItems().getFirst().isEmpty()) {
+                    Translator.textToSpeech(FullDictionary.VEdictionary.getWordFromWordTarget(searchArea.getItems().getFirst()).getWordExplain(), Translator.languages.get("English"));
                 } else {
                     System.out.println("Hiện thông báo : Không có từ nào để phát âm");
-                    showThongBao(wordExist, typeNotifyListen);
                 }
                 break;
         }
 
 
     }
-
-    public void setKetQua(int length) {
-        ketQua1.setText(length + " kết quả liên quan");
-        ketQua2.setText(length + " kết quả liên quan");
-    }
-
 
     /** Dictionary */
     Trie searchEV = new Trie();
@@ -226,29 +209,30 @@ public class SearchController implements Initializable {
 
     public void wordTargetListener() {
         wordTargetTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            findWordByWordTarget(newValue);
-            findWordExplainByWordTarget();
-            setKetQua(searchArea.getItems().size());
+            updateUIwhenFindWord(newValue);
         });
     }
 
-    public void findWordExplainByWordTarget() {
+    public void updateUIwhenFindWord(String newValue) {
+        updateUITrie(newValue);
+        updateUIWordExplain();
+        setKetQua(searchArea.getItems().size());
+    }
+    public void updateUIWordExplain() {
         switch (type) {
             case AnhViet :
                 searchArea.setOnMouseClicked(event -> {
                     String selectedItem = searchArea.getSelectionModel().getSelectedItem();
                     if (selectedItem != null) {
                         String userInput = selectedItem.trim();
+                        //UI update
                         wordLable.setText(selectedItem);
                         wordTargetTextField.setText(selectedItem);
                         wordExplainTextField.setText(FullDictionary.EVdictionary.getWordFromWordTarget(userInput).getWordExplain());
+                        handlePixabayImage(userInput);
+                        //data update
                         FullDictionary.historyWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(userInput));
                         DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
-                        if (!PixabayAPI.getRandomImage(userInput, LangParam.Lang.EN).isError()) {
-                            testImage.setImage(PixabayAPI.getRandomImage(userInput, LangParam.Lang.EN));
-                        } else {
-                            testImage.setImage(null);
-                        }
                     }
                 });
                 break;
@@ -257,23 +241,22 @@ public class SearchController implements Initializable {
                     String selectedItem = searchArea.getSelectionModel().getSelectedItem();
                     if (selectedItem != null) {
                         String userInput = selectedItem.trim();
+                        //UI update
                         wordLable.setText(selectedItem);
                         wordTargetTextField.setText(selectedItem);
+                        handlePixabayImage(userInput);
                         wordExplainTextField.setText(FullDictionary.VEdictionary.getWordFromWordTarget(userInput).getWordExplain());
+                        //data update
                         FullDictionary.historyWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(userInput));
                         DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
-                        testImage.setImage(PixabayAPI.getRandomImage(userInput, LangParam.Lang.VI));
                     }
                 });
                 break;
         }
-
-
     }
 
-    public void findWordByWordTarget(String newValue) {
+    public void updateUITrie(String newValue) {
         String userInput = newValue.trim();
-
         switch (type) {
             case AnhViet :
                 List<String> resEV = searchEV.Query(userInput);
@@ -304,6 +287,27 @@ public class SearchController implements Initializable {
         }
     }
 
+    public void handlePixabayImage(String userInput) {
+        Image result;
+        if (type == Type.AnhViet) {
+            result = PixabayAPI.getRandomImage(userInput, LangParam.Lang.EN);
+        }
+        else {
+            result = PixabayAPI.getRandomImage(userInput, LangParam.Lang.VI);
+        }
+        if (result != null && !result.isError()) {
+            testImage.setImage(result);
+        } else {
+            testImage.setImage(null);
+        }
+    }
+
+    public void setKetQua(int length) {
+        ketQua1.setText(length + " kết quả liên quan");
+        ketQua2.setText(length + " kết quả liên quan");
+    }
+
+    /* --- */
     public void setSceneController(SetSceneController setSceneController) {
         this.setSceneController = setSceneController;
     }
@@ -314,8 +318,4 @@ public class SearchController implements Initializable {
             setSceneController.showHomePane();
         }
     }
-
-    /* --- */
-
-
 }

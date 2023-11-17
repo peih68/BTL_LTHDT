@@ -63,6 +63,13 @@ public class SetSceneController implements Initializable {
     }
 
     @FXML
+    public void findWordInSearch(String word) {
+        setScene(searchPane);
+        searchController.updateUIwhenFindWord(word);
+        searchController.handlePixabayImage(word);
+    }
+
+    @FXML
     public void showSearchPane() {
         setScene(searchPane);
     }
@@ -137,7 +144,7 @@ public class SetSceneController implements Initializable {
             historyPane = loader.load();
             historyController = loader.getController();
             historyController.setSetSceneController(this);
-
+            historyController.setStartListView();
         } catch (Exception e) {
             e.printStackTrace();
         }

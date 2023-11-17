@@ -6,22 +6,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="742.5" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.HomeController">
+<AnchorPane prefHeight="600.0" prefWidth="742.5" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.HomeController">
    <children>
       <TextField id="search1" layoutX="150.0" layoutY="139.0" prefHeight="44.0" prefWidth="368.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="224.5" />
       <Button id="search1" layoutX="518.0" layoutY="139.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="54.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="170.5" />
       <VBox layoutX="99.0" layoutY="211.0" prefHeight="321.0" prefWidth="229.0" AnchorPane.rightAnchor="414.5">
          <children>
-            <Label id="label_word_in_home" prefHeight="31.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" text="Từ trong ngày" textAlignment="CENTER" />
-            <Label id="font_word_target" fx:id="wordTargetWOD" onMouseClicked="#setSceneController" prefHeight="48.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" />
-            <Label id="font_word_meaning" fx:id="wordExplainWOD" alignment="TOP_LEFT" prefHeight="248.0" prefWidth="260.0" stylesheets="@../demo_tudien/style.css" wrapText="true" />
+            <Label id="label_word_in_home" onMouseClicked="#onActionWOD" prefHeight="31.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" text="Từ của ngày" textAlignment="CENTER" />
+            <Label id="font_word_target" fx:id="wordTargetWOD" onMouseClicked="#onActionWOD" prefHeight="48.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" />
+            <Label id="font_word_meaning" fx:id="wordExplainWOD" alignment="TOP_LEFT" onMouseClicked="#onActionWOD" prefHeight="248.0" prefWidth="260.0" stylesheets="@../demo_tudien/style.css" wrapText="true" />
          </children>
       </VBox>
       <VBox layoutX="387.0" layoutY="211.0" prefHeight="321.0" prefWidth="229.0" AnchorPane.rightAnchor="126.5">
          <children>
-            <Label id="label_word_in_home" prefHeight="31.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" text="Từ vừa tra" textAlignment="CENTER" />
-            <Label id="font_word_target" fx:id="wordTargetLHW" onMouseClicked="#setSceneController" prefHeight="50.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" />
-            <Label id="font_word_meaning" fx:id="wordExplainLHW" alignment="TOP_LEFT" prefHeight="248.0" prefWidth="260.0" stylesheets="@../demo_tudien/style.css" wrapText="true" />
+            <Label id="label_word_in_home" onMouseClicked="#goToHistory" prefHeight="31.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" text="Từ vừa tra" textAlignment="CENTER" />
+            <Label id="font_word_target" fx:id="wordTargetLHW" onMouseClicked="#onActionLHW" prefHeight="50.0" prefWidth="229.0" stylesheets="@../demo_tudien/style.css" />
+            <Label id="font_word_meaning" fx:id="wordExplainLHW" alignment="TOP_LEFT" onMouseClicked="#onActionLHW" prefHeight="248.0" prefWidth="260.0" stylesheets="@../demo_tudien/style.css" wrapText="true" />
          </children>
       </VBox>
    </children>

@@ -4,7 +4,6 @@ import com.example.demo_tudien.Dictionary.Word;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -49,9 +48,22 @@ public class HomeController implements Initializable{
     }
 
     @FXML
-    public void setSceneController() {
+    public void onActionWOD() {
         if (setSceneController != null) {
-            setSceneController.showSearchPane();
+            setSceneController.findWordInSearch(wordTargetWOD.getText());
+        }
+    }
+    @FXML
+    public void onActionLHW() {
+        if (setSceneController != null) {
+            setSceneController.findWordInSearch(wordTargetLHW.getText());
+        }
+    }
+
+    @FXML
+    public void goToHistory() {
+        if (setSceneController != null) {
+            setSceneController.showHistoryPane();
         }
     }
 

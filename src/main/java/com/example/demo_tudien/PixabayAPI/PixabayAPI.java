@@ -22,6 +22,8 @@ public class PixabayAPI {
             String randomURL = "";
             if (!imageURLs.isEmpty()) {
                 randomURL = imageURLs.get(1);
+            } else {
+                return null;
             }
             System.out.println(randomURL);
             return new Image(randomURL,true);
