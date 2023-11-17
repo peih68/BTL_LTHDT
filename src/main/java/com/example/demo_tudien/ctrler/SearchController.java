@@ -87,7 +87,9 @@ public class SearchController implements Initializable {
 
     @FXML
     private Button soundButton;
-    private boolean save_Success;
+    private boolean wordExist;
+    public static final String typeNotifySave = "save";
+    public static final String typeNotifyListen = "listen";
     @FXML
     private void onActionSavedButton() {
         String wordTarget = wordTargetTextField.getText();
@@ -96,47 +98,53 @@ public class SearchController implements Initializable {
                 if (FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget) != null) {
                     FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget));
                     DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                    save_Success = true;
+                    wordExist = true;
                 } else {
                     if (!searchArea.getItems().isEmpty()) {
                         String firstWord = searchArea.getItems().getFirst();
                         FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord));
                         DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                        save_Success = true;
+                        wordExist = true;
                     } else {
-                        save_Success = false;
+                        wordExist = false;
                     }
                 }
-                showThongBao(save_Success);
+                showThongBao(wordExist, typeNotifySave);
                 break;
             case VietAnh:
                 if (FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget) != null) {
                     FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget));
                     DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                    save_Success = true;
+                    wordExist = true;
                 } else {
                     if (!searchArea.getItems().isEmpty()) {
                         String firstWord = searchArea.getItems().getFirst();
                         FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord));
                         DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-                        save_Success = true;
+                        wordExist = true;
                     } else {
-                        save_Success = false;
+                        wordExist = false;
                     }
                 }
-                showThongBao(save_Success);
+                showThongBao(wordExist, typeNotifySave);
                 break;
         }
 
 
     }
 
-    private void setThongBao(boolean save_Success) {
-        if(save_Success) {
-            thongBao.setText("Thành công!!!!!!!!");
-            thongBao.setId("label_notify");
-        } else {
-            thongBao.setText("Lỗi : không có từ để lưu???");
+    private void setThongBao(boolean save_Success, String type) {
+        if(type.equals(typeNotifySave)) {
+            if (save_Success) {
+                thongBao.setText("Thành công!!!!!!!!");
+                thongBao.setId("label_notify");
+            } else {
+                thongBao.setText("Lỗi : không có từ để lưu???");
+                thongBao.setId("label_warning");
+            }
+        }
+        if(type.equals(typeNotifyListen)) {
+            thongBao.setText("Lỗi : không có từ để phát âm???");
             thongBao.setId("label_warning");
         }
     }
@@ -168,8 +176,8 @@ public class SearchController implements Initializable {
     }
 
 
-    private void showThongBao(boolean save_Success) {
-        setThongBao(save_Success);
+    private void showThongBao(boolean save_Success, String  type) {
+        setThongBao(save_Success, type);
         Timeline timeline = new Timeline(
                 new KeyFrame(
                         Duration.seconds(1.1),
@@ -183,17 +191,19 @@ public class SearchController implements Initializable {
     public void onActionSoundButton() {
         switch (type) {
             case AnhViet :
-                if (!searchArea.getItems().getFirst().isEmpty()) {
-                    Translator.textToSpeech(searchArea.getItems().getFirst(), Translator.languages.get("English"));
+                if (!wordTargetTextField.getText().isEmpty()) {
+                    Translator.textToSpeech(wordTargetTextField.getText(), Translator.languages.get("English"));
                 } else {
                     System.out.println("Hiện thông báo : Không có từ nào để phát âm");
+                    showThongBao(wordExist, typeNotifyListen);
                 }
                 break;
             case VietAnh:
-                if (!searchArea.getItems().getFirst().isEmpty()) {
-                    Translator.textToSpeech(FullDictionary.VEdictionary.getWordFromWordTarget(searchArea.getItems().getFirst()).getWordExplain(), Translator.languages.get("English"));
+                if (!wordTargetTextField.getText().isEmpty()) {
+                    Translator.textToSpeech(FullDictionary.VEdictionary.getWordFromWordTarget(wordTargetTextField.getText()).getWordExplain(), Translator.languages.get("English"));
                 } else {
                     System.out.println("Hiện thông báo : Không có từ nào để phát âm");
+                    showThongBao(wordExist, typeNotifyListen);
                 }
                 break;
         }
