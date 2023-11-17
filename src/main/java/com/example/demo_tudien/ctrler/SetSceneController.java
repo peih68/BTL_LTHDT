@@ -18,6 +18,8 @@ public class SetSceneController implements Initializable {
     private AnchorPane googlePane;
     private AnchorPane homePane;
     private AnchorPane gamePane;
+    private AnchorPane historyPane;
+
     @FXML
     private SplitPane splitPane;
     @FXML
@@ -26,6 +28,10 @@ public class SetSceneController implements Initializable {
     private GameController gameController;
 
     private HomeController homeController;
+
+    private HistoryController historyController;
+
+    private SearchController searchController;
 
     private static final Duration ANIMATION_DURATION = Duration.millis(300);
 
@@ -66,6 +72,10 @@ public class SetSceneController implements Initializable {
         setScene(homePane);
         homeController.setTextLHW();
     }
+    @FXML
+    public void showHistoryPane() {
+        setScene(historyPane);
+    }
 
 
     @FXML
@@ -78,6 +88,7 @@ public class SetSceneController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/Search.fxml"));
             searchPane = loader.load();
+            searchController = loader.getController();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -95,6 +106,7 @@ public class SetSceneController implements Initializable {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home.fxml")));
             homePane = loader.load();
             homeController = loader.getController();
+            homeController.setSetSceneController(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -104,6 +116,17 @@ public class SetSceneController implements Initializable {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Game.fxml")));
             gamePane = loader.load();
             gameController = loader.getController();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //storePane
+        try {
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Store.fxml")));
+            historyPane = loader.load();
+            historyController = loader.getController();
+            historyController.setSetSceneController(this);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -14,6 +14,7 @@
                   <Button id="search" contentDisplay="TOP" layoutY="91.0" mnemonicParsing="false" onAction="#showSearchPane" prefHeight="104.0" prefWidth="107.0" stylesheets="@../demo_tudien/style.css" text="Search" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Button id="google" contentDisplay="TOP" layoutY="188.0" mnemonicParsing="false" onAction="#showGooglePane" prefHeight="104.0" prefWidth="104.0" stylesheets="@../demo_tudien/style.css" text="Google" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Button id="game" contentDisplay="TOP" layoutY="283.0" mnemonicParsing="false" onAction="#showGamePane" prefHeight="104.0" stylesheets="@../demo_tudien/style.css" text="Games" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Button id="history" contentDisplay="TOP" layoutY="377.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showHistoryPane" prefHeight="104.0" prefWidth="340.0" stylesheets="@../demo_tudien/style.css" text="History" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="718.0">
                <children>
