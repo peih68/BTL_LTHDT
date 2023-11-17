@@ -338,4 +338,7 @@
     -fx-border-width: 2;
     -fx-border-radius: 20;
 }
+#search_history {
+    -fx-graphic: url("image/search1.png");
 
+}

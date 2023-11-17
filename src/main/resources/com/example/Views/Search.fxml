@@ -46,7 +46,7 @@
       <Button id="listenButton" fx:id="soundButton" layoutX="428.0" layoutY="108.0" mnemonicParsing="false" onAction="#onActionSoundButton" prefHeight="26.0" prefWidth="26.0" stylesheets="@../demo_tudien/style.css" AnchorPane.bottomAnchor="465.6" AnchorPane.rightAnchor="278.5" AnchorPane.topAnchor="107.99999999999997" />
       <Label id="font_word_target" fx:id="wordLable" layoutX="214.0" layoutY="106.0" prefHeight="30.0" prefWidth="210.0" styleClass="..\demo_tudien\style.css" stylesheets="@../demo_tudien/style.css" AnchorPane.bottomAnchor="463.6" AnchorPane.rightAnchor="317.70000000000005" AnchorPane.topAnchor="105.6" />
       <ToggleButton id="changeType" fx:id="typeSearch" layoutX="536.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleToggle" prefHeight="39.0" prefWidth="138.0" stylesheets="@../demo_tudien/style.css" text="Anh-Việt" textFill="#750000" AnchorPane.rightAnchor="69.0" />
-      <ImageView fx:id="testImage" fitHeight="114.0" fitWidth="203.0" layoutX="490.0" layoutY="146.0" opacity="0.7" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="340.0" AnchorPane.rightAnchor="49.5" AnchorPane.topAnchor="146.0" />
+      <ImageView fx:id="testImage" fitHeight="114.0" fitWidth="203.0" layoutX="490.0" layoutY="146.0" opacity="0.7" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="145.0" />
       <Button id="homeGeneral" layoutX="106.0" layoutY="10.0" mnemonicParsing="false" onAction="#setHome" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="5.0" />
    </children>
 </AnchorPane>
