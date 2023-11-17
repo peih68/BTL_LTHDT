@@ -124,6 +124,7 @@ public class SetSceneController implements Initializable {
             homePane = loader.load();
             homeController = loader.getController();
             homeController.setSetSceneController(this);
+            homeController.searchListView.setVisible(false);
         } catch (Exception e) {
             e.printStackTrace();
         }
