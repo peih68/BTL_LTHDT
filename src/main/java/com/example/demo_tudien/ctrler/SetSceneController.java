@@ -3,6 +3,7 @@ package com.example.demo_tudien.ctrler;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -83,6 +84,10 @@ public class SetSceneController implements Initializable {
     @FXML
     public void showGamePane() {
         setScene(gamePane);
+    }
+
+    @FXML void close() {
+        Platform.exit();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
