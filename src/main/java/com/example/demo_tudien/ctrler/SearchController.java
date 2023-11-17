@@ -1,6 +1,7 @@
 package com.example.demo_tudien.ctrler;
 
 import com.example.demo_tudien.Dictionary.DictionaryCommand;
+import com.example.demo_tudien.PixabayAPI.PixabayAPI;
 import com.example.demo_tudien.Trie.Trie;
 import com.example.demo_tudien.ggApi.Translator;
 import javafx.animation.KeyFrame;
@@ -12,6 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import ru.blizzed.pixabaylib.Pixabay;
+import ru.blizzed.pixabaylib.params.LangParam;
 
 import java.net.URL;
 import java.util.List;
@@ -37,6 +40,7 @@ public class SearchController implements Initializable {
         DictionaryCommand.insertFromFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
         searchEV.setTrieFromDictionary(FullDictionary.EVdictionary);
         searchVE.setTrieFromDictionary(FullDictionary.VEdictionary);
+        Pixabay.initialize("40694300-4e998735bc707c093f172a751");
         thongBao.setVisible(false);
     }
 
@@ -133,6 +137,33 @@ public class SearchController implements Initializable {
             thongBao.setId("label_warning");
         }
     }
+    @FXML
+    private void onActionWordTargetTextField() {
+        // Nếu k click vào từ ListView thì k hiện được ảnh
+        // Muốn hiện được ảnh thì phải ấn Enter ở WordTargetTextField
+        switch (type) {
+            case AnhViet :
+                if (!searchArea.getItems().isEmpty()) {
+                    String firstWord = searchArea.getItems().getFirst();
+                    if (!PixabayAPI.getRandomImage(firstWord, LangParam.Lang.EN).isError()) {
+                        testImage.setImage(PixabayAPI.getRandomImage(firstWord, LangParam.Lang.EN));
+                    } else {
+                        testImage.setImage(null);
+                    }
+                }
+                break;
+            case VietAnh:
+                if (!searchArea.getItems().isEmpty()) {
+                    String firstWord = searchArea.getItems().getFirst();
+                    if (!PixabayAPI.getRandomImage(firstWord, LangParam.Lang.EN).isError()) {
+                        testImage.setImage(PixabayAPI.getRandomImage(firstWord, LangParam.Lang.VI));
+                    } else {
+                        testImage.setImage(null);
+                    }
+                }
+        }
+    }
+
 
     private void showThongBao(boolean save_Success) {
         setThongBao(save_Success);
@@ -147,7 +178,6 @@ public class SearchController implements Initializable {
     }
 
     public void onActionSoundButton() {
-
         switch (type) {
             case AnhViet :
                 if (!wordTargetTextField.getText().isEmpty()) {
@@ -200,6 +230,11 @@ public class SearchController implements Initializable {
                         wordExplainTextField.setText(FullDictionary.EVdictionary.getWordFromWordTarget(userInput).getWordExplain());
                         FullDictionary.historyWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(userInput));
                         DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+                        if (!PixabayAPI.getRandomImage(userInput, LangParam.Lang.EN).isError()) {
+                            testImage.setImage(PixabayAPI.getRandomImage(userInput, LangParam.Lang.EN));
+                        } else {
+                            testImage.setImage(null);
+                        }
                     }
                 });
                 break;
@@ -213,6 +248,7 @@ public class SearchController implements Initializable {
                         wordExplainTextField.setText(FullDictionary.VEdictionary.getWordFromWordTarget(userInput).getWordExplain());
                         FullDictionary.historyWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(userInput));
                         DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+                        testImage.setImage(PixabayAPI.getRandomImage(userInput, LangParam.Lang.VI));
                     }
                 });
                 break;
