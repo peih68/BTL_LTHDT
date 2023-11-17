@@ -29,6 +29,10 @@ public class SetSceneController implements Initializable {
 
     private HomeController homeController;
 
+    private HistoryController historyController;
+
+    private SearchController searchController;
+
     private static final Duration ANIMATION_DURATION = Duration.millis(300);
 
     private boolean isSidebarVisible = true;
@@ -84,6 +88,7 @@ public class SetSceneController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/Search.fxml"));
             searchPane = loader.load();
+            searchController = loader.getController();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -101,6 +106,7 @@ public class SetSceneController implements Initializable {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home.fxml")));
             homePane = loader.load();
             homeController = loader.getController();
+            homeController.setSetSceneController(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -118,6 +124,9 @@ public class SetSceneController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Store.fxml")));
             historyPane = loader.load();
+            historyController = loader.getController();
+            historyController.setSetSceneController(this);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

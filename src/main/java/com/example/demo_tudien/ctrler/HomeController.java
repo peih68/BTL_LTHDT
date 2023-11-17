@@ -12,6 +12,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable{
+    SetSceneController setSceneController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -44,6 +45,17 @@ public class HomeController implements Initializable{
     public void setTextLHW() {
         wordExplainLHW.setText(FullDictionary.historyWords.getWords().getLast().getWordExplain());
         wordTargetLHW.setText(FullDictionary.historyWords.getWords().getLast().getWordTarget());
+    }
+
+    @FXML
+    public void setSceneController() {
+        if (setSceneController != null) {
+            setSceneController.showSearchPane();
+        }
+    }
+
+    public void setSetSceneController(SetSceneController setSceneController) {
+        this.setSceneController = setSceneController;
     }
 
 }
