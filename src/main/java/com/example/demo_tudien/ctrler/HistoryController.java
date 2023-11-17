@@ -19,6 +19,13 @@ public class HistoryController implements Initializable {
         }
     }
 
+    @FXML
+    public void setHome(){
+        if (setSceneController != null) {
+            setSceneController.showHomePane();
+        }
+    }
+
     public void setSetSceneController(SetSceneController setSceneController) {
         this.setSceneController = setSceneController;
     }

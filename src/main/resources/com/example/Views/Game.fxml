@@ -8,6 +8,7 @@
       <AnchorPane fx:id="gameScene" layoutX="293.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button layoutX="310.0" layoutY="231.0" mnemonicParsing="false" onAction="#showGame1Pane" text="Game ghép thẻ" />
+            <Button id="homeGeneral" layoutX="87.0" layoutY="72.0" mnemonicParsing="false" onAction="#setHome" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
    </children>

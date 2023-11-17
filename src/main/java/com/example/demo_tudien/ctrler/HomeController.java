@@ -12,6 +12,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable{
+
     SetSceneController setSceneController;
 
     @Override

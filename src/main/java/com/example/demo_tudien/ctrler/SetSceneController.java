@@ -29,6 +29,8 @@ public class SetSceneController implements Initializable {
 
     private HomeController homeController;
 
+    private ggTranslateController ggTranslateController;
+
     private HistoryController historyController;
 
     private SearchController searchController;
@@ -89,6 +91,7 @@ public class SetSceneController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/Search.fxml"));
             searchPane = loader.load();
             searchController = loader.getController();
+            searchController.setSceneController(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,6 +100,8 @@ public class SetSceneController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Google.fxml")));
             googlePane = loader.load();
+            ggTranslateController = loader.getController();
+            ggTranslateController.setSceneController(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,6 +121,7 @@ public class SetSceneController implements Initializable {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Game.fxml")));
             gamePane = loader.load();
             gameController = loader.getController();
+            gameController.setSceneController(this);
         } catch (Exception e) {
             e.printStackTrace();
         }

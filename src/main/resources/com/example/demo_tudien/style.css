@@ -311,3 +311,14 @@
     -fx-background-radius: 22;
 }
 
+#homeGeneral {
+    -fx-graphic: url("image/homeGeneral.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 160, 122, 0.5);
+    -fx-background-radius: 50;
+    -fx-font-size: 16;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+

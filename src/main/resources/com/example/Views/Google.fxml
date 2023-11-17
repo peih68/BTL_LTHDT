@@ -15,5 +15,6 @@
       <Button id="listenButton" fx:id="phatAmChuaDichButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionPhatAmChuaDichButton" stylesheets="@../demo_tudien/style.css" text="Listen" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="62.0" />
       <Button id="listenButton" fx:id="phatAmDaDichButton" layoutX="5.0" layoutY="353.0" mnemonicParsing="false" onAction="#onActionphatAmDaDichButton" stylesheets="@../demo_tudien/style.css" text="Listen" />
       <Button id="switchTypesButton" layoutX="402.0" layoutY="322.0" mnemonicParsing="false" onAction="#switchType" prefHeight="43.0" prefWidth="38.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="299.5" />
+      <Button id="homeGeneral" layoutX="90.0" layoutY="14.0" mnemonicParsing="false" onAction="#setHome" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="5.0" />
    </children>
 </AnchorPane>

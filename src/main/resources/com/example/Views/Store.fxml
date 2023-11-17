@@ -24,5 +24,6 @@
          </children>
       </VBox>
       <Button layoutX="345.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSceneController" prefHeight="25.0" prefWidth="90.0" text="Button" />
+      <Button id="homeGeneral" layoutX="104.0" layoutY="27.0" mnemonicParsing="false" onAction="#setHome" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="5.0" />
    </children>
 </AnchorPane>

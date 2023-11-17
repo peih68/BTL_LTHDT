@@ -14,6 +14,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ggTranslateController implements Initializable {
+    SetSceneController setSceneController;
+
     @FXML
     TextArea chuaDichTextArea;
 
@@ -73,5 +75,16 @@ public class ggTranslateController implements Initializable {
         langluageWordMeaning.setItems(items);
         langluageWordTarget.setValue("Vietnamese");
         langluageWordMeaning.setValue("English");
+    }
+
+    public void setSceneController(SetSceneController setSceneController) {
+        this.setSceneController = setSceneController;
+    }
+
+    @FXML
+    public void  setHome() {
+        if (setSceneController != null) {
+            setSceneController.showHomePane();
+        }
     }
 }

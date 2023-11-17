@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
+
+    SetSceneController setSceneController;
     @FXML
     private AnchorPane gameScene;
     private AnchorPane game1Scene;
@@ -30,6 +32,17 @@ public class GameController implements Initializable {
             game1Scene = loader.load();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void setSceneController(SetSceneController setSceneController) {
+        this.setSceneController = setSceneController;
+    }
+
+    @FXML
+    public void  setHome() {
+        if (setSceneController != null) {
+            setSceneController.showHomePane();
         }
     }
 }
