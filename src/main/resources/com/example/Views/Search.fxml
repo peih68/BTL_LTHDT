@@ -32,13 +32,13 @@
       <Button id="fixButton" layoutX="681.0" layoutY="97.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="51.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="97.0" />
       <Button id="deleteButton" layoutX="630.0" layoutY="97.0" mnemonicParsing="false" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="61.5" AnchorPane.topAnchor="97.0" />
       <Button id="bookmarkButton" fx:id="savedButton" layoutX="579.0" layoutY="97.0" mnemonicParsing="false" onAction="#onActionSavedButton" prefHeight="24.0" prefWidth="7.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="112.5" />
-      <Button id="addButton" layoutX="528.0" layoutY="97.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="7.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="163.5" />
+      <Button id="addButton" layoutX="528.0" layoutY="97.0" mnemonicParsing="false" onAction="#onActionAddButton" prefHeight="24.0" prefWidth="7.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="163.5" />
       <Label id="label_notify" fx:id="thongBao" layoutX="260.0" layoutY="270.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../demo_tudien/style.css" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label id="label" layoutX="467.0" layoutY="108.0" prefHeight="26.0" prefWidth="92.0" stylesheets="@../demo_tudien/style.css" text="Phát âm" textFill="#c91818" AnchorPane.bottomAnchor="465.6" AnchorPane.rightAnchor="183.3" AnchorPane.topAnchor="107.99999999999997">
+      <Label id="label" layoutX="467.0" layoutY="108.0" prefHeight="26.0" prefWidth="61.0" stylesheets="@../demo_tudien/style.css" text="Phát âm" textFill="#c91818" AnchorPane.bottomAnchor="466.0" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="108.0">
          <font>
             <Font size="14.0" />
          </font>

@@ -88,8 +88,9 @@ public class SearchController implements Initializable {
     @FXML
     private Button soundButton;
     private boolean wordExist;
-    public static final String typeNotifySave = "save";
-    public static final String typeNotifyListen = "listen";
+    public static final String typeNotifySave = "Lỗi : không có từ để lưu???";
+    public static final String typeNotifyListen = "Lỗi : không có từ để phát âm???";
+    public static final String typeNotifyAdd = "Lỗi : không có từ để thêm???";
     @FXML
     private void onActionSavedButton() {
         String wordTarget = wordTargetTextField.getText();
@@ -129,23 +130,52 @@ public class SearchController implements Initializable {
                 showThongBao(wordExist, typeNotifySave);
                 break;
         }
-
-
     }
 
-    private void setThongBao(boolean save_Success, String type) {
+    @FXML
+    public void onActionAddButton() {
+        switch (type) {
+            case AnhViet :
+                if (!wordTargetTextField.getText().isEmpty()) {
+
+                } else {
+                    System.out.println(typeNotifyAdd);
+                    showThongBao(wordExist, typeNotifyAdd);
+                }
+                break;
+            case VietAnh:
+                if (!wordTargetTextField.getText().isEmpty()) {
+
+                } else {
+                    System.out.println(typeNotifyAdd);
+                    showThongBao(wordExist, typeNotifyAdd);
+                }
+                break;
+        }
+    }
+
+    private void setThongBao(boolean wordExist, String type) {
         if(type.equals(typeNotifySave)) {
-            if (save_Success) {
+            if (wordExist) {
                 thongBao.setText("Thành công!!!!!!!!");
                 thongBao.setId("label_notify");
             } else {
-                thongBao.setText("Lỗi : không có từ để lưu???");
+                thongBao.setText(typeNotifySave);
                 thongBao.setId("label_warning");
             }
         }
         if(type.equals(typeNotifyListen)) {
-            thongBao.setText("Lỗi : không có từ để phát âm???");
+            thongBao.setText(typeNotifyListen);
             thongBao.setId("label_warning");
+        }
+        if(type.equals(typeNotifyAdd)) {
+            if (wordExist) {
+                thongBao.setText("Thành công!!!!!!!!");
+                thongBao.setId("label_notify");
+            } else {
+                thongBao.setText(typeNotifyAdd);
+                thongBao.setId("label_warning");
+            }
         }
     }
     @FXML
@@ -207,8 +237,6 @@ public class SearchController implements Initializable {
                 }
                 break;
         }
-
-
     }
 
     /** Dictionary */
