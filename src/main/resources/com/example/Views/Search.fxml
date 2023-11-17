@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="742.5" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.SearchController">
    <children>
-      <TextField id="search1" fx:id="wordTargetTextField" layoutX="212.0" layoutY="15.2" onAction="#onActionWordTargetTextField" onMouseClicked="#wordTargetListener" prefHeight="38.0" prefWidth="278.0" promptText="Tra từ" stylesheets="@../demo_tudien/style.css" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="253.0" AnchorPane.topAnchor="15.0" />
+      <TextField id="search1" fx:id="wordTargetTextField" layoutX="237.0" layoutY="15.2" onAction="#onActionWordTargetTextField" onMouseClicked="#wordTargetListener" prefHeight="38.0" prefWidth="253.0" promptText="Tra từ" stylesheets="@../demo_tudien/style.css" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="253.0" AnchorPane.topAnchor="15.0" />
       <ListView id="search1" fx:id="searchArea" layoutX="3.0" layoutY="94.0" prefHeight="497.0" prefWidth="197.0" stylesheets="@../demo_tudien/style.css" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="100.0" />
       <Button id="search1" layoutX="490.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="45.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="206.10000000000002" />
       <Label id="label_search" fx:id="ketQua1" contentDisplay="BOTTOM" layoutX="5.0" layoutY="57.0" prefHeight="35.0" prefWidth="203.0" stylesheets="@../demo_tudien/style.css" text="Kết quả liên quan" textAlignment="CENTER" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="62.0">
