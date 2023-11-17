@@ -1,6 +1,6 @@
 package com.example.demo_tudien.ctrler;
 
-import com.example.demo_tudien.Dictionary.*;
+import com.example.demo_tudien.Dictionary.DictionaryCommand;
 import com.example.demo_tudien.Trie.Trie;
 import com.example.demo_tudien.ggApi.Translator;
 import javafx.animation.KeyFrame;
@@ -10,10 +10,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+
 
 public class SearchController implements Initializable {
 
@@ -22,6 +25,9 @@ public class SearchController implements Initializable {
         VietAnh
     }
     Type type = Type.AnhViet;
+
+    @FXML
+    ImageView testImage;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -4,7 +4,10 @@ import com.example.demo_tudien.Dictionary.Word;
 
 import java.util.ArrayList;
 import com.example.demo_tudien.Dictionary.Dictionary;
+
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**lớp trie giúp tìm kiếm nhanh hơn.*/
 
@@ -14,11 +17,10 @@ public class Trie {
         root = new Node();
     }
 
-    /**thêm từ vào cây trie.*/
     public void add(String word) {
         Node curr = root;
         if (word == null || word.isEmpty()) {
-            System.out.println("từ trống");
+            System.out.println("Từ trống");
             return;
         }
         for(char i : word.toCharArray()) {
@@ -28,24 +30,24 @@ public class Trie {
         curr.isWord = true;
     }
 
-    /**duyện DFS để tìm các từ liên quan.*/
     public void DFS(Node node, String prefix, List<String> arr) {
-        if(node.isWord ) arr.add(prefix);
-        for (char i = '\u0060'; i <= '\u017F'; i++) { // Replace 'a' with '\u0060' and 'z' with '\u017F' to include Vietnamese characters
-            if (node.nexts.containsKey(i)) {
-                DFS(node.nexts.get(i), prefix + i, arr);
-            }
+        if (node.isWord) {
+            arr.add(prefix);
         }
+        ArrayList<String> sortedWords = new ArrayList<>();
+        for (Map.Entry<Character, Node> entry : node.nexts.entrySet()) {
+            char i = entry.getKey();
+            DFS(entry.getValue(), prefix + i, sortedWords);
+        }
+        Collections.sort(sortedWords);
+        arr.addAll(sortedWords);
     }
 
-    /**thao tác tìm kiếm
-     * trả về chuỗi các từ liên quan.*/
     public List<String> Query(String word) {
         List<String> searchedWords = new ArrayList<>();
         if(word.isEmpty()) return searchedWords;
         Node curr = root;
 
-        //cho chạy đến node cuối của từ đang tìm
         for (char i : word.toCharArray()) {
             curr = curr.nexts.get(i);
             if (curr == null) {
@@ -55,6 +57,7 @@ public class Trie {
         DFS(curr, word, searchedWords);
         return searchedWords;
     }
+
     public void setTrieFromDictionary(Dictionary dictionary) {
         for (Word word : dictionary.getWords()) {
             this.add(word.getWordTarget());
