@@ -1,0 +1,20 @@
+#history_anchorSearch {
+    -fx-background-color: rgba(42,149,191);
+    -fx-background-radius: 22px;
+}
+
+#Vbox {
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+}
+
+#history_tableName {
+    -fx-background-color: rgba(115,198,217);
+    -fx-background-radius: 20 20 0 0;
+
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
+    -fx-font-size: 16;
+    -fx-text-fill: rgb(128,128,128);
+}
