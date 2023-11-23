@@ -1,34 +1,29 @@
 package com.example.demo_tudien.ctrler;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.SplitPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SetSceneController implements Initializable {
+    private AnchorPane homeScene;
     private AnchorPane searchPane;
     private AnchorPane googlePane;
     private AnchorPane homePane;
     private AnchorPane gamePane;
     private AnchorPane historyPane;
-
     @FXML
     private AnchorPane basicSence;
 
     @FXML
     private AnchorPane Scene;
+    @FXML
+    private AnchorPane showScene;
 
     @FXML
     ToggleButton Option;
@@ -53,9 +48,9 @@ public class SetSceneController implements Initializable {
     }
 
     private void setScene(AnchorPane anchorPane) {
-        AnchorPane.setRightAnchor(anchorPane,5.0);
-        AnchorPane.setLeftAnchor(anchorPane,5.0);
-        Scene.getChildren().setAll(anchorPane);
+        AnchorPane.setRightAnchor(anchorPane,0.0);
+        AnchorPane.setLeftAnchor(anchorPane,0.0);
+        showScene.getChildren().setAll(anchorPane);
     }
 
     @FXML
@@ -115,15 +110,15 @@ public class SetSceneController implements Initializable {
         }
 
         //HomePane
-        try {
-            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home.fxml")));
-            homePane = loader.load();
-            homeController = loader.getController();
-            homeController.setSetSceneController(this);
-            homeController.searchListView.setVisible(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home.fxml")));
+//            homePane = loader.load();
+//            homeController = loader.getController();
+//            homeController.setSetSceneController(this);
+//            homeController.searchListView.setVisible(false);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         //gamePane
         try {
@@ -148,5 +143,13 @@ public class SetSceneController implements Initializable {
         //đang lỗi khi thay fxml của dictionary phần này tý chỉnh lại sau
 //        setScene(homePane);
 
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        try {
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home_.fxml")));
+            homeScene = loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        setScene(homeScene);
     }
 }
