@@ -1,0 +1,63 @@
+#google_text {
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-radius: 9;
+    -fx-font-size: 16;
+    -fx-border-color: black;
+    -fx-border-radius: 7.5;
+    -fx-border-width: 1.5;
+}
+
+#google_listenButton {
+    -fx-graphic: url("image/loa.png");
+    -fx-background-color: rgba(145, 242, 233, 0.9);
+    -fx-background-radius: 22;
+    -fx-border-color: rgba(65,105,225);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+#google_listenButton:hover {
+    -fx-background-color: rgba(30,144,255, 0.9);
+}
+#google_listenButton:pressed {
+    -fx-background-color: rgba(65,105,255, 0.9);
+}
+
+#google_TypeslanguageButton {
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 16;
+    -fx-text-fill: rgb(128,128,128);
+    -fx-background-radius: 22;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-border-color: black;
+}
+
+#google_translateButton {
+    -fx-graphic: url("image/translate.png");
+    -fx-background-color: rgba(167, 155, 242, 0.5);
+    -fx-background-radius: 22px;
+    -fx-font-weight: bold;
+    -fx-border-color: rgba(189,136,242);
+    -fx-border-radius: 20px;
+    -fx-border-width: 2;
+}
+#google_translateButton:pressed {
+    -fx-background-color: rgba(167, 155, 242, 0.9);
+}
+
+#google_switchTypesButton {
+    -fx-graphic: url("image/changeType.png");
+    -fx-background-radius: 22px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(5,189,242, 0.5);
+    -fx-border-color: rgba(96,128,127, 0.5);;
+    -fx-border-radius: 20px;
+    -fx-border-width: 2;
+}
+#google_switchTypesButton:pressed{
+    -fx-background-color: rgba(5,189,242, 0.9);
+}

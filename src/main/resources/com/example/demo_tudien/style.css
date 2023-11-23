@@ -232,8 +232,8 @@
 }
 #listenButton:pressed {
     -fx-background-color: rgba(255, 228, 181, 0.9);
-
 }
+
 #label {
     -fx-font-weight: bold;
 }
