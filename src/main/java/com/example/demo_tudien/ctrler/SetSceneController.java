@@ -70,7 +70,7 @@ public class SetSceneController implements Initializable {
     }
     @FXML
     public void showHomePane() {
-        setScene(homePane);
+        setScene(homeScene);
         homeController.setTextLHW();
     }
     @FXML
