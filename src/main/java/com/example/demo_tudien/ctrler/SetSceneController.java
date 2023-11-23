@@ -11,7 +11,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SetSceneController implements Initializable {
-    private AnchorPane homeScene;
     private AnchorPane searchPane;
     private AnchorPane googlePane;
     private AnchorPane homePane;
@@ -70,7 +69,7 @@ public class SetSceneController implements Initializable {
     }
     @FXML
     public void showHomePane() {
-        setScene(homeScene);
+        setScene(homePane);
         homeController.setTextLHW();
     }
     @FXML
@@ -110,15 +109,15 @@ public class SetSceneController implements Initializable {
         }
 
         //HomePane
-//        try {
-//            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home.fxml")));
-//            homePane = loader.load();
-//            homeController = loader.getController();
-//            homeController.setSetSceneController(this);
-//            homeController.searchListView.setVisible(false);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home.fxml")));
+            homePane = loader.load();
+            homeController = loader.getController();
+            homeController.setSetSceneController(this);
+            homeController.searchListView.setVisible(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //gamePane
         try {
@@ -135,21 +134,11 @@ public class SetSceneController implements Initializable {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Store.fxml")));
             historyPane = loader.load();
             historyController = loader.getController();
-            historyController.setSetSceneController(this);
+            historyController.setSceneController(this);
             historyController.setStartListView();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //đang lỗi khi thay fxml của dictionary phần này tý chỉnh lại sau
-//        setScene(homePane);
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        try {
-            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Home_.fxml")));
-            homeScene = loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        setScene(homeScene);
+        setScene(homePane);
     }
 }

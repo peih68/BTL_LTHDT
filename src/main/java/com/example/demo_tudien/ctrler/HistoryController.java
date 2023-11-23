@@ -106,8 +106,15 @@ public class HistoryController implements Initializable {
         setSceneController.findWordInSearch("test");
     }
 
-    public void setSetSceneController(SetSceneController setSceneController) {
+    public void setSceneController(SetSceneController setSceneController) {
         this.setSceneController = setSceneController;
+    }
+
+    @FXML
+    public void  setHome() {
+        if (setSceneController != null) {
+            setSceneController.showHomePane();
+        }
     }
 
 }
