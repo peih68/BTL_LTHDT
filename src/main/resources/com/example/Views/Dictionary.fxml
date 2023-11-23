@@ -6,7 +6,7 @@
 
 <AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="825.0" stylesheets="@../demo_tudien/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.SetSceneController">
    <children>
-      <SplitPane id="background_trongsuot" fx:id="splitPane" dividerPositions="0.0036452004860267314" layoutX="308.0" layoutY="199.0" prefHeight="399.0" prefWidth="519.0" stylesheets="@../demo_tudien/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane id="background_trongsuot" fx:id="splitPane" dividerPositions="0.10692588092345079" layoutX="308.0" layoutY="199.0" prefHeight="399.0" prefWidth="519.0" stylesheets="@../demo_tudien/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="149.0" prefWidth="105.0">
                <children>
@@ -19,7 +19,7 @@
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="718.0">
                <children>
-                  <AnchorPane fx:id="Scene" layoutX="14.0" layoutY="14.0" prefHeight="545.0" prefWidth="682.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <AnchorPane fx:id="Scene" layoutX="14.0" layoutY="14.0" prefHeight="545.0" prefWidth="682.0" stylesheets="@../demo_tudien/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <Button id="option" mnemonicParsing="false" onAction="#Option" prefHeight="60.0" prefWidth="64.0" stylesheets="@../demo_tudien/style.css" />
                </children></AnchorPane>
         </items>

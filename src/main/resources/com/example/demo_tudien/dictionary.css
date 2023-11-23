@@ -1,0 +1,62 @@
+#dictionary_bg {
+    -fx-background-image: url("image/dictionary_bg.jpg");
+}
+
+#dictionary_show {
+    -fx-background-color: white;
+    -fx-background-radius: 22px;
+}
+
+#dictionary_optionButton {
+    -fx-graphic: url("image/option.png");
+    -fx-background-color: rgba(128,128,128, 0.2);
+    -fx-background-radius: 20 0 20 0;
+    -fx-border-color: rgba(128,128,128, 1.0);
+    -fx-border-width: 2px; /* Độ dày của viền */
+    -fx-border-radius: 20 0 20 0; /* Độ cong của góc viền */
+    -fx-border-style: solid; /* Kiểu viền */
+}
+
+#dictionary_homeButton {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 2); /* Áp dụng hiệu ứng đổ bóng */
+    -fx-graphic: url("image/home.png");
+    -fx-background-color: rgba(0,0,255, 0.4);
+    -fx-background-radius: 20px;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+#dictionary_searchButton {
+    -fx-graphic: url("image/search.png");
+    -fx-background-color: rgba(0,0,255, 0.4);
+    -fx-background-radius: 20px;    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+#dictionary_googleButton {
+    -fx-graphic: url("image/google.png");
+    -fx-background-color: rgba(0,0,255, 0.4);
+    -fx-background-radius: 20px;    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+#dictionary_gamesButton {
+    -fx-graphic: url("image/games.png");
+    -fx-background-color: rgba(0,0,255, 0.4);
+    -fx-background-radius: 20px;    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+#dictionary_historyButton {
+    -fx-graphic: url("image/history.png");
+    -fx-background-color: rgba(0,0,255, 0.4);
+    -fx-background-radius: 20px;    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+#dictionary_closeButton {
+    -fx-graphic: url("image/close.png");
+    -fx-background-color: rgba(0,0,255, 0.4);
+    -fx-background-radius: 20px;    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
