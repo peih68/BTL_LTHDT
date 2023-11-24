@@ -1,0 +1,48 @@
+#history_anchorSearch {
+    -fx-background-color: rgba(42,149,191);
+    -fx-background-radius: 22px;
+}
+
+#Vbox {
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+}
+
+#history_tableName {
+    -fx-background-color: rgba(115,198,217);
+    -fx-background-radius: 20 20 0 0;
+
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
+    -fx-font-size: 16;
+    -fx-text-fill: rgb(128,128,128);
+}
+
+#history_home {
+    -fx-graphic: url("image/homeGeneral.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(85, 193, 217, 0.5);
+    -fx-background-radius: 50;
+    -fx-font-size: 16;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#history_wordList {
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 16;
+    -fx-text-fill: rgb(128,128,128);
+}
+
+#history_search {
+    -fx-graphic: url("image/search1.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+}

@@ -1,15 +1,11 @@
 package com.example.demo_tudien.ctrler;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.SplitPane;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,11 +16,16 @@ public class SetSceneController implements Initializable {
     private AnchorPane homePane;
     private AnchorPane gamePane;
     private AnchorPane historyPane;
+    @FXML
+    private AnchorPane basicSence;
 
     @FXML
-    private SplitPane splitPane;
-    @FXML
     private AnchorPane Scene;
+    @FXML
+    private AnchorPane showScene;
+
+    @FXML
+    ToggleButton Option;
 
     private GameController gameController;
 
@@ -36,30 +37,19 @@ public class SetSceneController implements Initializable {
 
     private SearchController searchController;
 
-    private static final Duration ANIMATION_DURATION = Duration.millis(300);
-
-    private boolean isSidebarVisible = true;
-
-
-
     public void Option() {
-        double endValue = isSidebarVisible ? 0.13 : 0.0;
-
-        KeyValue keyValue = new KeyValue(splitPane.getDividers().get(0).positionProperty(), endValue);
-        KeyFrame keyFrame = new KeyFrame(ANIMATION_DURATION, keyValue);
-
-        Timeline timeline = new Timeline(keyFrame);
-        timeline.setOnFinished(event -> {
-            isSidebarVisible = !isSidebarVisible;
-            //toggleButton.setText(isSidebarVisible ? "Khép SplitPane" : "Mở SplitPane");
-        });
-        timeline.play();
+        if(Option.isSelected()) {
+                basicSence.setLeftAnchor(Scene, 8.0);
+            }
+            else {
+                basicSence.setLeftAnchor(Scene, 105.0);
+        }
     }
 
     private void setScene(AnchorPane anchorPane) {
-        AnchorPane.setRightAnchor(anchorPane,5.0);
-        AnchorPane.setLeftAnchor(anchorPane,5.0);
-        Scene.getChildren().setAll(anchorPane);
+        AnchorPane.setRightAnchor(anchorPane,0.0);
+        AnchorPane.setLeftAnchor(anchorPane,0.0);
+        showScene.getChildren().setAll(anchorPane);
     }
 
     @FXML
@@ -144,7 +134,7 @@ public class SetSceneController implements Initializable {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Store.fxml")));
             historyPane = loader.load();
             historyController = loader.getController();
-            historyController.setSetSceneController(this);
+            historyController.setSceneController(this);
             historyController.setStartListView();
         } catch (Exception e) {
             e.printStackTrace();
