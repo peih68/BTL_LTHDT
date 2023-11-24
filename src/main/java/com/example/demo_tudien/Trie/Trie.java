@@ -63,4 +63,38 @@ public class Trie {
             this.add(word.getWordTarget());
         }
     }
+
+    public void remove(String word) {
+        if (word == null || word.isEmpty()) {
+            System.out.println("Từ trống");
+            return;
+        }
+        removeHelper(root, word, 0);
+    }
+
+    private boolean removeHelper(Node node, String word, int depth) {
+        if (depth == word.length()) {
+            if (!node.isWord) {
+                return false;
+            }
+            node.isWord = false;
+            return node.nexts.isEmpty();
+        }
+
+        char ch = word.charAt(depth);
+        Node nextNode = node.nexts.get(ch);
+
+        if (nextNode == null) {
+            return false;
+        }
+
+        boolean shouldDeleteCurrentNode = removeHelper(nextNode, word, depth + 1);
+
+        if (shouldDeleteCurrentNode) {
+            node.nexts.remove(ch);
+            return node.nexts.isEmpty() && !node.isWord;
+        }
+
+        return false;
+    }
 }

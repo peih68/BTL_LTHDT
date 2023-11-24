@@ -22,9 +22,9 @@ public class HistoryController implements Initializable {
     }
     SetSceneController setSceneController;
 
-    Trie savedWordsTrie = new Trie();
+    public static Trie savedWordsTrie = new Trie();
 
-    Trie historyTrie = new Trie();
+    public static Trie historyTrie = new Trie();
 
     @FXML
     public ListView<String> savedWordsListView;

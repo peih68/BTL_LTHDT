@@ -75,6 +75,7 @@ public class SetSceneController implements Initializable {
     @FXML
     public void showHistoryPane() {
         setScene(historyPane);
+        historyController.setStartListView();
     }
 
 
@@ -135,7 +136,6 @@ public class SetSceneController implements Initializable {
             historyPane = loader.load();
             historyController = loader.getController();
             historyController.setSceneController(this);
-            historyController.setStartListView();
         } catch (Exception e) {
             e.printStackTrace();
         }

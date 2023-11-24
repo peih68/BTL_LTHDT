@@ -2333,3 +2333,211 @@
 - đánh bằng roi chín dài
 *  nội động từ
 - (thông tục) nôn mửa
+@jess
+- dây buộc chân (chim ưng săn)
+*  ngoại động từ
+- buộc dây chân vào (chim ưng săn)
+@happy
+- vui sướng, vui lòng (một công thức xã giao)
+=I shall be happy to accept your invitation+ tôi sung sướng nhận lời mời của ông
+- may mắn, tốt phúc
+- sung sướng, hạnh phúc
+=a happy marriage+ một cuộc hôn nhân hạnh phúc
+- khéo chọn, rất đắt, rất đúng, tài tình (từ, thành ngữ, câu nói...); thích hợp (cách xử sự...)
+=a happy rectort+ câu đối đáp rất tài tình
+=a happy guess+ lời đoán rất đúng
+- (từ lóng) bị choáng váng, bị ngây ngất (vì bom...)
+@suable
+- (pháp lý) có thể truy tố được
+@chicken
+- gà con; gà giò
+- thịt gà giò
+- (nghĩa bóng) trẻ nhỏ, bé con
+=he is no chicken+ nó không còn là trẻ nhỏ nữa
+- (từ Mỹ,nghĩa Mỹ),  (từ lóng) người đàn bà trẻ ngây thơ; cô gái ngây thơ
+- (từ Mỹ,nghĩa Mỹ),  (từ lóng) máy bay khu trục
+!to count one's chickens before they are hatched
+- (tục ngữ) chưa đẻ đã đặt tên
+!mother carey's chicken
+- chim hải âu nhỏ
+!that's their chicken
+- đó là công việc của họ
+@chicken
+- gà con; gà giò
+- thịt gà giò
+- (nghĩa bóng) trẻ nhỏ, bé con
+=he is no chicken+ nó không còn là trẻ nhỏ nữa
+- (từ Mỹ,nghĩa Mỹ),  (từ lóng) người đàn bà trẻ ngây thơ; cô gái ngây thơ
+- (từ Mỹ,nghĩa Mỹ),  (từ lóng) máy bay khu trục
+!to count one's chickens before they are hatched
+- (tục ngữ) chưa đẻ đã đặt tên
+!mother carey's chicken
+- chim hải âu nhỏ
+!that's their chicken
+- đó là công việc của họ
+@chicken
+- gà con; gà giò
+- thịt gà giò
+- (nghĩa bóng) trẻ nhỏ, bé con
+=he is no chicken+ nó không còn là trẻ nhỏ nữa
+- (từ Mỹ,nghĩa Mỹ),  (từ lóng) người đàn bà trẻ ngây thơ; cô gái ngây thơ
+- (từ Mỹ,nghĩa Mỹ),  (từ lóng) máy bay khu trục
+!to count one's chickens before they are hatched
+- (tục ngữ) chưa đẻ đã đặt tên
+!mother carey's chicken
+- chim hải âu nhỏ
+!that's their chicken
+- đó là công việc của họ
+@test
+- (động vật học) vỏ (tôm, cua); mai (rùa)
+- sự thử thách
+=to put on test+ đem thử thách
+=to stand the test+ chịu thử thách
+- sự thử, sự làm thử
+=test bench+ giá để thử xe
+- sự sát hạch; bài kiểm tra
+=a test in arithmetic+ một bài kiểm tra số học
+- (hoá học) thuốc thử
+- (nghĩa bóng) vật để thử, đá thử vàng, tiêu chuẩn, cái để đánh gía
+*  ngoại động từ
+- thử thách
+=to test someone's endurance+ thử thách sức chịu đựng của ai
+- thử; kiểm tra
+=to test a machine+ thử một cái máy
+=to test out a scheme+ thử áp dụng một kế hoạch
+=the doctor tested my eyesight+ bác sĩ kiểm tra mắt tôi
+=to test a poison+ thử một chất độc
+- (hoá học) thử bằng thuốc thử
+- phân tích
+=to test ore for gold+ phân tích quặng tìm vàng
+@test
+- t. of normality (thống kê) tiêu chuẩn của tính chuẩn
+- t. of significance tiêu chuẩn có ý nghĩa
+- ability t. phép thử khả năng, kiểm tra khả năng
+- admissible t. tiêu chuẩn chấp nhận được
+- asymmetric t. tiêu chuẩn phi đối xứng
+- comparison t. (giải tích) dấu hiệu so sánh 
+- double-tailed t. tiêu chuẩn bị chặn hai đầu
+- equal-tailed t. tiêu chuẩn bị chặn đối xứng 
+- impact t. thí nghiệm xung kích 
+- medial t. (thống kê) tiêu chuẩn trung tâm
+- median t. (thống kê) tiêu chuẩn dựa trên trung vị
+- model t. (máy tính) thực nghiệm trên mô hình
+- most powerful t. (thống kê) tiêu chuẩn mạnh nhất
+- nine t. phép thử số chín
+- non-parametric t. (thống kê) kiểm định phi tham số
+- one-sided t. (thống kê) kiểm định một phía
+- optimum t. tiêu chuẩn tối ưu
+- orthogonal t.s (thống kê) các tiêu chuẩn trực giao
+- reversal t. tiêu chuẩn đảo ngược được
+- root t. (giải tích) phép thử nghiệm
+- sequential t. (thống kê) tiêu chuẩn liên tiếp
+- serial t. tiêu chuẩn dãy
+- sign t. tiêu chuẩn dấu
+- significance t. tiêu chuẩn ý nghĩa 
+- smooth t. tiêu chuẩn trơn
+- symmetric(al) t. (thống kê) tiêu chuẩn đối xứng
+- two-sample t. tiêu chuẩn hai mẫu
+- uniformly most powerful t. tiêu chuẩn mạnh đều nhất
+- variance t. tiêu chuẩn phương sai
+@test
+- t. of significance tiêu chuẩn có ý nghĩa
+- ability t. phép thử khả năng, kiểm tra khả năng
+- admissible t. tiêu chuẩn chấp nhận được
+- asymmetric t. tiêu chuẩn phi đối xứng
+- comparison t. (giải tích) dấu hiệu so sánh 
+- double-tailed t. tiêu chuẩn bị chặn hai đầu
+- equal-tailed t. tiêu chuẩn bị chặn đối xứng 
+- impact t. thí nghiệm xung kích 
+- medial t. (thống kê) tiêu chuẩn trung tâm
+- median t. (thống kê) tiêu chuẩn dựa trên trung vị
+- model t. (máy tính) thực nghiệm trên mô hình
+- most powerful t. (thống kê) tiêu chuẩn mạnh nhất
+- nine t. phép thử số chín
+- non-parametric t. (thống kê) kiểm định phi tham số
+- one-sided t. (thống kê) kiểm định một phía
+- optimum t. tiêu chuẩn tối ưu
+- orthogonal t.s (thống kê) các tiêu chuẩn trực giao
+- reversal t. tiêu chuẩn đảo ngược được
+- root t. (giải tích) phép thử nghiệm
+- sequential t. (thống kê) tiêu chuẩn liên tiếp
+- serial t. tiêu chuẩn dãy
+- sign t. tiêu chuẩn dấu
+- significance t. tiêu chuẩn ý nghĩa 
+- smooth t. tiêu chuẩn trơn
+- symmetric(al) t. (thống kê) tiêu chuẩn đối xứng
+- two-sample t. tiêu chuẩn hai mẫu
+- uniformly most powerful t. tiêu chuẩn mạnh đều nhất
+- variance t. tiêu chuẩn phương sai
+@aditus
+
+@aditus
+
+@aditus
+
+@adit
+
+@aditus
+
+@mead
+
+@meadowland
+
+@a
+- (thông tục) loại a, hạng nhất, hạng tốt nhất hạng rất tốt
+=his health is a+ sức khoẻ anh ta vào loại a
+- (âm nhạc) la
+=a sharp+ la thăng
+=a flat+ la giáng
+- người giả định thứ nhất; trường hợp giả định thứ nhất
+=from a to z+ từ đầu đến đuôi, tường tận
+=not to know a from b+ không biết tí gì cả; một chữ bẻ đôi cũng không biết
+*  mạo từ
+- một; một (như kiểu); một (nào đó)
+=a very cold day+ một ngày rất lạnh
+=a dozen+ một tá
+=a few+ một ít
+=all of a size+ tất cả cùng một cỡ
+=a Shakespeare+ một (văn hào như kiểu) Sếch-xpia
+=a Mr Nam+ một ông Nam (nào đó)
+- cái, con, chiếc, cuốn, người, đứa...;
+=a cup+ cái chén
+=a knife+ con dao
+=a son of the Party+ người con của Đảng
+=a Vietnamese grammar+ cuốn ngữ pháp Việt Nam
+*  giới từ
+- mỗi, mỗi một
+=twice a week+ mỗi tuần hai lần
+@cat
+*  danh từ
+- con mèo
+- (động vật học) thú thuộc giống mèo (sư tử, hổ, báo...)
+- mụ đàn bà nanh ác; đứa bé hay cào cấu
+- (hàng hải) đòn kéo neo ((cũng) cat head)
+- roi chín dài (để tra tấn) ((cũng) cat o-nine-tails)
+- con khăng (để chơi đanh khăng)
+!all cats are grey in the dark (in the night)
+- (tục ngữ) tắt đèn nhà ngói cũng như nhà tranh
+!cat in the pan (cat-in-the-pan)
+- kẻ trở mặt, kẻ phản bội
+!the cat is out the bag
+- điều bí mật đã bị tiết lộ rồi
+!fat cat
+- (từ Mỹ,nghĩa Mỹ),  (từ lóng) tư bản kếch xù, tài phiệt
+!to fight like Kilkemy cats
+- giết hại lẫn nhau
+!to let the cat out of the bag
+- (xem) let
+!it rains cats and dogs
+- (xem) rain
+!to see which way the cat jumps; to wait for the cat to jump
+- đợi gió xoay chiều, đợi gió chiều nào thì theo chiều ấy
+!to room to swing a cat
+- (xem) room
+!to turn cat in the pan
+- trở mặt; thay đổi ý kiến (lúc lâm nguy); phản hồi
+*  ngoại động từ
+- (hàng hải) kéo (neo) lên đòn kéo neo
+- đánh bằng roi chín dài
+*  nội động từ
+- (thông tục) nôn mửa

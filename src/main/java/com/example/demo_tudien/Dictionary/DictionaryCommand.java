@@ -27,7 +27,7 @@ public class DictionaryCommand {
                     if (spilitArray.length > 1) {
                         meaning = "/" + spilitArray[1].trim() + "\n" + line + "\n";
                     }
-                    while ((line = bufferedReader.readLine()) != null)
+                    while ((line = bufferedReader.readLine()) != null) {
                         if (line.startsWith("@")) {
                             spilitArray = line.split("/", 2);
                             if (!spilitArray[0].trim().replace("@", "").isEmpty()) {
@@ -41,9 +41,10 @@ public class DictionaryCommand {
                         } else {
                             meaning += line + "\n";
                         }
+                    }
                     word.setWordExplain(meaning.trim());
                     dictionary.getWords().add(word);
-                }
+                    }
                 bufferedReader.close();
             }
             if (dictionary instanceof VietnameseEnglish) {
@@ -81,7 +82,8 @@ public class DictionaryCommand {
             FileWriter fileWriter = new FileWriter(path);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for (Word word : dictionary.getWords()) {
-                bufferedWriter.write("@" + word.getWordTarget() + "\n" + word.getWordExplain());
+                bufferedWriter.write("@" + word.getWordTarget() + "\n");
+                bufferedWriter.write(word.getWordExplain());
                 bufferedWriter.newLine();
             }
             bufferedWriter.close();

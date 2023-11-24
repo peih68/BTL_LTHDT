@@ -21,7 +21,7 @@ public class PixabayAPI {
                     .toList();
             String randomURL = "";
             if (!imageURLs.isEmpty()) {
-                randomURL = imageURLs.get(1);
+                randomURL = imageURLs.get(0);
             } else {
                 return null;
             }

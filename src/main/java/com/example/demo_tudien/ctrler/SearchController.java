@@ -20,6 +20,7 @@ import ru.blizzed.pixabaylib.params.LangParam;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -88,6 +89,12 @@ public class SearchController implements Initializable {
 
     @FXML
     private Button soundButton;
+
+    @FXML
+    private Button deleteButton;
+    @FXML
+    private Button fixButton;
+
     private boolean wordExist;
 
     private static final String warningStyle = "label_warning";
@@ -181,6 +188,49 @@ public class SearchController implements Initializable {
                     showThongBao("Không được phép thêm", warningStyle);
                 }
         }
+    @FXML
+    public void onActionDeleteButton() {
+        if (wordTargetTextField.getText().isEmpty() || searchArea.getItems().getFirst().isEmpty()) {
+            showThongBao("Không có từ nào để xóa!", warningStyle);
+            return;
+        } else {
+            if (!searchArea.getItems().getFirst().isEmpty()) {
+                String wordTarget = searchArea.getItems().getFirst();
+                Word word = new Word();
+                word = FullDictionary.savedWords.getWordFromWordTarget(wordTarget);
+                if (word == null) {
+                    showThongBao("Từ không tồn tại trong Từ đã lưu", warningStyle);
+                } else {
+                    FullDictionary.savedWords.getWords().remove(word);
+                    DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                    HistoryController.savedWordsTrie.remove(wordTarget);
+                    showThongBao("Đã xóa từ " + wordTarget + " khỏi Từ đã lưu", notifyStyle);
+                }
+            } else {
+                showThongBao("Không có từ nào để xóa!", warningStyle);
+                return;
+            }
+        }
+    }
+    @FXML
+    private void onActionFixButton() {
+        if (searchArea.getItems().getFirst().isEmpty()) {
+            showThongBao("Không có từ để sửa!", warningStyle);
+        } else {
+            String wordTarget = searchArea.getItems().getFirst();
+            String fixedWordExplain = wordExplainTextField.getText();
+
+            Word oldWord = FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget);
+            String oldWordExplain = oldWord.getWordExplain();
+            if (!fixedWordExplain.equals(oldWordExplain)) {
+                FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget).setWordExplain(fixedWordExplain);
+                DictionaryCommand.exportToFile(FullDictionary.EVdictionary, "src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
+                showThongBao("Đã sửa từ " + wordTarget + " thành công", notifyStyle);
+            } else {
+                showThongBao("Chưa có gì thay đổi!", warningStyle);
+            }
+        }
+    }
 
     private void setThongBao(String content, String style) {
         thongBao.setText(content);
@@ -194,7 +244,7 @@ public class SearchController implements Initializable {
             case AnhViet :
                 if (!searchArea.getItems().isEmpty()) {
                     String firstWord = searchArea.getItems().getFirst();
-                    if (!PixabayAPI.getRandomImage(firstWord, LangParam.Lang.EN).isError()) {
+                    if (!Objects.requireNonNull(PixabayAPI.getRandomImage(firstWord, LangParam.Lang.EN)).isError()) {
                         testImage.setImage(PixabayAPI.getRandomImage(firstWord, LangParam.Lang.EN));
                     } else {
                         testImage.setImage(null);
