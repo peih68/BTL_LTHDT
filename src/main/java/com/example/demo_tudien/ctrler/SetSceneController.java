@@ -15,10 +15,10 @@ public class SetSceneController implements Initializable {
     private AnchorPane googlePane;
     private AnchorPane homePane;
     private AnchorPane gamePane;
+    private AnchorPane CardMatchingGameControllerPane;
     private AnchorPane historyPane;
     @FXML
     private AnchorPane basicSence;
-
     @FXML
     private AnchorPane Scene;
     @FXML
@@ -36,6 +36,8 @@ public class SetSceneController implements Initializable {
     private HistoryController historyController;
 
     private SearchController searchController;
+
+    private CardMatchingGameController cardMatchingGameController;
 
     public void Option() {
         if(Option.isSelected()) {
@@ -76,6 +78,9 @@ public class SetSceneController implements Initializable {
     public void showHistoryPane() {
         setScene(historyPane);
         historyController.setStartListView();
+    }
+    @FXML void showCardMatchingGame() {
+        setScene(CardMatchingGameControllerPane);
     }
 
 
@@ -136,6 +141,16 @@ public class SetSceneController implements Initializable {
             historyPane = loader.load();
             historyController = loader.getController();
             historyController.setSceneController(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/CardMatchingGame.fxml")));
+            CardMatchingGameControllerPane = loader.load();
+//            historyController = loader.getController();
+//            historyController.setSceneController(this);
+            cardMatchingGameController =  loader.getController();
+            cardMatchingGameController.setSceneController(this);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -15,20 +15,25 @@ public class GameController implements Initializable {
     private AnchorPane gameScene;
     private AnchorPane game1Scene;
 
-    private void setScene(AnchorPane anchorPane) {
-        AnchorPane.setRightAnchor(anchorPane,5.0);
-        AnchorPane.setLeftAnchor(anchorPane,5.0);
-        gameScene.getChildren().setAll(anchorPane);
-    }
+//    private void setScene(AnchorPane anchorPane) {
+//        gameScene.getChildren().setAll(anchorPane);
+//    }
+//
+//    public void showGame1Pane() {
+//        setScene(game1Scene);
+//    }
 
-    public void showGame1Pane() {
-        setScene(game1Scene);
+    @FXML
+    public void showGame1() {
+        if (setSceneController != null) {
+            setSceneController.showCardMatchingGame();
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/Game_1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/CardMatchingGame.fxml"));
             game1Scene = loader.load();
         } catch (Exception e) {
             e.printStackTrace();
@@ -40,7 +45,7 @@ public class GameController implements Initializable {
     }
 
     @FXML
-    public void  setHome() {
+    public void setHome() {
         if (setSceneController != null) {
             setSceneController.showHomePane();
         }

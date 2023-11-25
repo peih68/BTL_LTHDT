@@ -1,0 +1,43 @@
+#cardMatchingGame_StartButton {
+    /*-fx-graphic: url("image/cardMatchingGame.png");*/
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-background-color: rgba(84, 255, 159, 0.7);
+    -fx-font-size: 18;
+    -fx-background-radius: 22;
+    -fx-alignment: center;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#cardMatchingGame_StartButton:hover {
+    -fx-background-color: rgba(0,255,255, 0.7);
+}
+#cardMatchingGame_StartButton:pressed {
+    -fx-background-color: rgba(0,0,255, 0.7);
+    -fx-border-color: black;
+    -fx-rotate: 7;
+}
+
+
+
+#cardMatchingGame_Progressbar.progress-bar {
+    -fx-background-color: #3498db;
+
+    /* Đổi chiều dài thanh ProgressBar */
+    /*-fx-pref-width: 300;*/
+}
+#cardMatchingGame_Progressbar.track {
+    -fx-background-color: #ecf0f1;
+}
+
+#cardMatchingGame_Notify {
+    -fx-font-weight: bold;
+    -fx-text-fill: green;
+    -fx-background-color: rgba(255,215,0, 0.95);
+    -fx-background-radius: 22;
+    -fx-font-size: 20;
+    -fx-alignment: center;
+}
+
