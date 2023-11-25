@@ -11,7 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            stage.initStyle(StageStyle.UNDECORATED);
+//            Stage.initStyle(StageStyle.UNDECORATED);
+
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/Views/Dictionary.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 850, 600);
             stage.setTitle("Từ điển");

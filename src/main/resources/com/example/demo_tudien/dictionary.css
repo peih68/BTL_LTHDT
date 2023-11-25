@@ -1,5 +1,9 @@
 #dictionary_bg {
+    /*-fx-background-color: rgba(0,0,0,1);*/
+    /*-fx-background-radius: 20;*/
+
     -fx-background-image: url("image/dictionary_bg.jpg");
+    /*-fx-background-color: linear-gradient(to bottom right, blue, white);*/
 }
 
 #dictionary_show {

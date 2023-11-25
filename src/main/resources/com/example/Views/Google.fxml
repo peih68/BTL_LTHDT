@@ -15,6 +15,6 @@
       <Button id="google_listenButton" fx:id="phatAmChuaDichButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionPhatAmChuaDichButton" stylesheets="@../demo_tudien/google.css" text="Listen" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="57.0" />
       <Button id="google_listenButton" fx:id="phatAmDaDichButton" layoutX="5.0" layoutY="315.0" mnemonicParsing="false" onAction="#onActionphatAmDaDichButton" stylesheets="@../demo_tudien/google.css" text="Listen" AnchorPane.topAnchor="312.0" />
       <Button id="google_switchTypesButton" layoutX="591.0" layoutY="283.0" mnemonicParsing="false" onAction="#switchType" prefHeight="43.0" prefWidth="99.0" stylesheets="@../demo_tudien/google.css" text="Switch" AnchorPane.rightAnchor="30.0" />
-      <Button id="google_home" layoutX="90.0" layoutY="14.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="61.0" stylesheets="@../demo_tudien/google.css" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="0.0" />
+      <Button id="google_home" layoutX="90.0" layoutY="14.0" mnemonicParsing="false" onAction="#setHome" prefHeight="43.0" prefWidth="61.0" stylesheets="@../demo_tudien/google.css" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>
