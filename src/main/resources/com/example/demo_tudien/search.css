@@ -80,34 +80,46 @@
 
 #search_addButton {
     -fx-graphic: url("image/add.png");
-    -fx-background-color: rgba(42, 149, 191, 0.5);
+    -fx-background-color: rgba(42, 149, 191, 0);
+}
+#search_addButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
 }
 #search_addButton:pressed {
-    -fx-background-color: rgba(42, 149, 191, 1);
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.7, 3, 3);
 }
 
 #search_bookmarkButton {
-    -fx-graphic: url("image/bookmark.png");
-    -fx-background-color: rgba(42, 149, 191, 0.5);
+    -fx-graphic: url("image/save.png");
+    -fx-background-color: rgba(42, 149, 191, 0);
+}
+#search_bookmarkButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
 }
 #search_bookmarkButton:pressed {
-    -fx-background-color: rgba(42, 149, 191, 0.9);
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.7, 3, 3);
 }
 
 #search_deleteButton {
     -fx-graphic: url("image/delete.png");
-    -fx-background-color: rgba(42, 149, 191, 0.5);
+    -fx-background-color: rgba(42, 149, 191, 0);
+}
+#search_deleteButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
 }
 #search_deleteButton:pressed {
-    -fx-background-color: rgba(42, 149, 191, 0.9);
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.7, 3, 3);
 }
 
 #search_fixButton {
     -fx-graphic: url("image/fix.png");
-    -fx-background-color: rgba(42, 149, 191, 0.5);
+    -fx-background-color: rgba(42, 149, 191, 0);
 }
-#search_fixButton:pressed {
-    -fx-background-color: rgba(42, 149, 191, 0.9);
+#search_fixButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}
+#search_fixButton:pressed{
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.7, 3, 3);
 }
 
 #search_home {
