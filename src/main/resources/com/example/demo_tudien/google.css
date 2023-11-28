@@ -1,10 +1,10 @@
 #google_text {
     -fx-font-weight: bold;
     -fx-background-color: rgba(255, 255, 255, 0.9);
-    -fx-background-radius: 9;
+    /*-fx-background-radius: 9;*/
     -fx-font-size: 16;
     -fx-border-color: black;
-    -fx-border-radius: 7.5;
+    /*-fx-border-radius: 7.5;*/
     -fx-border-width: 1.5;
 }
 
