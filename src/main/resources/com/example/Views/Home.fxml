@@ -35,11 +35,15 @@
                   <Label id="home_meanWord" fx:id="wordExplainLHW" alignment="TOP_LEFT" onMouseClicked="#onActionLHW" prefHeight="242.0" prefWidth="1109.0" stylesheets="@../demo_tudien/home.css" wrapText="true" />
                </children>
             </VBox>
-            <ListView id="home_meanWord" fx:id="searchListView" layoutX="160.0" layoutY="26.0" prefHeight="322.0" prefWidth="368.0" stylesheets="@../demo_tudien/home.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="190.0" />
+            <AnchorPane layoutX="160.0" layoutY="-25.0" prefHeight="326.0" prefWidth="373.0">
+               <children>
+                  <TextField id="home_searchField" fx:id="wordTargetTextField" layoutX="-4.0" onMouseClicked="#wordTargetListener" prefHeight="46.0" prefWidth="373.0" stylesheets="@../demo_tudien/home.css" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="4.800000000000011" />
+                  <ListView id="home_meanWord" fx:id="searchListView" layoutX="15.2" layoutY="46.19999999999999" prefHeight="274.0" prefWidth="344.0" stylesheets="@../demo_tudien/home.css" AnchorPane.bottomAnchor="5.800000000000011" AnchorPane.leftAnchor="15.2" AnchorPane.rightAnchor="15.199999999999989" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <TextField id="home_searchField" fx:id="wordTargetTextField" layoutX="169.0" layoutY="195.0" onMouseClicked="#wordTargetListener" prefHeight="46.0" prefWidth="360.0" stylesheets="@../demo_tudien/home.css" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="190.0" />
-      <Button id="home_searchButton" layoutX="530.0" layoutY="195.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="50.0" stylesheets="@../demo_tudien/home.css" AnchorPane.rightAnchor="140.0" />
+      <Button id="home_searchButton" layoutX="527.0" layoutY="192.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="50.0" stylesheets="@../demo_tudien/home.css" AnchorPane.rightAnchor="139.39999999999998" />
       <Button id="home_logo" layoutX="298.4" layoutY="78.0" mnemonicParsing="false" stylesheets="@../demo_tudien/home.css" AnchorPane.leftAnchor="298.4" AnchorPane.rightAnchor="285.6" />
    </children>
 </AnchorPane>
