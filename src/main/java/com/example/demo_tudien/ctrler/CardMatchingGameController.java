@@ -31,6 +31,7 @@ public class CardMatchingGameController {
     private static final int GRID_SIZE = 4;
     private List<String> cardValues = new ArrayList<>();
     Map<String, String> wordMap = new HashMap<>();
+    Map<String,String> allWord = new HashMap<>();
     private Button[][] cards = new Button[GRID_SIZE][GRID_SIZE];
     private Button firstCard = null;
     private Button secondCard = null;
@@ -50,7 +51,8 @@ public class CardMatchingGameController {
 
         playAgainButton.setVisible(true);
 
-        initializeValues();
+        initializeRandomValues();
+//        initializeValues();
         initializeCardValues();
         shuffleCardValues();
         initializeCards();
@@ -69,6 +71,14 @@ public class CardMatchingGameController {
 
     private void resetGame() {
         // Reset necessary variables, enable cards, reset score, etc.
+        clearWord();
+
+        initializeRandomValues();
+        initializeCardValues();
+
+        initializeCards();
+//        displayInitialCards();
+
         gameEnded = false;
         elapsedTime = 0;
         score = 0;
@@ -92,20 +102,131 @@ public class CardMatchingGameController {
 //
 //        initializeTimer();
 //        startTimer();
+        initializeValues();
         Notify.setVisible(false);
         playAgainButton.setVisible(false);
     }
     private void initializeValues() {
         // Thêm từ và ý nghĩa vào HashMap
-        wordMap.put("Apple", "quả táo");
-        wordMap.put("Book", "sách");
-        wordMap.put("Car", "xe hơi");
-        wordMap.put("Dog", "con chó");
-        wordMap.put("Elephant", "con voi");
-        wordMap.put("Flower", "bông hoa");
-        wordMap.put("Guitar", "đàn guitar");
-        wordMap.put("House", "nhà");
+        allWord.put("Cat", "con mèo");
+        allWord.put("Dog", "con chó");
+        allWord.put("House", "ngôi nhà");
+        allWord.put("Tree", "cây");
+        allWord.put("Book", "sách");
+        allWord.put("Computer", "máy tính");
+        allWord.put("Sun", "mặt trời");
+        allWord.put("Moon", "mặt trăng");
+        allWord.put("River", "sông");
+        allWord.put("Mountain", "núi");
+        allWord.put("Beach", "bãi biển");
+        allWord.put("Fish", "cá");
+        allWord.put("Bird", "chim");
+        allWord.put("Car", "xe hơi");
+        allWord.put("Bicycle", "xe đạp");
+        allWord.put("Phone", "điện thoại");
+        allWord.put("Chair", "ghế");
+        allWord.put("Table", "bàn");
+        allWord.put("Apple", "quả táo");
+        allWord.put("Banana", "quả chuối");
+        allWord.put("Orange", "quả cam");
+        allWord.put("Guitar", "đàn guitar");
+        allWord.put("Rain", "mưa");
+        allWord.put("Cloud", "đám mây");
+        allWord.put("Star", "ngôi sao");
+        allWord.put("Fire", "lửa");
+        allWord.put("Water", "nước");
+        allWord.put("Egg", "quả trứng");
+        allWord.put("Milk", "sữa");
+        allWord.put("Coffee", "cà phê");
+        allWord.put("Tea", "trà");
+        allWord.put("Cake", "bánh kem");
+        allWord.put("Ice cream", "kem");
+        allWord.put("Butterfly", "bướm");
+        allWord.put("Flower", "hoa");
+        allWord.put("Grass", "cỏ");
+        allWord.put("Elephant", "con voi");
+        allWord.put("Tiger", "con hổ");
+        allWord.put("Lion", "con sư tử");
+        allWord.put("Monkey", "con khỉ");
+        allWord.put("Panda", "gấu trúc");
+        allWord.put("Zebra", "ngựa vằn");
+        allWord.put("Kangaroo", "kangaroo");
+        allWord.put("Giraffe", "hươu cao cổ");
+        allWord.put("Penguin", "chim cánh cụt");
+        allWord.put("Dolphin", "cá heo");
+        allWord.put("Whale", "cá voi");
+        allWord.put("Shark", "cá mập");
+        allWord.put("Octopus", "bạch tuộc");
+        allWord.put("Dragon", "rồng");
+        allWord.put("Unicorn", "kỳ lân");
+        allWord.put("Mermaid", "tiên cá");
+        allWord.put("Wizard", "phù thủy");
+        allWord.put("Fairy", "nàng tiên");
+        allWord.put("Vampire", "ma cà rồng");
+        allWord.put("Werewolf", "người sói");
+        allWord.put("Ghost", "ma");
+        allWord.put("Witch", "phù thủy");
+        allWord.put("Robot", "robot");
+        allWord.put("Alien", "người ngoài hành tinh");
+        allWord.put("Astronaut", "phi hành gia");
+        allWord.put("Planet", "hành tinh");
+        allWord.put("Galaxy", "ngân hà");
+        allWord.put("Rocket", "tên lửa");
+        allWord.put("Satellite", "vệ tinh");
+        allWord.put("Constellation", "chòm sao");
+        allWord.put("Spaceship", "phi thuyền");
+        allWord.put("Eclipse", "nhật thực");
+        allWord.put("Comet", "sao chổi");
+        allWord.put("Meteor", "hòa thạch");
+        allWord.put("Rainbow", "cầu vồng");
+        allWord.put("Thunder", "sấm");
+        allWord.put("Lightning", "tia chớp");
+        allWord.put("Wind", "gió");
+        allWord.put("Tornado", "lốc xoáy");
+        allWord.put("Hurricane", "bão");
+        allWord.put("Earthquake", "động đất");
+        allWord.put("Volcano", "núi lửa");
+        allWord.put("Desert", "sa mạc");
+        allWord.put("Jungle", "rừng nhiệt đới");
+        allWord.put("Glacier", "sông băng");
+        allWord.put("Island", "hòn đảo");
+        allWord.put("Cave", "hang động");
+        allWord.put("Ocean", "đại dương");
+        allWord.put("Sea", "biển");
+        allWord.put("Lake", "hồ");
+        allWord.put("River", "sông");
+        allWord.put("Pond", "ao");
+        allWord.put("Stream", "suối");
+        allWord.put("Waterfall", "thác nước");
+        allWord.put("Bridge", "cây cầu");
+        allWord.put("Road", "đường");
+        allWord.put("City", "thành phố");
+        allWord.put("Village", "ngôi làng");
+        allWord.put("Country", "quốc gia");
+        allWord.put("World", "thế giới");
+        allWord.put("Universe", "vũ trụ");
     }
+
+    private void initializeRandomValues() {
+        List<Map.Entry<String, String>> list = new ArrayList<>(allWord.entrySet());
+        Collections.shuffle(list);
+
+        int count = 0;
+        for (Map.Entry<String, String> entry : list) {
+            if (count >= 8) {
+                break;
+            }
+            wordMap.put(entry.getKey(), entry.getValue());
+            count++;
+        }
+    }
+    //xóa hết giá trị trong wordMap
+    private void clearWord() {
+        wordMap.clear();
+        cardValues.clear();
+        gridPane.getChildren().clear();
+    }
+
     private void initializeCardValues() {
         for (Map.Entry<String, String> entry : wordMap.entrySet()) {
             cardValues.add(entry.getKey());
@@ -306,7 +427,11 @@ public class CardMatchingGameController {
         if (setSceneController != null) {
             if(isGameStarted) {
                 setSceneController.showGamePane();
-                resetGame();
+//                resetGame();
+                gameEnded = false;
+                elapsedTime = 0;
+                score = 0;
+                timerProgressBar.setProgress(0);
                 timer.stop();
                 disableAllCards();
             } else {
