@@ -41,6 +41,8 @@ public class CardMatchingGameController {
     @FXML
     private Button playAgainButton;
 
+    boolean isGameStarted =false;
+
     @FXML
     public void startGame() {
         startButton.setDisable(true);
@@ -57,6 +59,8 @@ public class CardMatchingGameController {
 
         initializeTimer();
         startTimer();
+
+        isGameStarted =true;
     }
     @FXML
     public void playAgain() {
@@ -70,9 +74,12 @@ public class CardMatchingGameController {
         score = 0;
         timerProgressBar.setProgress(0);
         shuffleCardValues();
+
         displayInitialCards();
         enableAllCards();
+
         startTimer();
+
     }
 
     @FXML
@@ -297,10 +304,14 @@ public class CardMatchingGameController {
     @FXML
     public void setGamePane() {
         if (setSceneController != null) {
-            setSceneController.showGamePane();
-            resetGame();
-            timer.stop();
-            disableAllCards();
+            if(isGameStarted) {
+                setSceneController.showGamePane();
+                resetGame();
+                timer.stop();
+                disableAllCards();
+            } else {
+                setSceneController.showGamePane();
+            }
         }
     }
 
