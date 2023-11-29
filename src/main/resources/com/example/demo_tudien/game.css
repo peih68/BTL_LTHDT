@@ -9,6 +9,10 @@
     -fx-border-color: white;
     -fx-border-width: 2;
     -fx-border-radius: 20;
+
+    -fx-translate-x: 50%;
+    -fx-translate-y: 50%;
+    -fx-alignment: center;
 }
 
 #game_HangmanGameButton {

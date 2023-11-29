@@ -3,13 +3,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="gameScene" prefHeight="566.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.GameController">
+<AnchorPane fx:id="gameScene" prefHeight="566.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.GameController">
    <children>
       <AnchorPane layoutX="293.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button id="google_home" mnemonicParsing="false" onAction="#setHome" stylesheets="@../demo_tudien/google.css" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="0.0" />
-            <Button id="game_cardMatchingGameButton" alignment="CENTER" contentDisplay="TOP" layoutX="114.0" layoutY="202.0" mnemonicParsing="false" onAction="#showGame1" prefHeight="162.0" prefWidth="207.0" stylesheets="@../demo_tudien/game.css" text="Game ghép thẻ" />
-            <Button id="game_HangmanGameButton" alignment="CENTER" contentDisplay="TOP" layoutX="415.0" layoutY="202.0" mnemonicParsing="false" onAction="#showHangmanGame" prefHeight="162.0" prefWidth="207.0" stylesheets="@../demo_tudien/game.css" text="Game Hangman" />
+            <Button id="game_cardMatchingGameButton" alignment="CENTER" contentDisplay="TOP" layoutX="114.0" layoutY="202.0" mnemonicParsing="false" onAction="#showGame1" prefHeight="162.0" prefWidth="173.0" stylesheets="@../demo_tudien/game.css" text="Game ghép thẻ" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="433.0" />
+            <Button id="game_HangmanGameButton" alignment="CENTER" contentDisplay="TOP" layoutX="449.0" layoutY="202.0" mnemonicParsing="false" onAction="#showHangmanGame" prefHeight="162.0" prefWidth="173.0" stylesheets="@../demo_tudien/game.css" text="Game Hangman" AnchorPane.leftAnchor="433.0" AnchorPane.rightAnchor="114.0" />
          </children>
       </AnchorPane>
    </children>

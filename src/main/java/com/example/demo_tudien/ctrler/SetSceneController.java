@@ -91,7 +91,6 @@ public class SetSceneController implements Initializable {
         setScene(HangmanPane);
     }
 
-
     @FXML
     public void showGamePane() {
         setScene(gamePane);

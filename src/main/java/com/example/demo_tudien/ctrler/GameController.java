@@ -8,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GameController implements Initializable {
+public class GameController {
 
     SetSceneController setSceneController;
     @FXML
@@ -29,15 +29,15 @@ public class GameController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/CardMatchingGame.fxml"));
-            game1Scene = loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/CardMatchingGame.fxml"));
+//            game1Scene = loader.load();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void setSceneController(SetSceneController setSceneController) {
         this.setSceneController = setSceneController;
