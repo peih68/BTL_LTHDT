@@ -1,5 +1,7 @@
 package com.example.demo_tudien.ctrler;
 
+import com.example.demo_tudien.Dictionary.DictionaryCommand;
+import com.example.demo_tudien.Dictionary.Word;
 import com.example.demo_tudien.Trie.Trie;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -86,6 +88,12 @@ public class HistoryController implements Initializable {
         savedWordsListView.setOnMouseClicked(event -> {
                 String selectedItem = savedWordsListView.getSelectionModel().getSelectedItem();
                 if (selectedItem != null) {
+                    Word word = FullDictionary.EVdictionary.getWordFromWordTarget(selectedItem);
+                    if (word == null) {
+                        word = FullDictionary.VEdictionary.getWordFromWordTarget(selectedItem);
+                    }
+                    FullDictionary.historyWords.getWords().add(word);
+                    DictionaryCommand.exportToFile(FullDictionary.historyWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
                     setSceneController.findWordInSearch(selectedItem);
                 }
         });
@@ -95,6 +103,12 @@ public class HistoryController implements Initializable {
             if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
                 String selectedItem = historyListView.getSelectionModel().getSelectedItem();
                 if (selectedItem != null) {
+                    Word word = FullDictionary.EVdictionary.getWordFromWordTarget(selectedItem);
+                    if (word == null) {
+                        word = FullDictionary.VEdictionary.getWordFromWordTarget(selectedItem);
+                    }
+                    FullDictionary.historyWords.getWords().add(word);
+                    DictionaryCommand.exportToFile(FullDictionary.historyWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
                     setSceneController.findWordInSearch(selectedItem);
                 }
             }

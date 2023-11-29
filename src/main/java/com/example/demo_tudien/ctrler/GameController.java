@@ -15,18 +15,17 @@ public class GameController implements Initializable {
     private AnchorPane gameScene;
     private AnchorPane game1Scene;
 
-//    private void setScene(AnchorPane anchorPane) {
-//        gameScene.getChildren().setAll(anchorPane);
-//    }
-//
-//    public void showGame1Pane() {
-//        setScene(game1Scene);
-//    }
-
     @FXML
     public void showGame1() {
         if (setSceneController != null) {
             setSceneController.showCardMatchingGame();
+        }
+    }
+
+    @FXML
+    public void showHangmanGame() {
+        if (setSceneController != null) {
+            setSceneController.showHangmanGame();
         }
     }
 

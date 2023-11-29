@@ -16,6 +16,8 @@ public class SetSceneController implements Initializable {
     private AnchorPane homePane;
     private AnchorPane gamePane;
     private AnchorPane CardMatchingGameControllerPane;
+
+    private AnchorPane HangmanPane;
     private AnchorPane historyPane;
     @FXML
     private AnchorPane basicSence;
@@ -38,6 +40,8 @@ public class SetSceneController implements Initializable {
     private SearchController searchController;
 
     private CardMatchingGameController cardMatchingGameController;
+
+    private HangmanController hangmanController;
 
     public void Option() {
         if(Option.isSelected()) {
@@ -81,6 +85,10 @@ public class SetSceneController implements Initializable {
     }
     @FXML void showCardMatchingGame() {
         setScene(CardMatchingGameControllerPane);
+    }
+
+    @FXML void showHangmanGame() {
+        setScene(HangmanPane);
     }
 
 
@@ -144,16 +152,25 @@ public class SetSceneController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //Game 1
         try {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/CardMatchingGame.fxml")));
             CardMatchingGameControllerPane = loader.load();
-//            historyController = loader.getController();
-//            historyController.setSceneController(this);
             cardMatchingGameController =  loader.getController();
             cardMatchingGameController.setSceneController(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //Hangman
+        try {
+            FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/Hangman.fxml")));
+            HangmanPane = loader.load();
+            hangmanController =  loader.getController();
+            hangmanController.setSceneController(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         setScene(homePane);
     }
 }

@@ -47,6 +47,27 @@
     -fx-rotate: 7;
 }
 
+#button {
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-background-color: rgba(42,149,191, 1);
+    -fx-font-size: 24;
+    -fx-background-radius: 22;
+    -fx-alignment: center;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-text-fill: rgb(255,255,255);
+}
+#button:hover {
+    -fx-background-color: rgba(30,144,255, 0.7);
+}
+#button:pressed {
+    -fx-background-color: rgba(0,0,255, 0.7);
+    -fx-rotate: 7;
+}
+
+
 #search_listWord {
     -fx-font-weight: bold;
     -fx-background-color: rgba(255, 255, 255, 0.9);
@@ -73,6 +94,17 @@
     -fx-background-color: rgba(255, 255, 255, 0.9);
     -fx-font-family: 'Times New Roman';
     -fx-font-size: 25;
+    -fx-label-padding: 0 0 0 25px;
+    -fx-border-color: black;
+    -fx-border-width: 1.5;
+}
+
+#search_targetWord0 {
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(30,144,255);
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-font-family: 'Times New Roman';
+    -fx-font-size: 18;
     -fx-label-padding: 0 0 0 25px;
     -fx-border-color: black;
     -fx-border-width: 1.5;

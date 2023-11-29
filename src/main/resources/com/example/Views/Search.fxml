@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.SearchController">
    <children>
       <TextField id="search_searchField" fx:id="wordTargetTextField" layoutX="256.0" layoutY="15.2" onAction="#onActionWordTargetTextField" onMouseClicked="#wordTargetListener" prefHeight="39.0" prefWidth="211.0" promptText="Tra từ" stylesheets="@../demo_tudien/search.css" AnchorPane.leftAnchor="256.0" AnchorPane.rightAnchor="253.0" AnchorPane.topAnchor="10.0" />
       <ListView id="search_listWord" fx:id="searchArea" layoutX="3.0" layoutY="94.0" prefHeight="454.0" prefWidth="180.0" stylesheets="@../demo_tudien/search.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="100.0" />
@@ -25,7 +25,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextArea id="search_meanWord" fx:id="wordExplainTextField" layoutX="343.0" layoutY="140.0" prefHeight="455.0" prefWidth="522.0" stylesheets="@../demo_tudien/search.css" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0">
+      <TextArea id="search_meanWord" fx:id="wordExplainTextField" layoutX="100.0" layoutY="140.0" prefHeight="455.0" prefWidth="522.0" stylesheets="@../demo_tudien/search.css" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0">
          <font>
             <Font size="20.0" />
          </font>
@@ -45,7 +45,7 @@
          </font>
       </Label>
       <Button id="search_listenButton" fx:id="soundButton" layoutX="397.79999999999995" layoutY="102.4" mnemonicParsing="false" onAction="#onActionSoundButton" prefHeight="35.0" prefWidth="45.0" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="276.6" AnchorPane.topAnchor="102.4" />
-      <Label id="search_targetWord" fx:id="wordLable" layoutX="214.0" layoutY="102.0" prefHeight="35.0" prefWidth="180.0" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="348.0" AnchorPane.topAnchor="102.0" />
+      <Label id="search_targetWord0" fx:id="wordLable" layoutX="214.0" layoutY="102.0" prefHeight="35.0" prefWidth="180.0" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="348.0" AnchorPane.topAnchor="102.0" />
       <ToggleButton id="search_changeType" fx:id="typeSearch" layoutX="536.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleToggle" prefHeight="39.0" prefWidth="138.0" stylesheets="@../demo_tudien/search.css" text="Anh-Việt" textFill="#750000" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="10.0" />
       <ImageView fx:id="testImage" fitHeight="114.0" fitWidth="203.0" layoutX="486.59999999999997" layoutY="144.8" opacity="0.7" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="30.40000000000009" AnchorPane.topAnchor="144.8" />
       <Button id="search_home" layoutX="106.0" layoutY="10.0" mnemonicParsing="false" onAction="#setHome" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="0.0" />

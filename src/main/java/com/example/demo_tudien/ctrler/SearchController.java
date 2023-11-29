@@ -190,7 +190,7 @@ public class SearchController implements Initializable {
         }
     @FXML
     public void onActionDeleteButton() {
-        if (wordTargetTextField.getText().isEmpty() || searchArea.getItems().getFirst().isEmpty()) {
+        if (searchArea.getItems().isEmpty()) {
             showThongBao("Không có từ nào để xóa!", warningStyle);
             return;
         } else {
@@ -214,7 +214,7 @@ public class SearchController implements Initializable {
     }
     @FXML
     private void onActionFixButton() {
-        if (searchArea.getItems().getFirst().isEmpty()) {
+        if (searchArea.getItems().isEmpty()) {
             showThongBao("Không có từ để sửa!", warningStyle);
         } else {
             String wordTarget = searchArea.getItems().getFirst();
