@@ -1,0 +1,181 @@
+#search_numberResult{
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(42,149,191, 1);
+    -fx-text-fill: rgb(255,255,255);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-alignment: center;
+}
+
+#search_searchField {
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#search_searchButton {
+    -fx-graphic: url("image/search1.png");
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-background-radius: 22;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#search_changeType {
+    -fx-graphic: url("image/changeType.png");
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-background-color: rgba(42,149,191, 1);
+    -fx-font-size: 18;
+    -fx-background-radius: 22;
+    -fx-alignment: center;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-text-fill: rgb(255,255,255);
+}
+#search_changeType:hover {
+    -fx-background-color: rgba(30,144,255, 0.7);
+}
+#search_changeType:pressed {
+    -fx-background-color: rgba(0,0,255, 0.7);
+    -fx-rotate: 7;
+}
+
+#button {
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-background-color: rgba(42,149,191, 1);
+    -fx-font-size: 24;
+    -fx-background-radius: 22;
+    -fx-alignment: center;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-text-fill: rgb(255,255,255);
+}
+#button:hover {
+    -fx-background-color: rgba(30,144,255, 0.7);
+}
+#button:pressed {
+    -fx-background-color: rgba(0,0,255, 0.7);
+    -fx-rotate: 7;
+}
+
+
+#search_listWord {
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    /*-fx-background-radius: 8;*/
+    -fx-font-size: 16;
+    -fx-border-color: black;
+    -fx-border-width: 1.5;
+    /*-fx-border-radius: 6.5;*/
+}
+
+#search_meanWord {
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0);
+    /*-fx-background-radius: 8;*/
+    -fx-font-size: 16;
+    -fx-border-color: black;
+    -fx-border-width: 1.5;
+    /*-fx-border-radius: 6.5;*/
+}
+
+#search_targetWord {
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(30,144,255);
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-font-family: 'Times New Roman';
+    -fx-font-size: 25;
+    -fx-label-padding: 0 0 0 25px;
+    -fx-border-color: black;
+    -fx-border-width: 1.5;
+}
+
+#search_targetWord0 {
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(30,144,255);
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-font-family: 'Times New Roman';
+    -fx-font-size: 18;
+    -fx-label-padding: 0 0 0 25px;
+    -fx-border-color: black;
+    -fx-border-width: 1.5;
+}
+
+#search_addButton {
+    -fx-graphic: url("image/add.png");
+    -fx-background-color: rgba(42, 149, 191, 0);
+}
+#search_addButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}
+#search_addButton:pressed {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.7, 3, 3);
+}
+
+#search_bookmarkButton {
+    -fx-graphic: url("image/save.png");
+    -fx-background-color: rgba(42, 149, 191, 0);
+}
+#search_bookmarkButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}
+#search_bookmarkButton:pressed {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.7, 3, 3);
+}
+
+#search_deleteButton {
+    -fx-graphic: url("image/delete.png");
+    -fx-background-color: rgba(42, 149, 191, 0);
+}
+#search_deleteButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}
+#search_deleteButton:pressed {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.7, 3, 3);
+}
+
+#search_fixButton {
+    -fx-graphic: url("image/fix.png");
+    -fx-background-color: rgba(42, 149, 191, 0);
+}
+#search_fixButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}
+#search_fixButton:pressed{
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.7, 3, 3);
+}
+
+#search_home {
+    -fx-graphic: url("image/homeGeneral.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(85, 193, 217, 0.5);
+    -fx-background-radius: 50;
+    -fx-font-size: 16;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#search_listenButton {
+    -fx-graphic: url("image/loa.png");
+    -fx-background-color: rgba(145, 242, 233, 0.9);
+    -fx-background-radius: 22;
+    -fx-border-color: rgba(65,105,225);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+#search_listenButton:hover {
+    -fx-background-color: rgba(30,144,255, 0.9);
+}
+#search_listenButton:pressed {
+    -fx-background-color: rgba(65,105,255, 0.9);
+}

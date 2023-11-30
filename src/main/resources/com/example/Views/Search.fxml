@@ -6,53 +6,48 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="742.5" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.SearchController">
    <children>
-      <TextField id="search1" fx:id="wordTargetTextField" layoutX="192.0" layoutY="14.0" onMouseClicked="#wordTargetListener" prefHeight="35.0" prefWidth="211.0" promptText="Tra từ" stylesheets="@../demo_tudien/style.css" AnchorPane.leftAnchor="192.0" AnchorPane.rightAnchor="339.99999999999994" AnchorPane.topAnchor="14.0" />
-      <ListView id="search1" fx:id="searchArea" layoutX="3.0" layoutY="94.0" prefHeight="497.0" prefWidth="197.0" stylesheets="@../demo_tudien/style.css" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="100.0" />
-      <Button id="search1" layoutX="371.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="45.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="293.0" />
-      <Label id="label_search" fx:id="ketQua1" contentDisplay="BOTTOM" layoutX="5.0" layoutY="57.0" prefHeight="35.0" prefWidth="203.0" stylesheets="@../demo_tudien/style.css" text="Kết quả liên quan" textAlignment="CENTER" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="62.0">
+      <TextField id="search_searchField" fx:id="wordTargetTextField" layoutX="256.0" layoutY="15.2" onAction="#onActionWordTargetTextField" onMouseClicked="#wordTargetListener" prefHeight="39.0" prefWidth="211.0" promptText="Tra từ" stylesheets="@../demo_tudien/search.css" AnchorPane.leftAnchor="256.0" AnchorPane.rightAnchor="253.0" AnchorPane.topAnchor="10.0" />
+      <ListView id="search_listWord" fx:id="searchArea" layoutX="3.0" layoutY="94.0" prefHeight="454.0" prefWidth="180.0" stylesheets="@../demo_tudien/search.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="100.0" />
+      <Button id="search_searchButton" layoutX="490.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="45.0" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="206.10000000000002" AnchorPane.topAnchor="10.0" />
+      <Label id="search_numberResult" fx:id="ketQua1" contentDisplay="BOTTOM" layoutX="5.0" layoutY="57.0" prefHeight="35.0" prefWidth="203.0" stylesheets="@../demo_tudien/search.css" text="Kết quả liên quan" textAlignment="CENTER" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="62.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label id="label_search" fx:id="ketQua2" contentDisplay="BOTTOM" layoutX="215.0" layoutY="57.0" prefHeight="35.0" prefWidth="522.0" stylesheets="@../demo_tudien/style.css" text="Kết quả liên quan" textAlignment="CENTER" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="62.0">
+      <Label id="search_numberResult" fx:id="ketQua2" contentDisplay="BOTTOM" layoutX="215.0" layoutY="57.0" prefHeight="35.0" prefWidth="522.0" stylesheets="@../demo_tudien/search.css" text="Kết quả liên quan" textAlignment="CENTER" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="62.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <HBox layoutX="216.0" layoutY="100.0" prefHeight="26.0" prefWidth="57.0" AnchorPane.rightAnchor="469.5">
-         <children>
-            <Button id="listenButton" mnemonicParsing="false" stylesheets="@../demo_tudien/style.css" />
-            <Label id="label" prefHeight="28.0" prefWidth="44.0" stylesheets="@../demo_tudien/style.css" text="US">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <HBox layoutX="273.0" layoutY="100.0" prefHeight="26.0" prefWidth="67.0" AnchorPane.rightAnchor="402.5">
-         <children>
-            <Button id="listenButton" mnemonicParsing="false" prefHeight="10.0" prefWidth="21.0" stylesheets="@../demo_tudien/style.css" />
-            <Label id="label" prefHeight="28.0" prefWidth="44.0" stylesheets="@../demo_tudien/style.css" text="UK" textFill="#c91818">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <TextArea fx:id="wordExplainTextField" layoutX="343.0" layoutY="124.0" prefHeight="471.0" prefWidth="522.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="124.0">
+      <TextArea id="search_meanWord" fx:id="wordExplainTextField" layoutX="100.0" layoutY="140.0" prefHeight="455.0" prefWidth="522.0" stylesheets="@../demo_tudien/search.css" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0">
          <font>
             <Font size="20.0" />
-         </font></TextArea>
-      <Button id="fixButton" layoutX="682.0" layoutY="127.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="37.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="9.5" AnchorPane.topAnchor="127.0" />
-      <Button id="deleteButton" layoutX="631.0" layoutY="126.0" mnemonicParsing="false" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="60.5" AnchorPane.topAnchor="126.0" />
-      <Button id="bookmarkButton" fx:id="savedButton" layoutX="580.0" layoutY="126.0" mnemonicParsing="false" onAction="#onActionSavedButton" prefHeight="24.0" prefWidth="7.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="111.5" />
-      <ToggleButton id="label_search" fx:id="typeSearch" layoutX="450.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleToggle" stylesheets="@../demo_tudien/style.css" text="Anh-Việt" AnchorPane.rightAnchor="202.5" />
-      <Button id="changeType" layoutX="533.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="13.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="168.5" />
+         </font>
+      </TextArea>
+      <Button id="search_fixButton" layoutX="667.0" layoutY="97.0" mnemonicParsing="false" onAction="#onActionFixButton" prefHeight="20.0" prefWidth="46.0" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="97.0" />
+      <Button id="search_deleteButton" layoutX="621.0" layoutY="97.0" mnemonicParsing="false" onAction="#onActionDeleteButton" prefHeight="38.0" prefWidth="46.0" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="97.0" />
+      <Button id="search_bookmarkButton" fx:id="savedButton" layoutX="570.0" layoutY="97.0" mnemonicParsing="false" onAction="#onActionSavedButton" prefHeight="24.0" prefWidth="51.0" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="97.0" />
+      <Button id="search_addButton" layoutX="524.0" layoutY="97.0" mnemonicParsing="false" onAction="#onActionAddButton" prefHeight="37.0" prefWidth="45.0" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="97.0" />
+      <Label id="label_notify" fx:id="thongBao" layoutX="150.0" layoutY="283.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="532.0" stylesheets="@../demo_tudien/style.css" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label id="label" layoutX="447.0" layoutY="98.0" prefHeight="43.0" prefWidth="61.0" stylesheets="@../demo_tudien/style.css" text="Phát âm" textFill="#c91818" AnchorPane.rightAnchor="211.39999999999998" AnchorPane.topAnchor="98.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button id="search_listenButton" fx:id="soundButton" layoutX="397.79999999999995" layoutY="102.4" mnemonicParsing="false" onAction="#onActionSoundButton" prefHeight="35.0" prefWidth="45.0" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="276.6" AnchorPane.topAnchor="102.4" />
+      <Label id="search_targetWord0" fx:id="wordLable" layoutX="214.0" layoutY="102.0" prefHeight="35.0" prefWidth="180.0" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="348.0" AnchorPane.topAnchor="102.0" />
+      <ToggleButton id="search_changeType" fx:id="typeSearch" layoutX="536.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleToggle" prefHeight="39.0" prefWidth="138.0" stylesheets="@../demo_tudien/search.css" text="Anh-Việt" textFill="#750000" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="10.0" />
+      <ImageView fx:id="testImage" fitHeight="114.0" fitWidth="203.0" layoutX="486.59999999999997" layoutY="144.8" opacity="0.7" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="30.40000000000009" AnchorPane.topAnchor="144.8" />
+      <Button id="search_home" layoutX="106.0" layoutY="10.0" mnemonicParsing="false" onAction="#setHome" stylesheets="@../demo_tudien/search.css" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

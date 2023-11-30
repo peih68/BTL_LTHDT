@@ -1,0 +1,101 @@
+#dictionary_bg {
+    /*-fx-background-color: rgba(0,0,0,1);*/
+    /*-fx-background-radius: 20;*/
+
+    -fx-background-image: url("image/dictionary_bg.jpg");
+    /*-fx-background-color: linear-gradient(to bottom right, blue, white);*/
+}
+
+#dictionary_show {
+    -fx-background-color: rgba(213,231,242,1);
+    -fx-background-radius: 22px;
+}
+
+#dictionary_optionButton {
+    -fx-graphic: url("image/option.png");
+    -fx-background-color: rgba(127,255,212, 0.5);
+    -fx-background-radius: 20 0 20 0;
+    /*-fx-border-color: rgba(72,209,204, 1.0);*/
+    /*-fx-border-width: 2px; !* Độ dày của viền *!*/
+    /*-fx-border-radius: 20 0 20 0; !* Độ cong của góc viền *!*/
+    /*-fx-border-style: solid; !* Kiểu viền *!*/
+}
+
+#dictionary_homeButton {
+    -fx-graphic: url("image/home.png");
+    /*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2); !* Áp dụng hiệu ứng đổ bóng *!*/
+    -fx-background-color: rgba(0,0,255, 0.2);
+    -fx-background-radius: 20px;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(255,255,255);
+}
+#dictionary_homeButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}
+
+#dictionary_searchButton {
+    -fx-graphic: url("image/search.png");
+    /*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2); !* Áp dụng hiệu ứng đổ bóng *!*/
+    -fx-background-color: rgba(0,0,255, 0.2);
+    -fx-background-radius: 20px;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(255,255,255);
+}
+#dictionary_searchButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}
+
+
+#dictionary_googleButton {
+    -fx-graphic: url("image/google.png");
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2); /* Áp dụng hiệu ứng đổ bóng */
+    -fx-background-color: rgba(0,0,255, 0.2);
+    -fx-background-radius: 20px;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(255,255,255);
+}
+#dictionary_googleButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}
+
+#dictionary_gamesButton {
+    -fx-graphic: url("image/games.png");
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2); /* Áp dụng hiệu ứng đổ bóng */
+    -fx-background-color: rgba(0,0,255, 0.2);
+    -fx-background-radius: 20px;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(255,255,255);
+}
+#dictionary_gamesButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}
+
+#dictionary_historyButton {
+    -fx-graphic: url("image/history.png");
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2); /* Áp dụng hiệu ứng đổ bóng */
+    -fx-background-color: rgba(0,0,255, 0.2);
+    -fx-background-radius: 20px;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(255,255,255);
+}
+#dictionary_historyButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}
+
+#dictionary_closeButton {
+    -fx-graphic: url("image/close.png");
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2); /* Áp dụng hiệu ứng đổ bóng */
+    -fx-background-color: rgba(0,0,255, 0.2);
+    -fx-background-radius: 20px;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(255,255,255);
+}
+#dictionary_closeButton:hover {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 3, 3);
+}

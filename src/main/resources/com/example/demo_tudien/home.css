@@ -1,0 +1,65 @@
+#home_bg {
+    -fx-background-color: rgba(115,198,217,0.9);
+    -fx-background-radius: 20px;
+}
+#home_searchField {
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#home_searchButton {
+    -fx-graphic: url("image/search1.png");
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-background-radius: 22;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#home_Vbox {
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+}
+
+#home_tableName {
+    -fx-background-color: rgba(42,149,217,0.8);
+    -fx-background-radius: 20 20 0 0;
+
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
+    /*-fx-background-color: rgba(255, 255, 255, 0);*/
+    -fx-font-size: 16;
+    -fx-text-fill: rgb(128,128,128);
+}
+
+#home_targerWord {
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(30,144,255);
+    -fx-background-color: rgba(255, 255, 255, 0);
+    -fx-font-family: 'Times New Roman';
+    -fx-font-size: 25;
+    -fx-label-padding: 0 0 0 25px;
+}
+
+#home_meanWord {
+    -fx-font-size: 18;
+    -fx-text-indent: 20px;
+    -fx-background-color: rgba(255, 255, 255, 0);
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
+}
+
+#home_logo {
+    -fx-graphic: url("image/logo.png");
+    -fx-background-color: rgba(255, 255, 255, 0);
+    -fx-layout-x: 50%; /* Đặt vị trí X của nút ở giữa (50% của AnchorPane) */
+    -fx-layout-y: 50%; /* Đặt vị trí Y của nút ở giữa (50% của AnchorPane) */
+    -fx-translate-x: -50%; /* Dịch chuyển nút sang trái 50% kích thước của nút */
+    -fx-translate-y: -20px; /* Dịch chuyển nút lên trên 20px để căn giữa theo chiều dọc */
+}

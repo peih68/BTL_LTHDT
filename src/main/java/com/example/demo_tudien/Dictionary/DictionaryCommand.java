@@ -6,41 +6,25 @@ import java.io.*;
 
 public class DictionaryCommand {
 
-    public void insertFromFile(Dictionary dictionary, String path) {
+    public static void insertFromFile(Dictionary dictionary, String path) {
         try {
             if (dictionary instanceof EnglishVietnamese) {
                 FileReader fileReader = new FileReader(path);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
-                String temp = bufferedReader.readLine();
-                String[] spilitArray = temp.split("/",2);
-                String wordTarget;
+                String englishWord = bufferedReader.readLine();
+                englishWord = englishWord.replace("|", "");
                 String line;
-                if (!spilitArray[0].trim().replace("@", "").isEmpty()) {
-                    wordTarget = spilitArray[0].trim().replace("@", "");
-                } else {
-                    wordTarget = spilitArray[1].trim();
-                }
                 while ((line = bufferedReader.readLine()) != null) {
                     Word word = new Word();
-                    word.setWordTarget(wordTarget.trim());
-                    String meaning = "";
-                    if (spilitArray.length > 1) {
-                        meaning = "/" + spilitArray[1].trim() + "\n" + line + "\n";
-                    }
-                    while ((line = bufferedReader.readLine()) != null)
-                        if (line.startsWith("@")) {
-                            spilitArray = line.split("/", 2);
-                            if (!spilitArray[0].trim().replace("@", "").isEmpty()) {
-                                wordTarget = spilitArray[0].trim().replace("@", "");
-                            } else {
-                                if (spilitArray.length > 1) {
-                                    wordTarget = spilitArray[1].trim();
-                                }
-                            }
+                    word.setWordTarget(englishWord.trim());
+                    String meaning = line + "\n";
+                    while ((line = bufferedReader.readLine()) != null) {
+                        if (!line.startsWith("|")) meaning += line + "\n";
+                        else {
+                            englishWord = line.replace("|", "");
                             break;
-                        } else {
-                            meaning += line + "\n";
                         }
+                    }
                     word.setWordExplain(meaning.trim());
                     dictionary.getWords().add(word);
                 }
@@ -76,15 +60,27 @@ public class DictionaryCommand {
         }
     }
 
-    public void exportToFile(Dictionary dictionary, String path) {
+    public static void exportToFile(Dictionary dictionary, String path) {
         try {
-            FileWriter fileWriter = new FileWriter(path);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            for (Word word : dictionary.getWords()) {
-                bufferedWriter.write("@" + word.getWordTarget() + "\n" + word.getWordExplain());
-                bufferedWriter.newLine();
+            if (dictionary instanceof EnglishVietnamese) {
+                FileWriter fileWriter = new FileWriter(path);
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                for (Word word : dictionary.getWords()) {
+                    bufferedWriter.write("|" + word.getWordTarget() + "\n" + word.getWordExplain());
+                    bufferedWriter.newLine();
+                }
+                bufferedWriter.close();
             }
-            bufferedWriter.close();
+            if (dictionary instanceof VietnameseEnglish) {
+                FileWriter fileWriter = new FileWriter(path);
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                for (Word word : dictionary.getWords()) {
+                    bufferedWriter.write("@" + word.getWordTarget() + "\n");
+                    bufferedWriter.write(word.getWordExplain());
+                    bufferedWriter.newLine();
+                }
+                bufferedWriter.close();
+            }
         } catch (Exception e) {
             System.out.println("Something went wrong: " + e);
         }
@@ -92,7 +88,7 @@ public class DictionaryCommand {
 
 
 
-    public void addWord(Word word, String path) {
+    public static void addWord(Word word, String path) {
         try (FileWriter fileWriter = new FileWriter(path, true);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
              bufferedWriter.write("@" + word.getWordTarget() + "\n" + word.getWordExplain());
@@ -104,18 +100,18 @@ public class DictionaryCommand {
         }
     }
 
-    public void deleteWord(Dictionary dictionary, String wordTarget, String path) {
+    public static void deleteWord(Dictionary dictionary, String wordTarget, String path) {
         try {
             dictionary.getWords().removeIf(w -> w.getWordTarget().equals(wordTarget));
             Trie trie = new Trie();
             trie.setTrieFromDictionary(dictionary);
-            this.exportToFile(dictionary, path);
+            DictionaryCommand.exportToFile(dictionary, path);
         } catch (NullPointerException e) {
             System.out.println("Null Exception.");
         }
     }
 
-    public void updateWord(Dictionary dictionary, String wordTarget, String newWordExplain, String path) {
+    public static void updateWord(Dictionary dictionary, String wordTarget, String newWordExplain, String path) {
         try {
             Word wordToUpdate = new Word();
             for (Word word : dictionary.getWords()) {
@@ -129,7 +125,7 @@ public class DictionaryCommand {
             }
             Trie trie = new Trie();
             trie.setTrieFromDictionary(dictionary);
-            this.exportToFile(dictionary, path);
+            DictionaryCommand.exportToFile(dictionary, path);
         } catch (NullPointerException e) {
             System.out.println("Null Exception.");
         }

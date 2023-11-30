@@ -8,28 +8,35 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GameController implements Initializable {
+public class GameController {
+
+    SetSceneController setSceneController;
     @FXML
     private AnchorPane gameScene;
     private AnchorPane game1Scene;
 
-    private void setScene(AnchorPane anchorPane) {
-        AnchorPane.setRightAnchor(anchorPane,5.0);
-        AnchorPane.setLeftAnchor(anchorPane,5.0);
-        gameScene.getChildren().setAll(anchorPane);
+    @FXML
+    public void showCardMatchingGame() {
+        if (setSceneController != null) {
+            setSceneController.showCardMatchingGame();
+        }
     }
 
-    public void showGame1Pane() {
-        setScene(game1Scene);
+    @FXML
+    public void showHangmanGame() {
+        if (setSceneController != null) {
+            setSceneController.showHangmanGame();
+        }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/Game_1.fxml"));
-            game1Scene = loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void setSceneController(SetSceneController setSceneController) {
+        this.setSceneController = setSceneController;
+    }
+
+    @FXML
+    public void setHome() {
+        if (setSceneController != null) {
+            setSceneController.showHomePane();
         }
     }
 }

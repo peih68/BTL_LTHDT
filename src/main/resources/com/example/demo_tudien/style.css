@@ -114,6 +114,50 @@
     -fx-text-fill: white;
 }
 
+#history {
+    -fx-graphic: url("image/history.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 160, 122, 0.9);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#history:hover{
+    -fx-background-color: rgba(255, 250, 240, 0.9);
+    -fx-border-color: rgba(0, 0, 0, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+#history:pressed{
+    -fx-background-color: rgba(0, 0, 0, 0.9);
+    -fx-border-color: rgba(255, 250, 240, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-rotate: 10;
+    -fx-text-fill: white;
+}
+
+#close {
+    -fx-graphic: url("image/close.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 160, 122, 0.9);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+
+}#close:hover{
+     -fx-background-color: rgba(255, 250, 240, 0.9);
+     -fx-border-color: rgba(0, 0, 0, 0.9);
+     -fx-border-width: 2;
+     -fx-border-radius: 20;
+ }
+
 #option {
     -fx-graphic: url("image/option.png");
     -fx-background-color: rgba(255, 255, 255, 0.3);
@@ -138,19 +182,44 @@
     -fx-alignment: center;
 }
 
+#label_meaning {
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+}
+
+
 #bookmarkButton {
     -fx-graphic: url("image/bookmark.png");
-    -fx-background-color: rgba(255, 160, 122, 0.1);
+    -fx-background-color: rgba(255, 160, 122, 0.5);
+}
+#bookmarkButton:pressed {
+    -fx-background-color: rgba(255, 160, 122, 0.9);
 }
 
 #deleteButton {
     -fx-graphic: url("image/delete.png");
-    -fx-background-color: rgba(255, 160, 122, 0.1);
+    -fx-background-color: rgba(255, 160, 122, 0.5);
+}
+#deleteButton:pressed {
+    -fx-background-color: rgba(255, 160, 122, 0.9);
 }
 
 #fixButton {
     -fx-graphic: url("image/fix.png");
-    -fx-background-color: rgba(255, 160, 122, 0.1);
+    -fx-background-color: rgba(255, 160, 122, 0.5);
+}
+#fixButton:pressed {
+    -fx-background-color: rgba(255, 160, 122, 0.9);
+}
+
+#addButton {
+    -fx-graphic: url("image/add.png");
+    -fx-background-color: rgba(255, 160, 122, 0.5);
+}
+#addButton:pressed{
+    -fx-background-color: rgba(255, 160, 122, 0.9);
 }
 
 #listenButton {
@@ -163,18 +232,113 @@
 }
 #listenButton:pressed {
     -fx-background-color: rgba(255, 228, 181, 0.9);
-
 }
+
 #label {
     -fx-font-weight: bold;
 }
 
 #changeType {
     -fx-graphic: url("image/changeType.png");
-    -fx-background-color: rgba(255, 255, 255, 0);
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-background-color: rgba(255,127,80, 0.7);
+    -fx-font-size: 18;
+    -fx-background-radius: 22;
+    -fx-alignment: center;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+#changeType:hover {
+    -fx-background-color: rgba(0,255,255, 0.7);
+}
+#changeType:pressed {
+    -fx-background-color: rgba(0,0,255, 0.7);
+    -fx-border-color: black;
+    -fx-rotate: 7;
 }
 
+#label_notify {
+    -fx-font-weight: bold;
+    -fx-text-fill: green;
+    -fx-background-color: rgba(255,215,0, 0.95);
+    -fx-background-radius: 22;
+    -fx-font-size: 20;
+    -fx-alignment: center;
+}
 
+#label_warning {
+    -fx-font-weight: bold;
+    -fx-text-fill: red;
+    -fx-background-color: rgba(255, 250, 205, 0.8);
+    -fx-background-radius: 22;
+    -fx-font-size: 20;
+    -fx-alignment: center;
+    -fx-graphic: url("image/warning.png");
+}
 
+#label_word_in_home {
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 16;
+    -fx-text-fill: rgb(128,128,128);
+}
 
+#font_word_target {
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(30,144,255);
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-font-family: 'Times New Roman';
+    -fx-font-size: 25;
+    -fx-label-padding: 0 0 0 25px;
+}
+#font_word_meaning {
+    -fx-font-size: 15;
+    -fx-text-indent: 20px;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
+}
 
+#translateButton {
+    -fx-graphic: url("image/translate.png");
+    -fx-background-color: rgba(30, 114, 255, 0.5);
+    -fx-font-weight: bold;
+}
+#translateButton:pressed {
+    -fx-background-color: rgba(30, 114, 255, 0.9);
+}
+#switchTypesButton {
+    -fx-graphic: url("image/changeType.png");
+    -fx-background-color: rgba(255,127,80, 0.5);
+}
+#switchTypesButton:pressed{
+    -fx-background-color: rgba(255,127,80, 0.9);
+}
+#TypeslanguageButton {
+    -fx-font-weight: bold;
+    -fx-font-family: 'Times New Roman';
+    -fx-label-padding: 0 0 0 20px;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 16;
+    -fx-text-fill: rgb(128,128,128);
+    -fx-background-radius: 22;
+}
+
+#homeGeneral {
+    -fx-graphic: url("image/homeGeneral.png");
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 160, 122, 0.5);
+    -fx-background-radius: 50;
+    -fx-font-size: 16;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+#search_history {
+    -fx-graphic: url("image/search1.png");
+
+}

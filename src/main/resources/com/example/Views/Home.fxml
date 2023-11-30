@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="742.5" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.Controller">
+<AnchorPane prefHeight="566.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.HomeController">
    <children>
-      <TextField id="search1" layoutX="206.0" layoutY="220.0" prefHeight="44.0" prefWidth="368.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="225.0" />
-      <Button id="search1" layoutX="518.0" layoutY="220.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="54.0" stylesheets="@../demo_tudien/style.css" AnchorPane.rightAnchor="170.5" />
+      <AnchorPane id="home_bg" layoutX="298.0" layoutY="183.0" prefHeight="348.0" prefWidth="720.0" stylesheets="@../demo_tudien/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <VBox id="home_Vbox" layoutX="14.0" layoutY="39.0" prefHeight="295.0" prefWidth="280.0" stylesheets="@../demo_tudien/home.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="415.0">
+               <children>
+                  <Label id="home_tableName" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="1011.0" stylesheets="@../demo_tudien/home.css" text="Từ của ngày" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Label>
+                  <Label id="home_targerWord" fx:id="wordTargetWOD" onMouseClicked="#onActionWOD" prefHeight="36.0" prefWidth="737.0" stylesheets="@../demo_tudien/home.css" />
+                  <Label id="home_meanWord" fx:id="wordExplainWOD" alignment="TOP_LEFT" onMouseClicked="#onActionWOD" prefHeight="235.0" prefWidth="334.0" stylesheets="@../demo_tudien/home.css" wrapText="true">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Label>
+               </children>
+            </VBox>
+            <VBox id="home_Vbox" layoutX="435.0" layoutY="36.0" prefHeight="295.0" prefWidth="280.0" stylesheets="@../demo_tudien/home.css" AnchorPane.leftAnchor="415.0" AnchorPane.rightAnchor="15.0">
+               <children>
+                  <Label id="home_tableName" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="290.0" stylesheets="@../demo_tudien/home.css" text="Từ vừa tra" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Label>
+                  <Label id="home_targerWord" fx:id="wordTargetLHW" onMouseClicked="#onActionLHW" prefHeight="36.0" prefWidth="737.0" stylesheets="@../demo_tudien/home.css" />
+                  <Label id="home_meanWord" fx:id="wordExplainLHW" alignment="TOP_LEFT" onMouseClicked="#onActionLHW" prefHeight="242.0" prefWidth="1109.0" stylesheets="@../demo_tudien/home.css" wrapText="true" />
+               </children>
+            </VBox>
+            <ListView id="search_listWord" fx:id="searchListView" layoutX="184.0" layoutY="21.600000000000023" prefHeight="316.0" prefWidth="327.0" stylesheets="@../demo_tudien/search.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="209.0" />
+            <TextField id="home_searchField" fx:id="wordTargetTextField" layoutX="166.4" layoutY="-23.0" onMouseClicked="#wordTargetListener" prefHeight="46.0" prefWidth="362.0" stylesheets="@../demo_tudien/home.css" AnchorPane.leftAnchor="166.0" AnchorPane.rightAnchor="192.0" />
+         </children>
+      </AnchorPane>
+      <Button id="home_searchButton" layoutX="527.0" layoutY="192.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="50.0" stylesheets="@../demo_tudien/home.css" AnchorPane.rightAnchor="139.39999999999998" />
+      <Button id="home_logo" layoutX="298.4" layoutY="78.0" mnemonicParsing="false" stylesheets="@../demo_tudien/home.css" AnchorPane.leftAnchor="298.4" AnchorPane.rightAnchor="285.6" />
    </children>
 </AnchorPane>

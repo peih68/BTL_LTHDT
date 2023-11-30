@@ -3,6 +3,8 @@ package com.example.demo_tudien.Dictionary;
 import org.controlsfx.dialog.WizardPane;
 
 import java.util.ArrayList;
+import java.util.List;
+
 public class Dictionary {
     private ArrayList<Word> words = new ArrayList<>();
 
@@ -27,5 +29,13 @@ public class Dictionary {
 
     public void setWords(ArrayList<Word> words) {
         this.words = words;
+    }
+
+    public List<String> getWordTargetList() {
+        List<String> res = new ArrayList<String>();
+        for (Word word : this.getWords()) {
+            res.add(word.getWordTarget());
+        }
+        return res;
     }
 }
