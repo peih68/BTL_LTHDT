@@ -9,6 +9,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -16,8 +17,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import ru.blizzed.pixabaylib.Pixabay;
+import ru.blizzed.pixabaylib.PixabayCallException;
 import ru.blizzed.pixabaylib.params.LangParam;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.Objects;
@@ -384,17 +390,58 @@ public class SearchController implements Initializable {
     }
 
     public void handlePixabayImage(String userInput) {
-        Image result;
-        if (type == Type.AnhViet) {
-            result = PixabayAPI.getRandomImage(userInput, LangParam.Lang.EN);
+        showLoadingImage();
+
+        Task<Image> imageTask = new Task<>() {
+            @Override
+            protected Image call() throws Exception {
+                Image result;
+                if (type == Type.AnhViet) {
+                    result = PixabayAPI.getRandomImage(userInput, LangParam.Lang.EN);
+                } else {
+                    result = PixabayAPI.getRandomImage(userInput, LangParam.Lang.VI);
+                }
+                return result;
+            }
+        };
+
+        imageTask.setOnSucceeded(event -> {
+            Image result = imageTask.getValue();
+            if (result != null && !result.isError()) {
+                testImage.setImage(result);
+            } else {
+                showNotAvailable();
+            }
+        });
+
+        Thread imageThread = new Thread(imageTask);
+        imageThread.setDaemon(true);
+        imageThread.start();
+    }
+
+    private void showLoadingImage() {
+        try {
+            Image loadingImage = new Image(new FileInputStream("C:\\Users\\ACER\\OneDrive\\Máy tính\\BTL_LTHDT\\src\\main\\resources\\com\\example\\demo_tudien\\image\\loading.jpg"));
+            if (loadingImage.isError()) {
+                System.out.println("Error loading image");
+                return;
+            }
+            testImage.setImage(loadingImage);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        else {
-            result = PixabayAPI.getRandomImage(userInput, LangParam.Lang.VI);
-        }
-        if (result != null && !result.isError()) {
-            testImage.setImage(result);
-        } else {
-            testImage.setImage(null);
+    }
+
+    private void showNotAvailable() {
+        try {
+            Image loadingImage = new Image(new FileInputStream("C:\\Users\\ACER\\OneDrive\\Máy tính\\BTL_LTHDT\\src\\main\\resources\\com\\example\\demo_tudien\\image\\notAvailable.png"));
+            if (loadingImage.isError()) {
+                System.out.println("Error loading image");
+                return;
+            }
+            testImage.setImage(loadingImage);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 

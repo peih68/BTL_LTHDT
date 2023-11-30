@@ -12,7 +12,8 @@
 !that's their chicken
 - đó là công việc của họ
 @cat
-*  danh từ
+/kæt/
+* danh từ
 - con mèo
 - (động vật học) thú thuộc giống mèo (sư tử, hổ, báo...)
 - mụ đàn bà nanh ác; đứa bé hay cào cấu
@@ -39,8 +40,13 @@
 - (xem) room
 !to turn cat in the pan
 - trở mặt; thay đổi ý kiến (lúc lâm nguy); phản hồi
-*  ngoại động từ
+* ngoại động từ
 - (hàng hải) kéo (neo) lên đòn kéo neo
 - đánh bằng roi chín dài
-*  nội động từ
+* nội động từ
 - (thông tục) nôn mửa
+@meow
+*nội động từ
+- kêu meo meo (mèo)
+*danh từ
+- meo meo (tiếng mèo kêu)

@@ -84,6 +84,7 @@ public class SetSceneController implements Initializable {
     public void showHomePane() {
         setScene(homePane);
         homeController.setTextLHW();
+        homeController.wordTargetTextField.clear();
     }
     @FXML
     public void showHistoryPane() {
