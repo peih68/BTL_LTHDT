@@ -421,26 +421,26 @@ public class SearchController implements Initializable {
 
     private void showLoadingImage() {
         try {
-            Image loadingImage = new Image(new FileInputStream("C:\\Users\\ACER\\OneDrive\\Máy tính\\BTL_LTHDT\\src\\main\\resources\\com\\example\\demo_tudien\\image\\loading.jpg"));
+            Image loadingImage = new Image(getClass().getResourceAsStream("/com/example/demo_tudien/image/loading.jpg"));
             if (loadingImage.isError()) {
                 System.out.println("Error loading image");
                 return;
             }
             testImage.setImage(loadingImage);
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void showNotAvailable() {
         try {
-            Image loadingImage = new Image(new FileInputStream("C:\\Users\\ACER\\OneDrive\\Máy tính\\BTL_LTHDT\\src\\main\\resources\\com\\example\\demo_tudien\\image\\notAvailable.png"));
-            if (loadingImage.isError()) {
+            Image notAvailableImage = new Image(getClass().getResourceAsStream("/com/example/demo_tudien/image/notAvailable.png"));
+            if (notAvailableImage.isError()) {
                 System.out.println("Error loading image");
                 return;
             }
-            testImage.setImage(loadingImage);
-        } catch (FileNotFoundException e) {
+            testImage.setImage(notAvailableImage);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
