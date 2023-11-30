@@ -288,7 +288,10 @@ public class SearchController implements Initializable {
                 if (!wordTargetTextField.getText().isEmpty()) {
                     Translator.textToSpeech(wordTargetTextField.getText(), Translator.languages.get("English"));
                 } else {
-                    System.out.println("Hiện thông báo : Không có từ nào để phát âm");
+                    if (!searchArea.getItems().getFirst().isEmpty()) {
+                        Translator.textToSpeech(searchArea.getItems().getFirst(), Translator.languages.get("English"));
+                        return;
+                    }
                     showThongBao("Không có từ nào để phát âm!", warningStyle);
                 }
                 break;
@@ -296,7 +299,10 @@ public class SearchController implements Initializable {
                 if (!wordTargetTextField.getText().isEmpty()) {
                     Translator.textToSpeech(FullDictionary.VEdictionary.getWordFromWordTarget(wordTargetTextField.getText()).getWordExplain(), Translator.languages.get("English"));
                 } else {
-                    System.out.println("Hiện thông báo : Không có từ nào để phát âm");
+                    if (!searchArea.getItems().getFirst().isEmpty()) {
+                        Translator.textToSpeech(searchArea.getItems().getFirst(), Translator.languages.get("English"));
+                        return;
+                    }
                     showThongBao("Không có từ nào để phát âm!", warningStyle);
                 }
                 break;
