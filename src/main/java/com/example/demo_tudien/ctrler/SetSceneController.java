@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 
@@ -46,9 +47,15 @@ public class SetSceneController implements Initializable {
     public void Option() {
         if(Option.isSelected()) {
                 basicSence.setLeftAnchor(Scene, 8.0);
+                AnchorPane.setLeftAnchor(showScene,30.0);
+                AnchorPane.setRightAnchor(showScene,30.0);
+
             }
             else {
                 basicSence.setLeftAnchor(Scene, 105.0);
+//            AnchorPane.setRightAnchor(showScene,9.0);
+            AnchorPane.setLeftAnchor(showScene,9.0);
+            AnchorPane.setRightAnchor(showScene,9.0);
         }
     }
 
@@ -86,11 +93,9 @@ public class SetSceneController implements Initializable {
     @FXML void showCardMatchingGame() {
         setScene(CardMatchingGameControllerPane);
     }
-
     @FXML void showHangmanGame() {
         setScene(HangmanPane);
     }
-
     @FXML
     public void showGamePane() {
         setScene(gamePane);
@@ -151,7 +156,7 @@ public class SetSceneController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //Game 1
+        //cardMatchingGame
         try {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/com/example/Views/CardMatchingGame.fxml")));
             CardMatchingGameControllerPane = loader.load();

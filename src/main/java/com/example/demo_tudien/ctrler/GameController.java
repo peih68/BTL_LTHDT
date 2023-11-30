@@ -16,7 +16,7 @@ public class GameController {
     private AnchorPane game1Scene;
 
     @FXML
-    public void showGame1() {
+    public void showCardMatchingGame() {
         if (setSceneController != null) {
             setSceneController.showCardMatchingGame();
         }
@@ -28,16 +28,6 @@ public class GameController {
             setSceneController.showHangmanGame();
         }
     }
-
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/CardMatchingGame.fxml"));
-//            game1Scene = loader.load();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public void setSceneController(SetSceneController setSceneController) {
         this.setSceneController = setSceneController;

@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="566.0" prefWidth="720.0" styleClass="game.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.HangmanController">
+<AnchorPane prefHeight="566.0" prefWidth="720.0" styleClass="game.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo_tudien.ctrler.HangmanController">
    <children>
-      <Button id="button" layoutX="180.0" layoutY="493.0" mnemonicParsing="false" onAction="#resetGame" prefHeight="63.0" prefWidth="432.0" stylesheets="@../demo_tudien/search.css" text="Thử Từ Khác" textFill="#d0184c">
+      <Button id="button" layoutX="180.0" layoutY="493.0" mnemonicParsing="false" onAction="#resetGame" prefHeight="63.0" prefWidth="432.0" stylesheets="@../demo_tudien/search.css" text="Thử Từ Khác" textFill="#d0184c" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
          <font>
             <Font name="System Bold" size="29.0" />
          </font>
       </Button>
-      <ImageView fx:id="img" fitHeight="273.0" fitWidth="351.0" layoutX="347.0" layoutY="12.0">
+      <ImageView fx:id="img" fitHeight="273.0" fitWidth="351.0" layoutX="347.0" layoutY="12.0" AnchorPane.rightAnchor="22.0">
          <image>
             <Image url="@../demo_tudien/image/1.png" />
          </image>
@@ -89,7 +89,7 @@
             <Font name="Times New Roman Bold" size="31.0" />
          </font>
       </Label>
-      <Button id="button" layoutX="396.0" layoutY="411.0" mnemonicParsing="false" onAction="#CheckInput" prefHeight="51.0" prefWidth="189.0" stylesheets="@../demo_tudien/search.css" text="Kiểm Tra">
+      <Button id="button" layoutX="396.0" layoutY="411.0" mnemonicParsing="false" onAction="#CheckInput" prefHeight="51.0" prefWidth="189.0" stylesheets="@../demo_tudien/search.css" text="Kiểm Tra" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="140.0">
          <font>
             <Font size="24.0" />
          </font>
