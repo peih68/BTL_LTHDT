@@ -286,7 +286,7 @@ public class SearchController implements Initializable {
         switch (type) {
             case AnhViet :
                 if (!wordTargetTextField.getText().isEmpty()) {
-                    Translator.textToSpeech(wordTargetTextField.getText(), Translator.languages.get("English"));
+                    Translator.textToSpeech(wordLable.getText(), Translator.languages.get("English"));
                 } else {
                     if (!searchArea.getItems().getFirst().isEmpty()) {
                         Translator.textToSpeech(searchArea.getItems().getFirst(), Translator.languages.get("English"));
