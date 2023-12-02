@@ -12,4 +12,6 @@ module com.example.demo_tudien {
     exports com.example.demo_tudien;
     exports com.example.demo_tudien.ctrler;
     opens com.example.demo_tudien.ctrler to javafx.fxml;
+    exports com.example.demo_tudien.Dictionary;
+    opens com.example.demo_tudien.Dictionary to javafx.fxml;
 }

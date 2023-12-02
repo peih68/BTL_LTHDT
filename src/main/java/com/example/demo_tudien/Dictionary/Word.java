@@ -1,7 +1,5 @@
 package com.example.demo_tudien.Dictionary;
 
-import java.util.Objects;
-
 public class Word {
     private String wordTarget;
     private String wordExplain;

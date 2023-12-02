@@ -1,6 +1,6 @@
 package com.example.demo_tudien.ctrler;
 
-import com.example.demo_tudien.Dictionary.DictionaryCommand;
+import com.example.demo_tudien.Dictionary.FullDictionary;
 import com.example.demo_tudien.Dictionary.Word;
 import com.example.demo_tudien.Trie.Trie;
 import javafx.collections.FXCollections;
@@ -93,7 +93,7 @@ public class HistoryController implements Initializable {
                         word = FullDictionary.VEdictionary.getWordFromWordTarget(selectedItem);
                     }
                     FullDictionary.historyWords.getWords().add(word);
-                    DictionaryCommand.exportToFile(FullDictionary.historyWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+                    FullDictionary.historyWords.exportToFile(FullDictionary.historyWordsPath);
                     setSceneController.findWordInSearch(selectedItem);
                 }
         });
@@ -108,7 +108,7 @@ public class HistoryController implements Initializable {
                         word = FullDictionary.VEdictionary.getWordFromWordTarget(selectedItem);
                     }
                     FullDictionary.historyWords.getWords().add(word);
-                    DictionaryCommand.exportToFile(FullDictionary.historyWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+                    FullDictionary.historyWords.exportToFile(FullDictionary.historyWordsPath);
                     setSceneController.findWordInSearch(selectedItem);
                 }
             }

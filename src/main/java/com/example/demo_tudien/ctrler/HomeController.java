@@ -1,5 +1,6 @@
 package com.example.demo_tudien.ctrler;
 
+import com.example.demo_tudien.Dictionary.FullDictionary;
 import com.example.demo_tudien.Dictionary.Word;
 import com.example.demo_tudien.Trie.Trie;
 import javafx.collections.FXCollections;
