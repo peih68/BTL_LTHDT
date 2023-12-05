@@ -1,6 +1,6 @@
 package com.example.demo_tudien.ctrler;
 
-import com.example.demo_tudien.Dictionary.DictionaryCommand;
+import com.example.demo_tudien.Dictionary.FullDictionary;
 import com.example.demo_tudien.Dictionary.Word;
 import com.example.demo_tudien.PixabayAPI.PixabayAPI;
 import com.example.demo_tudien.Trie.Trie;
@@ -17,17 +17,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import ru.blizzed.pixabaylib.Pixabay;
-import ru.blizzed.pixabaylib.PixabayCallException;
 import ru.blizzed.pixabaylib.params.LangParam;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import static com.example.demo_tudien.Dictionary.FullDictionary.*;
 
 
 public class SearchController implements Initializable {
@@ -36,24 +33,28 @@ public class SearchController implements Initializable {
         AnhViet,
         VietAnh
     }
+
+    private static final String warningStyle = "label_warning";
+    private static final String notifyStyle = "label_notify";
+
     Type type = Type.AnhViet;
 
     SetSceneController setSceneController;
 
-    @FXML
-    ImageView testImage;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        DictionaryCommand.insertFromFile(FullDictionary.EVdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
-        DictionaryCommand.insertFromFile(FullDictionary.VEdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Viet-Anh.txt");
-        DictionaryCommand.insertFromFile(FullDictionary.savedWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
-        DictionaryCommand.insertFromFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+        FullDictionary.EVdictionary.insertFromFile(EVdictionaryPath);
+        FullDictionary.EVdictionary.insertFromFile(VEdictionaryPath);
+        FullDictionary.savedWords.insertFromFile(savedWordsPath);
+        FullDictionary.historyWords.insertFromFile(historyWordsPath);
         searchEV.setTrieFromDictionary(FullDictionary.EVdictionary);
         searchVE.setTrieFromDictionary(FullDictionary.VEdictionary);
         Pixabay.initialize("40694300-4e998735bc707c093f172a751");
         thongBao.setVisible(false);
     }
+
+    @FXML
+    ImageView testImage;
 
     @FXML
     ToggleButton typeSearch;
@@ -100,11 +101,6 @@ public class SearchController implements Initializable {
     private Button deleteButton;
     @FXML
     private Button fixButton;
-
-    private boolean wordExist;
-
-    private static final String warningStyle = "label_warning";
-    private static final String notifyStyle = "label_notify";
     @FXML
     private void onActionSavedButton() {
         String wordTarget = wordTargetTextField.getText();
@@ -116,14 +112,14 @@ public class SearchController implements Initializable {
                         return;
                     }
                     FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget));
-                    DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                    FullDictionary.savedWords.exportToFile(savedWordsPath);
                     showThongBao("Đã lưu từ thành công!", notifyStyle);
                 } else {
                     if (!searchArea.getItems().isEmpty()) {
                         String firstWord = searchArea.getItems().getFirst();
                         if (FullDictionary.savedWords.getWordFromWordTarget(firstWord) == null) {
                             FullDictionary.savedWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(firstWord));
-                            DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                            FullDictionary.savedWords.exportToFile(savedWordsPath);
                             showThongBao("Đã lưu từ thành công!", notifyStyle);
                         } else {
                             showThongBao("Không thể thêm vì từ đã có sẵn trong Từ đã lưu", warningStyle);
@@ -141,14 +137,14 @@ public class SearchController implements Initializable {
                         return;
                     }
                     FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(wordTarget));
-                    DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                    FullDictionary.savedWords.exportToFile(savedWordsPath);
                     showThongBao("Đã lưu từ thành công!", notifyStyle);
                 } else {
                     if (!searchArea.getItems().isEmpty()) {
                         String firstWord = searchArea.getItems().getFirst();
                         if (FullDictionary.savedWords.getWordFromWordTarget(firstWord) == null) {
                             FullDictionary.savedWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(firstWord));
-                            DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                            FullDictionary.savedWords.exportToFile(savedWordsPath);
                             showThongBao("Đã thêm từ thành công!", notifyStyle);
                         } else {
                             showThongBao("Không thể thêm vì từ đã có sẵn trong Từ đã lưu", warningStyle);
@@ -178,15 +174,13 @@ public class SearchController implements Initializable {
                             searchEV.add(wordTarget);
                             System.out.println(FullDictionary.EVdictionary.getLength());
                             FullDictionary.EVdictionary.getWords().add(newWord);
-                            System.out.println(FullDictionary.EVdictionary.getLength());
-
-                            DictionaryCommand.exportToFile(FullDictionary.EVdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
+                            FullDictionary.EVdictionary.exportToFile(EVdictionaryPath);
                             showThongBao("Thêm thành công từ: " + wordTarget, notifyStyle);
                             break;
                         case VietAnh:
                             searchVE.add(wordTarget);
                             FullDictionary.VEdictionary.getWords().add(newWord);
-                            DictionaryCommand.exportToFile(FullDictionary.VEdictionary,"src/main/resources/com/example/demo_tudien/DictionarySrc/Viet-Anh.txt");
+                            FullDictionary.VEdictionary.exportToFile(VEdictionaryPath);
                             showThongBao("Thêm thành công từ: " + wordTarget, notifyStyle);
                             break;
                     }
@@ -198,7 +192,6 @@ public class SearchController implements Initializable {
     public void onActionDeleteButton() {
         if (searchArea.getItems().isEmpty()) {
             showThongBao("Không có từ nào để xóa!", warningStyle);
-            return;
         } else {
             if (!searchArea.getItems().getFirst().isEmpty()) {
                 String wordTarget = searchArea.getItems().getFirst();
@@ -208,13 +201,12 @@ public class SearchController implements Initializable {
                     showThongBao("Từ không tồn tại trong Từ đã lưu", warningStyle);
                 } else {
                     FullDictionary.savedWords.getWords().remove(word);
-                    DictionaryCommand.exportToFile(FullDictionary.savedWords, "src/main/resources/com/example/demo_tudien/DictionarySrc/TuDuocLuuLai.txt");
+                    FullDictionary.savedWords.exportToFile(savedWordsPath);
                     HistoryController.savedWordsTrie.remove(wordTarget);
                     showThongBao("Đã xóa từ " + wordTarget + " khỏi Từ đã lưu", notifyStyle);
                 }
             } else {
                 showThongBao("Không có từ nào để xóa!", warningStyle);
-                return;
             }
         }
     }
@@ -230,7 +222,7 @@ public class SearchController implements Initializable {
             String oldWordExplain = oldWord.getWordExplain();
             if (!fixedWordExplain.equals(oldWordExplain)) {
                 FullDictionary.EVdictionary.getWordFromWordTarget(wordTarget).setWordExplain(fixedWordExplain);
-                DictionaryCommand.exportToFile(FullDictionary.EVdictionary, "src/main/resources/com/example/demo_tudien/DictionarySrc/Anh-Viet.txt");
+                FullDictionary.EVdictionary.exportToFile(EVdictionaryPath);
                 showThongBao("Đã sửa từ " + wordTarget + " thành công", notifyStyle);
             } else {
                 showThongBao("Chưa có gì thay đổi!", warningStyle);
@@ -340,7 +332,7 @@ public class SearchController implements Initializable {
                         handlePixabayImage(userInput);
                         //data update
                         FullDictionary.historyWords.getWords().add(FullDictionary.EVdictionary.getWordFromWordTarget(userInput));
-                        DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+                        FullDictionary.historyWords.exportToFile(historyWordsPath);
                     }
                 });
                 break;
@@ -356,7 +348,7 @@ public class SearchController implements Initializable {
                         wordExplainTextField.setText(FullDictionary.VEdictionary.getWordFromWordTarget(userInput).getWordExplain());
                         //data update
                         FullDictionary.historyWords.getWords().add(FullDictionary.VEdictionary.getWordFromWordTarget(userInput));
-                        DictionaryCommand.exportToFile(FullDictionary.historyWords,"src/main/resources/com/example/demo_tudien/DictionarySrc/TraGanDay.txt");
+                        FullDictionary.historyWords.exportToFile(historyWordsPath);
                     }
                 });
                 break;
@@ -467,5 +459,4 @@ public class SearchController implements Initializable {
             setSceneController.showHomePane();
         }
     }
-    // test git
 }

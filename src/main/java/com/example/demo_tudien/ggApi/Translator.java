@@ -5,46 +5,84 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import javazoom.jl.player.Player;
 public class Translator {
 
     public static String translate(String langFrom, String langTo, String text) throws IOException {
-        String urlStr = "https://script.google.com/macros/s/AKfycby3AOWmhe32TgV9nW-Q0TyGOEyCHQeFiIn7hRgy5m8jHPaXDl2GdToyW_3Ys5MTbK6wjg/exec" +
-                "?q=" + URLEncoder.encode(text, "UTF-8") +
-                "&target=" + langTo +
-                "&source=" + langFrom;
-        URL url = new URL(urlStr);
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
         StringBuilder response = new StringBuilder();
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine.replace("&#39;","'"));
+
+        Future<?> future = executor.submit(() -> {
+            try {
+                String urlStr = "https://script.google.com/macros/s/AKfycby3AOWmhe32TgV9nW-Q0TyGOEyCHQeFiIn7hRgy5m8jHPaXDl2GdToyW_3Ys5MTbK6wjg/exec" +
+                        "?q=" + URLEncoder.encode(text, "UTF-8") +
+                        "&target=" + langTo +
+                        "&source=" + langFrom;
+                URL url = new URL(urlStr);
+
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                con.setRequestProperty("User-Agent", "Mozilla/5.0");
+                BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String inputLine;
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine.replace("&#39;", "'"));
+                }
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        executor.shutdown();
+
+        try {
+            future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
         }
-        in.close();
+
         return response.toString();
     }
 
-
     public static void textToSpeech(String text, String lang) {
-        try {
-            String urlStr =
-                    "https://translate.google.com/translate_tts?ie=UTF-8&tl="
-                            + lang
-                            + "&client=tw-ob&q="
-                            + URLEncoder.encode(text, "UTF-8") ;
-            URL url = new URL(urlStr);
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            InputStream sound = con.getInputStream();
-            Player player = new Player(sound);
-            player.play();
-            con.disconnect();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+
+        executor.submit(() -> {
+            try {
+                String urlStr =
+                        "https://translate.google.com/translate_tts?ie=UTF-8&tl="
+                                + lang
+                                + "&client=tw-ob&q="
+                                + URLEncoder.encode(text, "UTF-8");
+                URL url = new URL(urlStr);
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                InputStream sound = con.getInputStream();
+                Player player = new Player(sound);
+                player.play();
+                con.disconnect();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        executor.submit(() -> {
+            try {
+                String translation = translate("en", "vi", text); // Translate text here
+                System.out.println("Translated text: " + translation);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        executor.shutdown();
     }
+
 
     public static final Map<String,String> languages = new HashMap<String,String>();
     static {
